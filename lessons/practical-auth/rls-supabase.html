@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supabase RLS 설정 · 실전편 · AIX102 X+AI 서비스 디자인</title>
+<meta name="description" content="데이터베이스에서 사용자별 접근 권한을 막는 방법">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script defer src="../../assets/js/copy.js"></script>
+</head>
+<body>
+<header class="nav-bar">
+  <a class="nav-wordmark" href="../../index.html"><span class="dot"></span>AIX102 X+AI 서비스 디자인</a>
+  <nav class="nav-links">
+    <a href="../../index.html">전체 목차</a>
+    <a href="../../VibeCafe.zip" download>실습 파일 (.zip)</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<p class="sidebar-eyebrow">Course</p>
+<a class="sidebar-title" href="../../index.html" style="text-decoration:none;display:block">AIX102 X+AI 서비스 디자인</a>
+<a class="sidebar-cta" href="../../VibeCafe.zip" download>실습 파일 다운로드 <span>⬇</span></a>
+<p class="nav-section-label">실전편 커리큘럼</p>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">01</span><span class="nav-chapter-title">인트로</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-intro/practical-overview.html"><span class="num">1.1</span><span>실전편 개요</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">02</span><span class="nav-chapter-title">프로젝트 세팅하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/project-setup/kakao-sdk-issue.html"><span class="num">2.1</span><span>카카오맵 SDK 발급받기</span></a></li>
+<li><a href="../../lessons/project-setup/folder-setup.html"><span class="num">2.2</span><span>실습 폴더 세팅하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">03</span><span class="nav-chapter-title">프로젝트 시작하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-build/data-reading.html"><span class="num">3.1</span><span>데이터 읽기 (JSON)</span></a></li>
+<li><a href="../../lessons/practical-build/scaffold.html"><span class="num">3.2</span><span>Scaffolding: 프로젝트 구조 잡기</span></a></li>
+<li><a href="../../lessons/practical-build/map-explained.html"><span class="num">3.3</span><span>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a></li>
+<li><a href="../../lessons/practical-build/ai-api.html"><span class="num">3.4</span><span>AI API 연결하기 (OpenAI)</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">04</span><span class="nav-chapter-title">코드 버전 관리하기 (Git &amp; GitHub)</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-git/git-basics.html"><span class="num">4.1</span><span>Git 기본기 다지기</span></a></li>
+<li><a href="../../lessons/practical-git/github-basics.html"><span class="num">4.2</span><span>GitHub 사용법 익히기</span></a></li>
+<li><a href="../../lessons/practical-git/git-advanced.html"><span class="num">4.3</span><span>조금 더 공부하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">05</span><span class="nav-chapter-title">지도 데이터베이스 구축하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-database/database-intro.html"><span class="num">5.1</span><span>데이터베이스 스키마 설계하기</span></a></li>
+<li><a href="../../lessons/practical-database/supabase-intro.html"><span class="num">5.2</span><span>Supabase 활용하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-migration.html"><span class="num">5.3</span><span>places 테이블 마이그레이션하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">06</span><span class="nav-chapter-title">느좋카페 가게 이미지 적용하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-image-storage/file-storage-intro.html"><span class="num">6.1</span><span>파일 스토리지 적용하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">07</span><span class="nav-chapter-title">사용자 기능 개발하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-auth/auth-intro.html"><span class="num">7.1</span><span>인증과 인가 이해하기</span></a></li>
+<li><a href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="num">7.2</span><span>카카오 로그인·Supabase 설정</span></a></li>
+<li><a class="active" href="../../lessons/practical-auth/rls-supabase.html"><span class="num">7.3</span><span>Supabase RLS 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/login-bookmark.html"><span class="num">7.4</span><span>카카오 로그인과 북마크 기능 붙이기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">배포하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-deploy/deploy-basics.html"><span class="num">8.1</span><span>서버 배포의 과정 이해하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">8.2</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">8.3</span><span>나만의 도메인 설정하기</span></a></li>
+</ul></div>
+<details class="nav-appendix"><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">A</span><span class="nav-chapter-title">디자인 개선하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-design/html-css-for-design.html"><span class="num">A.1</span><span>Claude Code에게 디자인 수정 요청하기</span></a></li>
+<li><a href="../../lessons/practical-design/vibe-design.html"><span class="num">A.2</span><span>바이브 디자인으로 방향 잡기</span></a></li>
+<li><a href="../../lessons/practical-design/design-md.html"><span class="num">A.3</span><span>DESIGN.md로 디자인 시스템 고정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">B</span><span class="nav-chapter-title">에이전틱 워크플로우</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/agentic-workflow/agentic-workflow-overview.html"><span class="num">B.1</span><span>에이전틱 워크플로우란</span></a></li>
+<li><a href="../../lessons/agentic-workflow/plan-implement.html"><span class="num">B.2</span><span>계획하고 구현하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/verify.html"><span class="num">B.3</span><span>검증 고도화하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/refactor-before-task.html"><span class="num">B.4</span><span>작업 전에 검증 환경 만들기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/long-running-task.html"><span class="num">B.5</span><span>긴 작업 태워보기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/compound-learnings.html"><span class="num">B.6</span><span>배운 걸 프로젝트에 남기기</span></a></li>
+</ul></div>
+</div></details>
+</aside>
+<main class="main">
+<article class="reading">
+<div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
+<a class="lesson-back" href="../../index.html">← course overview</a>
+<div class="reading-meta"><span>chapter 07</span><span>lesson 7.3</span><span>private</span><span class="wb">workbench</span></div>
+<div class="reading-head">
+<p class="chapter-eyebrow">사용자 기능 개발하기</p>
+<h1>Supabase RLS 설정</h1>
+<p class="description">데이터베이스에서 사용자별 접근 권한을 막는 방법</p>
+</div>
+<div class="lesson-body">
+<h2>얻어갈 것</h2>
+<ul>
+<li>Row Level Security(RLS)가 데이터베이스 레벨의 인가라는 점을 이해합니다.</li>
+<li>새 사용자별 테이블을 만들 때 RLS 정책까지 함께 요청하는 기준을 남깁니다.</li>
+</ul>
+<h2>RLS가 필요한 이유</h2>
+<p>기존 서버 구조에서는 서버 코드 안에 "이 사용자가 이 데이터를 다뤄도 되는가"를 직접 코드로 작성하는 경우가 많습니다.</p>
+<p>반면 Supabase는 데이터베이스를 바로 다룰 수 있는 API를 제공하므로, 인가 규칙은 Row Level Security(RLS)로 데이터베이스에 적습니다.</p>
+<ul>
+<li>RLS는 row마다 읽기·쓰기 가능 여부를 판단하는 인가 장치입니다.</li>
+<li>인증(Authentication)이 "이 사용자가 누구인가"를 확인했다면, RLS는 그 사용자가 "이 row를 다뤄도 되는가"를 확인합니다.</li>
+<li>Supabase에서는 인증된 사용자의 id를 <code>auth.uid()</code>로 확인할 수 있습니다.</li>
+<li>사용자별 데이터에서는 보통 <code>user_id = auth.uid()</code>가 기본 규칙이 됩니다.</li>
+</ul>
+<aside class="callout warning"><p>프론트엔드에서 버튼을 숨기는 것만으로는 인가가 끝나지 않습니다. 사용자가 직접 요청을 보냈을 때도 데이터베이스가 막아줘야 합니다.</p></aside>
+<figure class="lesson-figure"><img src="../../assets/images/rls-supabase/figures/supabase-rls-client-db-guard.png" alt="Supabase에서 RLS가 데이터베이스 안에서 사용자별 row 접근을 통과 또는 차단하는 흐름" loading="lazy" decoding="async"/><figcaption>RLS는 사용자가 자기 row만 읽고 쓰게 데이터베이스 안에서 수행하는 인가 규칙입니다.</figcaption></figure>
+<p class="lesson-caption"></p><p>이런 인증/인가 설정을 잘못해서 보안 사고로 이어지는 경우가 정말 많습니다. 뒤에서 보안 체크리스트로 다시 확인해볼 예정입니다.</p><p></p>
+<h2>기본 정책</h2>
+<ul>
+<li>사용자별 데이터가 들어가는 테이블은 RLS를 켜고, 필요한 동작별 정책을 같이 만듭니다.</li>
+<li><code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>는 각각 어떤 row를 읽고 만들고 수정하고 삭제할 수 있는지 따로 정합니다.</li>
+<li><code>bookmarks</code>, <code>profiles</code>, <code>reports</code>처럼 사용자 id와 연결되는 테이블은 특히 먼저 확인합니다.</li>
+</ul>
+<pre class="code-block "><code class="language-sql">-- 예시: 본인 북마크만 조회할 수 있게 하는 RLS 정책
+create policy "read own bookmarks"
+  on user_bookmarks
+  for select
+  using (auth.uid() = user_id);
+</code></pre>
+<h2>CLAUDE.md에 남길 규칙</h2>
+<p>새로운 테이블을 만들 때 Claude Code가 스키마만 만들고 RLS를 빼먹기 쉽습니다.</p>
+<p>특히 저장 목록, 프로필, 신고 내역처럼 사용자별 데이터가 들어가는 테이블은 스키마와 인가 규칙을 한 세트로 봐야 합니다.</p>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">CLAUDE.md에 RLS 규칙 남기기</span></span></div><pre>CLAUDE.md에 Supabase RLS 규칙을 추가해줘.
+
+- 사용자별 데이터 테이블은 RLS를 기본으로 켠다.
+- user_id가 있으면 auth.uid() = user_id 기준으로 본인 row만 허용한다.
+- 새 테이블을 만들 때 필요한 SELECT/INSERT/UPDATE/DELETE policy를 함께 설계한다.
+- UPDATE는 보통 USING과 WITH CHECK를 함께 검토한다.
+- migration에 RLS enabled와 policy SQL이 같이 들어갔는지 확인한다.</pre></div>
+</div>
+<nav class="lesson-nav">
+<a class="prev" href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="dir">← Prev</span><span class="lbl">카카오 로그인·Supabase 설정</span></a>
+<a class="next" href="../../lessons/practical-auth/login-bookmark.html"><span class="dir">Next →</span><span class="lbl">카카오 로그인과 북마크 기능 붙이기</span></a>
+</nav>
+</article>
+</main>
+</div>
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>AIX102 X+AI 서비스 디자인</strong> · 실전편 (학습용 복제본)<br>
+    원본 콘텐츠: <a href="https://www.grabity.me/courses/vibecoding" target="_blank" rel="noopener">grabity.me/courses/vibecoding</a></p>
+    <p>실습 파일: <a href="../../VibeCafe.zip" download>VibeCafe.zip</a><br>
+    디자인 시스템: DESIGN.md</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>지도는 어떻게 그려질까 — 카카오맵 SDK 원리 · 실전편 · AIX102 X+AI 서비스 디자인</title>
+<meta name="description" content="Scaffolding으로 띄운 첫 지도 화면이 어떤 원리로 이렇게 보이는지, 타일·SDK·마커로 나눠 뜯어봅니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script defer src="../../assets/js/copy.js"></script>
+</head>
+<body>
+<header class="nav-bar">
+  <a class="nav-wordmark" href="../../index.html"><span class="dot"></span>AIX102 X+AI 서비스 디자인</a>
+  <nav class="nav-links">
+    <a href="../../index.html">전체 목차</a>
+    <a href="../../VibeCafe.zip" download>실습 파일 (.zip)</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<p class="sidebar-eyebrow">Course</p>
+<a class="sidebar-title" href="../../index.html" style="text-decoration:none;display:block">AIX102 X+AI 서비스 디자인</a>
+<a class="sidebar-cta" href="../../VibeCafe.zip" download>실습 파일 다운로드 <span>⬇</span></a>
+<p class="nav-section-label">실전편 커리큘럼</p>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">01</span><span class="nav-chapter-title">인트로</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-intro/practical-overview.html"><span class="num">1.1</span><span>실전편 개요</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">02</span><span class="nav-chapter-title">프로젝트 세팅하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/project-setup/kakao-sdk-issue.html"><span class="num">2.1</span><span>카카오맵 SDK 발급받기</span></a></li>
+<li><a href="../../lessons/project-setup/folder-setup.html"><span class="num">2.2</span><span>실습 폴더 세팅하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">03</span><span class="nav-chapter-title">프로젝트 시작하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-build/data-reading.html"><span class="num">3.1</span><span>데이터 읽기 (JSON)</span></a></li>
+<li><a href="../../lessons/practical-build/scaffold.html"><span class="num">3.2</span><span>Scaffolding: 프로젝트 구조 잡기</span></a></li>
+<li><a class="active" href="../../lessons/practical-build/map-explained.html"><span class="num">3.3</span><span>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a></li>
+<li><a href="../../lessons/practical-build/ai-api.html"><span class="num">3.4</span><span>AI API 연결하기 (OpenAI)</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">04</span><span class="nav-chapter-title">코드 버전 관리하기 (Git &amp; GitHub)</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-git/git-basics.html"><span class="num">4.1</span><span>Git 기본기 다지기</span></a></li>
+<li><a href="../../lessons/practical-git/github-basics.html"><span class="num">4.2</span><span>GitHub 사용법 익히기</span></a></li>
+<li><a href="../../lessons/practical-git/git-advanced.html"><span class="num">4.3</span><span>조금 더 공부하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">05</span><span class="nav-chapter-title">지도 데이터베이스 구축하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-database/database-intro.html"><span class="num">5.1</span><span>데이터베이스 스키마 설계하기</span></a></li>
+<li><a href="../../lessons/practical-database/supabase-intro.html"><span class="num">5.2</span><span>Supabase 활용하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-migration.html"><span class="num">5.3</span><span>places 테이블 마이그레이션하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">06</span><span class="nav-chapter-title">느좋카페 가게 이미지 적용하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-image-storage/file-storage-intro.html"><span class="num">6.1</span><span>파일 스토리지 적용하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">07</span><span class="nav-chapter-title">사용자 기능 개발하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-auth/auth-intro.html"><span class="num">7.1</span><span>인증과 인가 이해하기</span></a></li>
+<li><a href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="num">7.2</span><span>카카오 로그인·Supabase 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/rls-supabase.html"><span class="num">7.3</span><span>Supabase RLS 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/login-bookmark.html"><span class="num">7.4</span><span>카카오 로그인과 북마크 기능 붙이기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">배포하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-deploy/deploy-basics.html"><span class="num">8.1</span><span>서버 배포의 과정 이해하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">8.2</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">8.3</span><span>나만의 도메인 설정하기</span></a></li>
+</ul></div>
+<details class="nav-appendix"><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">A</span><span class="nav-chapter-title">디자인 개선하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-design/html-css-for-design.html"><span class="num">A.1</span><span>Claude Code에게 디자인 수정 요청하기</span></a></li>
+<li><a href="../../lessons/practical-design/vibe-design.html"><span class="num">A.2</span><span>바이브 디자인으로 방향 잡기</span></a></li>
+<li><a href="../../lessons/practical-design/design-md.html"><span class="num">A.3</span><span>DESIGN.md로 디자인 시스템 고정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">B</span><span class="nav-chapter-title">에이전틱 워크플로우</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/agentic-workflow/agentic-workflow-overview.html"><span class="num">B.1</span><span>에이전틱 워크플로우란</span></a></li>
+<li><a href="../../lessons/agentic-workflow/plan-implement.html"><span class="num">B.2</span><span>계획하고 구현하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/verify.html"><span class="num">B.3</span><span>검증 고도화하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/refactor-before-task.html"><span class="num">B.4</span><span>작업 전에 검증 환경 만들기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/long-running-task.html"><span class="num">B.5</span><span>긴 작업 태워보기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/compound-learnings.html"><span class="num">B.6</span><span>배운 걸 프로젝트에 남기기</span></a></li>
+</ul></div>
+</div></details>
+</aside>
+<main class="main">
+<article class="reading">
+<div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
+<a class="lesson-back" href="../../index.html">← course overview</a>
+<div class="reading-meta"><span>chapter 03</span><span>lesson 3.3</span><span>public</span></div>
+<div class="reading-head">
+<p class="chapter-eyebrow">프로젝트 시작하기</p>
+<h1>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</h1>
+<p class="description">Scaffolding으로 띄운 첫 지도 화면이 어떤 원리로 이렇게 보이는지, 타일·SDK·마커로 나눠 뜯어봅니다.</p>
+</div>
+<div class="lesson-body">
+<h2>얻어갈 것</h2>
+<p>앞에서 Scaffolding으로 띄운 첫 지도 화면이 <strong>어떤 원리로</strong> 이렇게 보이는지 뜯어봅니다. ‘지도가 그냥 뜬다’가 아니라 브라우저·카카오 서버·우리 데이터가 어떻게 맞물리는지 이해하면, 이후 기능을 붙일 때 어디에 손대야 할지 감이 잡힙니다.</p>
+<h2>결과부터 보기</h2>
+<p>아래는 개발 서버(<code>http://localhost:3030</code>)에서 확인한 첫 화면입니다. 지도 위에 느좋카페들이 핀으로 찍히고, 핀을 누르면 상세 카드가 열립니다.</p>
+<figure class="lesson-figure"><img src="../../assets/images/project-setup/cc05_map.png" alt="지도 위에 카페 핀이 찍히고 상세 카드가 열린 첫 화면" loading="lazy" decoding="async"/><figcaption>localhost:3030에서 확인한 첫 지도 화면. 지도 배경 위에 우리 데이터가 핀으로 얹혀 있습니다.</figcaption></figure>
+<h2>1. 지도 그림은 어디서 올까 — 지도 타일</h2>
+<p>지도는 하나의 큰 이미지가 아니라, <strong>작은 정사각형 이미지 조각(타일)</strong> 여러 장을 격자로 이어 붙인 것입니다. 화면을 움직이거나 확대하면 그 위치·배율에 맞는 타일을 <strong>카카오 지도 서버</strong>에서 그때그때 받아 와 깔아 줍니다.</p>
+<ul>
+<li>그래서 지도 데이터를 우리가 가지고 있을 필요가 없습니다 — 카카오가 제공합니다.</li>
+<li>인터넷이 끊기면 아직 받지 못한 영역은 비어 보입니다.</li>
+</ul>
+<h2>2. 브라우저는 어떻게 지도를 불러오나 — JavaScript 키와 SDK</h2>
+<p>우리 페이지는 카카오가 제공하는 <strong>JavaScript SDK</strong>(지도를 그리는 코드 묶음)를 불러옵니다. 이때 <code>.env.local</code>에 넣어 둔 <strong>JavaScript 키</strong>로 ‘이 사이트가 지도를 쓸 권한이 있다’는 것을 확인받습니다.</p>
+<ul>
+<li>키가 없거나 도메인(<code>localhost:3030</code>)이 등록돼 있지 않으면 지도가 뜨지 않습니다.</li>
+<li>SDK가 로드되면 지도를 그릴 빈 <code>&lt;div&gt;</code> 자리에 지도 객체를 만들어 끼워 넣습니다.</li>
+</ul>
+<h2>3. 우리 데이터는 어떻게 핀이 되나 — 좌표 → 마커</h2>
+<p><code>data/cafes.json</code>의 카페 한 곳에는 <code>lat</code>(위도)·<code>lng</code>(경도)가 들어 있습니다. 코드는 이 좌표 하나하나를 <strong>마커(Marker)</strong>로 만들어 지도 위에 얹습니다.</p>
+<pre><code>// 개념 흐름 (의사코드)
+cafes.forEach(cafe => {
+  const marker = new kakao.maps.Marker({
+    position: new kakao.maps.LatLng(cafe.lat, cafe.lng)
+  });
+  marker.setMap(map); // 지도 위에 핀으로 표시
+});</code></pre>
+<p>즉, <strong>지도(카카오 제공)</strong> 위에 <strong>우리 데이터로 만든 마커(우리 제공)</strong>를 겹쳐 올리는 구조입니다.</p>
+<h2>4. 핀을 누르면 상세 카드가 열리는 이유</h2>
+<p>각 마커에 ‘클릭되면 이 카페의 정보를 보여줘’라는 동작을 연결해 둡니다. 클릭하면 그 카페의 영업시간·콘센트·와이파이 같은 <code>cafes.json</code> 값이 상세 카드로 나타납니다.</p>
+<h2>정리</h2>
+<ul>
+<li><strong>지도 배경</strong> = 카카오 서버의 타일 이미지</li>
+<li><strong>지도를 불러오는 권한</strong> = JavaScript 키(.env.local) + 등록 도메인</li>
+<li><strong>핀</strong> = 우리 <code>cafes.json</code>의 좌표로 만든 마커</li>
+<li><strong>상세 카드</strong> = 마커 클릭 → 해당 카페 데이터 표시</li>
+</ul>
+<blockquote><p>‘카카오가 그려 주는 지도’ 위에 ‘우리 데이터로 만든 마커’를 얹는다 — 이 그림만 잡고 있으면, 다음에 필터·북마크 같은 기능을 붙일 때도 어디에 손대야 할지 금방 보입니다.</p></blockquote>
+
+</div>
+<nav class="lesson-nav">
+<a class="prev" href="../../lessons/practical-build/scaffold.html"><span class="dir">← Prev</span><span class="lbl">Scaffolding: 프로젝트 구조 잡기</span></a>
+<a class="next" href="../../lessons/practical-build/ai-api.html"><span class="dir">Next →</span><span class="lbl">AI API 연결하기 (OpenAI)</span></a>
+</nav>
+</article>
+</main>
+</div>
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>AIX102 X+AI 서비스 디자인</strong> · 실전편 (학습용 복제본)<br>
+    원본 콘텐츠: <a href="https://www.grabity.me/courses/vibecoding" target="_blank" rel="noopener">grabity.me/courses/vibecoding</a></p>
+    <p>실습 파일: <a href="../../VibeCafe.zip" download>VibeCafe.zip</a><br>
+    디자인 시스템: DESIGN.md</p>
+  </div>
+</footer>
+</body>
+</html>

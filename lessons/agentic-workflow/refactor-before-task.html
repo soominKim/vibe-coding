@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>작업 전에 검증 환경 만들기 · 실전편 · AIX102 X+AI 서비스 디자인</title>
+<meta name="description" content="큰 작업 전 TypeScript, lint, test 기본 환경을 갖추는 방법">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script defer src="../../assets/js/copy.js"></script>
+</head>
+<body>
+<header class="nav-bar">
+  <a class="nav-wordmark" href="../../index.html"><span class="dot"></span>AIX102 X+AI 서비스 디자인</a>
+  <nav class="nav-links">
+    <a href="../../index.html">전체 목차</a>
+    <a href="../../VibeCafe.zip" download>실습 파일 (.zip)</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<p class="sidebar-eyebrow">Course</p>
+<a class="sidebar-title" href="../../index.html" style="text-decoration:none;display:block">AIX102 X+AI 서비스 디자인</a>
+<a class="sidebar-cta" href="../../VibeCafe.zip" download>실습 파일 다운로드 <span>⬇</span></a>
+<p class="nav-section-label">실전편 커리큘럼</p>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">01</span><span class="nav-chapter-title">인트로</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-intro/practical-overview.html"><span class="num">1.1</span><span>실전편 개요</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">02</span><span class="nav-chapter-title">프로젝트 세팅하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/project-setup/kakao-sdk-issue.html"><span class="num">2.1</span><span>카카오맵 SDK 발급받기</span></a></li>
+<li><a href="../../lessons/project-setup/folder-setup.html"><span class="num">2.2</span><span>실습 폴더 세팅하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">03</span><span class="nav-chapter-title">프로젝트 시작하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-build/data-reading.html"><span class="num">3.1</span><span>데이터 읽기 (JSON)</span></a></li>
+<li><a href="../../lessons/practical-build/scaffold.html"><span class="num">3.2</span><span>Scaffolding: 프로젝트 구조 잡기</span></a></li>
+<li><a href="../../lessons/practical-build/map-explained.html"><span class="num">3.3</span><span>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a></li>
+<li><a href="../../lessons/practical-build/ai-api.html"><span class="num">3.4</span><span>AI API 연결하기 (OpenAI)</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">04</span><span class="nav-chapter-title">코드 버전 관리하기 (Git &amp; GitHub)</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-git/git-basics.html"><span class="num">4.1</span><span>Git 기본기 다지기</span></a></li>
+<li><a href="../../lessons/practical-git/github-basics.html"><span class="num">4.2</span><span>GitHub 사용법 익히기</span></a></li>
+<li><a href="../../lessons/practical-git/git-advanced.html"><span class="num">4.3</span><span>조금 더 공부하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">05</span><span class="nav-chapter-title">지도 데이터베이스 구축하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-database/database-intro.html"><span class="num">5.1</span><span>데이터베이스 스키마 설계하기</span></a></li>
+<li><a href="../../lessons/practical-database/supabase-intro.html"><span class="num">5.2</span><span>Supabase 활용하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-migration.html"><span class="num">5.3</span><span>places 테이블 마이그레이션하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">06</span><span class="nav-chapter-title">느좋카페 가게 이미지 적용하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-image-storage/file-storage-intro.html"><span class="num">6.1</span><span>파일 스토리지 적용하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">07</span><span class="nav-chapter-title">사용자 기능 개발하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-auth/auth-intro.html"><span class="num">7.1</span><span>인증과 인가 이해하기</span></a></li>
+<li><a href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="num">7.2</span><span>카카오 로그인·Supabase 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/rls-supabase.html"><span class="num">7.3</span><span>Supabase RLS 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/login-bookmark.html"><span class="num">7.4</span><span>카카오 로그인과 북마크 기능 붙이기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">배포하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-deploy/deploy-basics.html"><span class="num">8.1</span><span>서버 배포의 과정 이해하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">8.2</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">8.3</span><span>나만의 도메인 설정하기</span></a></li>
+</ul></div>
+<details class="nav-appendix" open><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">A</span><span class="nav-chapter-title">디자인 개선하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-design/html-css-for-design.html"><span class="num">A.1</span><span>Claude Code에게 디자인 수정 요청하기</span></a></li>
+<li><a href="../../lessons/practical-design/vibe-design.html"><span class="num">A.2</span><span>바이브 디자인으로 방향 잡기</span></a></li>
+<li><a href="../../lessons/practical-design/design-md.html"><span class="num">A.3</span><span>DESIGN.md로 디자인 시스템 고정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">B</span><span class="nav-chapter-title">에이전틱 워크플로우</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/agentic-workflow/agentic-workflow-overview.html"><span class="num">B.1</span><span>에이전틱 워크플로우란</span></a></li>
+<li><a href="../../lessons/agentic-workflow/plan-implement.html"><span class="num">B.2</span><span>계획하고 구현하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/verify.html"><span class="num">B.3</span><span>검증 고도화하기</span></a></li>
+<li><a class="active" href="../../lessons/agentic-workflow/refactor-before-task.html"><span class="num">B.4</span><span>작업 전에 검증 환경 만들기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/long-running-task.html"><span class="num">B.5</span><span>긴 작업 태워보기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/compound-learnings.html"><span class="num">B.6</span><span>배운 걸 프로젝트에 남기기</span></a></li>
+</ul></div>
+</div></details>
+</aside>
+<main class="main">
+<article class="reading">
+<div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
+<a class="lesson-back" href="../../index.html">← course overview</a>
+<div class="reading-meta"><span>chapter B</span><span>lesson B.4</span><span>private</span><span class="wb">workbench</span></div>
+<div class="reading-head">
+<p class="chapter-eyebrow">에이전틱 워크플로우</p>
+<h1>작업 전에 검증 환경 만들기</h1>
+<p class="description">큰 작업 전 TypeScript, lint, test 기본 환경을 갖추는 방법</p>
+</div>
+<div class="lesson-body">
+<h2>얻어갈 것</h2>
+<ul>
+<li>큰 작업을 맡기기 전에 TypeScript, lint, test를 먼저 준비합니다.</li>
+</ul>
+<h2>기능 구현 전에 코드베이스를 정비합니다</h2>
+<p><a href="../../lessons/agentic-workflow/verify.html">검증 고도화하기</a>에서 본 기계 검증은 실행할 명령이 있어야 작동합니다.</p>
+<ul>
+<li>타입 체크가 없으면 구조 변경 중 생기는 값의 모양 오류를 놓칩니다.</li>
+<li>lint가 없으면 사소한 코드 품질 문제가 계속 쌓입니다.</li>
+<li>test가 없으면 핵심 동작을 매번 사람이 직접 확인해야 합니다.</li>
+</ul>
+<p>그래서 큰 기능을 맡기기 전에, 먼저 검증 가능한 코드베이스로 정비합니다.</p>
+<h2>기본 환경 세 가지</h2>
+<p>이 레슨에서는 TypeScript의 타입 체크(type check), 린트(lint), 테스트(test)를 최소 검증 환경으로 잡습니다.</p>
+<table><thead><tr><th>환경</th><th>확인하는 것</th></tr></thead><tbody><tr><td>TypeScript 타입 체크</td><td>파일 사이 값의 모양과 함수 사용이 맞는지</td></tr><tr><td>lint</td><td>코드 스타일, 위험한 패턴, 놓친 import 같은 기본 품질</td></tr><tr><td>test</td><td>중요한 동작이 의도대로 유지되는지</td></tr></tbody></table>
+<h3>타입 체크</h3>
+<p>값의 모양이 안 맞을 때 잡아줍니다.</p>
+<pre class="code-block "><code class="language-ts"><span class="code-token-key">function</span> <!-- -->discountPrice<span class="code-token-punctuation">(</span><span class="code-token-key">price</span><span class="code-token-punctuation">:</span> <!-- -->number<span class="code-token-punctuation">)</span> <span class="code-token-punctuation">{</span>
+  <span class="code-token-key">return</span> <!-- -->price<!-- --> <span class="code-token-punctuation">*</span> <span class="code-token-number">0.9</span>
+<span class="code-token-punctuation">}</span>
+
+<!-- -->discountPrice<span class="code-token-punctuation">(</span><span class="code-token-string">"만원"</span><span class="code-token-punctuation">)</span>  <span class="code-token-comment">// ❌ 여기는 숫자여야 하는데 글자가 왔어요</span>
+<!-- -->user<span class="code-token-punctuation">.</span>email<!-- -->            <span class="code-token-comment">// ❌ email 이라는 값은 없어요</span>
+</code></pre>
+<h3>lint</h3>
+<p>여러 사람이 짜거나 AI가 매번 새로 짜도 코드 모양이 제각각이 되지 않게, 정해 둔 코드 컨벤션(코드 스타일 규칙)에 맞춰줍니다.</p>
+<pre class="code-block "><code class="language-ts"><span class="code-token-key">const</span>  <!-- -->name<span class="code-token-punctuation">=</span><span class="code-token-string">'호연'</span>   <span class="code-token-comment">// 간격도 따옴표도 제각각</span>
+<span class="code-token-key">const</span> <!-- -->age<!-- --> <span class="code-token-punctuation">=</span><span class="code-token-number">32</span>
+</code></pre>
+<p>lint를 돌리면 이렇게 통일해주고, 이런 건 상당수 자동으로 고쳐집니다.</p>
+<pre class="code-block "><code class="language-ts"><span class="code-token-key">const</span> <!-- -->name<!-- --> <span class="code-token-punctuation">=</span> <span class="code-token-string">"호연"</span>
+<span class="code-token-key">const</span> <!-- -->age<!-- --> <span class="code-token-punctuation">=</span> <span class="code-token-number">32</span>
+</code></pre>
+<h3>test</h3>
+<p>중요한 동작이 바뀌면 알려줍니다.</p>
+<pre class="code-block "><code class="language-ts">test<span class="code-token-punctuation">(</span><span class="code-token-string">"10% 할인"</span><span class="code-token-punctuation">,</span> <span class="code-token-punctuation">(</span><span class="code-token-punctuation">)</span> <span class="code-token-punctuation">=</span><span class="code-token-punctuation">&gt;</span> <span class="code-token-punctuation">{</span>
+  <!-- -->expect<span class="code-token-punctuation">(</span>discountPrice<span class="code-token-punctuation">(</span><span class="code-token-number">10000</span><span class="code-token-punctuation">)</span><span class="code-token-punctuation">)</span><span class="code-token-punctuation">.</span>toBe<span class="code-token-punctuation">(</span><span class="code-token-number">9000</span><span class="code-token-punctuation">)</span>  <span class="code-token-comment">// 이 값이 깨지면 빨간불이 뜹니다</span>
+<span class="code-token-punctuation">}</span><span class="code-token-punctuation">)</span>
+</code></pre>
+<aside class="callout note"><p>처음 프로젝트를 만들 때도 가능하면 이 세 가지를 기본 환경으로 잡는 걸 추천합니다. 나중에 붙일 수도 있지만, 기능이 쌓인 뒤에는 기존 코드 정리부터 해야 해서 작업이 커집니다.</p></aside>
+<h2>리팩토링 계획 세우기</h2>
+<p>아래 P1 프롬프트는 기능 구현이 아니라 검증 환경 정비만 맡깁니다. 범위를 이렇게 잘라야 다음 작업에서 <code>verify</code>나 코드리뷰가 볼 증거가 생깁니다.</p>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">검증 환경 먼저 갖추기</span></span></div><pre>큰 기능을 만들기 전에 이 프로젝트를 검증 가능한 상태로 정비하려고 한다. 
+
+- TypeScript 타입 체크, lint, test를 실행할 수 있게 만든다.
+- 주요 js, jsx 파일은 타입스크립트 확장자(ts, tsx)로 변경하고 기본적인 타입을 적용한다.
+- 기존 구현된 모든 기능과 UI는 영향이 가지 않도록 한다.
+- 기능 구현이나 화면 변경은 하지 않는다.
+- 끝나면 추가한 명령을 실제로 실행하고 결과를 알려준다.
+
+먼저 현재 점검을 하고 개선 계획을 세워줘</pre></div>
+<h2>기계 검증 자동화하기</h2>
+<p>앞의 명령을 갖췄으면, 이제 사람이 매번 챙기지 않아도 검사가 돌게 만듭니다.</p>
+<ul>
+<li>커밋이 원격 저장소로 올라가기 전에, 로컬에서 기계 검증을 통과해야만 넘어가게 강제할 수 있습니다.</li>
+<li>커밋 직전에 검사하는 <strong>pre-commit</strong>을 걸면, 커밋하는 순간 검사가 돌고 실패하면 커밋이 막힙니다.</li>
+<li>pre-commit에는 타입 체크, lint, test를 우선 자동으로 돌게 합니다 (build는 시간이 오래 소요될 수 있어 제외합니다)</li>
+<li>나중에는 여기서 더 나아가 브랜치 → PR → CI를 거쳐 머지하는 식으로 더 안정적으로 갖춥니다.</li>
+</ul>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P2</span><span class="prompt-title">커밋 전에 자동 검사 걸기</span></span></div><pre>커밋할 때마다 타입 체크, lint, test가 자동으로 돌게 pre-commit을 걸어주라</pre></div>
+<h2>마무리</h2>
+<ul>
+<li>이번 레슨에서는 기능 구현 전에 검증 가능한 기본 환경을 먼저 만듭니다.</li>
+<li>커밋 전에 기계 검증이 자동으로 돌도록 걸어 둡니다.</li>
+<li>다음 레슨에서는 이 준비가 된 상태에서 <a href="../../lessons/agentic-workflow/long-running-task.html">긴 작업 태워보기</a>로 넘어갑니다.</li>
+</ul>
+</div>
+<nav class="lesson-nav">
+<a class="prev" href="../../lessons/agentic-workflow/verify.html"><span class="dir">← Prev</span><span class="lbl">검증 고도화하기</span></a>
+<a class="next" href="../../lessons/agentic-workflow/long-running-task.html"><span class="dir">Next →</span><span class="lbl">긴 작업 태워보기</span></a>
+</nav>
+</article>
+</main>
+</div>
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>AIX102 X+AI 서비스 디자인</strong> · 실전편 (학습용 복제본)<br>
+    원본 콘텐츠: <a href="https://www.grabity.me/courses/vibecoding" target="_blank" rel="noopener">grabity.me/courses/vibecoding</a></p>
+    <p>실습 파일: <a href="../../VibeCafe.zip" download>VibeCafe.zip</a><br>
+    디자인 시스템: DESIGN.md</p>
+  </div>
+</footer>
+</body>
+</html>

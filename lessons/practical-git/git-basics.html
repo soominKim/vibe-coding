@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Git 기본기 다지기 · 실전편 · AIX102 X+AI 서비스 디자인</title>
+<meta name="description" content="AI가 바꾼 코드를 안전하게 저장하고 되돌리기 위한 Git 기본 흐름을 익힙니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script defer src="../../assets/js/copy.js"></script>
+</head>
+<body>
+<header class="nav-bar">
+  <a class="nav-wordmark" href="../../index.html"><span class="dot"></span>AIX102 X+AI 서비스 디자인</a>
+  <nav class="nav-links">
+    <a href="../../index.html">전체 목차</a>
+    <a href="../../VibeCafe.zip" download>실습 파일 (.zip)</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<p class="sidebar-eyebrow">Course</p>
+<a class="sidebar-title" href="../../index.html" style="text-decoration:none;display:block">AIX102 X+AI 서비스 디자인</a>
+<a class="sidebar-cta" href="../../VibeCafe.zip" download>실습 파일 다운로드 <span>⬇</span></a>
+<p class="nav-section-label">실전편 커리큘럼</p>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">01</span><span class="nav-chapter-title">인트로</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-intro/practical-overview.html"><span class="num">1.1</span><span>실전편 개요</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">02</span><span class="nav-chapter-title">프로젝트 세팅하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/project-setup/kakao-sdk-issue.html"><span class="num">2.1</span><span>카카오맵 SDK 발급받기</span></a></li>
+<li><a href="../../lessons/project-setup/folder-setup.html"><span class="num">2.2</span><span>실습 폴더 세팅하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">03</span><span class="nav-chapter-title">프로젝트 시작하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-build/data-reading.html"><span class="num">3.1</span><span>데이터 읽기 (JSON)</span></a></li>
+<li><a href="../../lessons/practical-build/scaffold.html"><span class="num">3.2</span><span>Scaffolding: 프로젝트 구조 잡기</span></a></li>
+<li><a href="../../lessons/practical-build/map-explained.html"><span class="num">3.3</span><span>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a></li>
+<li><a href="../../lessons/practical-build/ai-api.html"><span class="num">3.4</span><span>AI API 연결하기 (OpenAI)</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">04</span><span class="nav-chapter-title">코드 버전 관리하기 (Git &amp; GitHub)</span></div>
+<ul class="nav-lessons">
+<li><a class="active" href="../../lessons/practical-git/git-basics.html"><span class="num">4.1</span><span>Git 기본기 다지기</span></a></li>
+<li><a href="../../lessons/practical-git/github-basics.html"><span class="num">4.2</span><span>GitHub 사용법 익히기</span></a></li>
+<li><a href="../../lessons/practical-git/git-advanced.html"><span class="num">4.3</span><span>조금 더 공부하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">05</span><span class="nav-chapter-title">지도 데이터베이스 구축하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-database/database-intro.html"><span class="num">5.1</span><span>데이터베이스 스키마 설계하기</span></a></li>
+<li><a href="../../lessons/practical-database/supabase-intro.html"><span class="num">5.2</span><span>Supabase 활용하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-migration.html"><span class="num">5.3</span><span>places 테이블 마이그레이션하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">06</span><span class="nav-chapter-title">느좋카페 가게 이미지 적용하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-image-storage/file-storage-intro.html"><span class="num">6.1</span><span>파일 스토리지 적용하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">07</span><span class="nav-chapter-title">사용자 기능 개발하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-auth/auth-intro.html"><span class="num">7.1</span><span>인증과 인가 이해하기</span></a></li>
+<li><a href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="num">7.2</span><span>카카오 로그인·Supabase 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/rls-supabase.html"><span class="num">7.3</span><span>Supabase RLS 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/login-bookmark.html"><span class="num">7.4</span><span>카카오 로그인과 북마크 기능 붙이기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">배포하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-deploy/deploy-basics.html"><span class="num">8.1</span><span>서버 배포의 과정 이해하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">8.2</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">8.3</span><span>나만의 도메인 설정하기</span></a></li>
+</ul></div>
+<details class="nav-appendix"><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">A</span><span class="nav-chapter-title">디자인 개선하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-design/html-css-for-design.html"><span class="num">A.1</span><span>Claude Code에게 디자인 수정 요청하기</span></a></li>
+<li><a href="../../lessons/practical-design/vibe-design.html"><span class="num">A.2</span><span>바이브 디자인으로 방향 잡기</span></a></li>
+<li><a href="../../lessons/practical-design/design-md.html"><span class="num">A.3</span><span>DESIGN.md로 디자인 시스템 고정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">B</span><span class="nav-chapter-title">에이전틱 워크플로우</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/agentic-workflow/agentic-workflow-overview.html"><span class="num">B.1</span><span>에이전틱 워크플로우란</span></a></li>
+<li><a href="../../lessons/agentic-workflow/plan-implement.html"><span class="num">B.2</span><span>계획하고 구현하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/verify.html"><span class="num">B.3</span><span>검증 고도화하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/refactor-before-task.html"><span class="num">B.4</span><span>작업 전에 검증 환경 만들기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/long-running-task.html"><span class="num">B.5</span><span>긴 작업 태워보기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/compound-learnings.html"><span class="num">B.6</span><span>배운 걸 프로젝트에 남기기</span></a></li>
+</ul></div>
+</div></details>
+</aside>
+<main class="main">
+<article class="reading">
+<div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
+<a class="lesson-back" href="../../index.html">← course overview</a>
+<div class="reading-meta"><span>chapter 04</span><span>lesson 4.1</span><span>private</span></div>
+<div class="reading-head">
+<p class="chapter-eyebrow">코드 버전 관리하기 (Git &amp; GitHub)</p>
+<h1>Git 기본기 다지기</h1>
+<p class="description">AI가 바꾼 코드를 안전하게 저장하고 되돌리기 위한 Git 기본 흐름을 익힙니다.</p>
+</div>
+<div class="lesson-body">
+<h2>얻어갈 것</h2>
+<ul>
+<li>Git이 어떻게 안전장치 역할을 하는지 이해합니다.</li>
+<li>commit(커밋), branch(브랜치), merge(머지), push/pull을 한 번에 외우지 않고 작업 흐름으로 구분합니다.</li>
+</ul>
+<h2>설치와 현재 상태 확인</h2>
+<ul>
+<li>먼저 내 컴퓨터에 Git이 설치되어 있는지 확인합니다.</li>
+<li>설치되어 있지 않다면 AI에게 설치 방법을 안내받되, 실제 설치 명령과 결과를 같이 확인합니다.</li>
+<li>이미 프로젝트가 있다면 <code>git status</code>로 현재 Git 저장소인지부터 봅니다.</li>
+</ul>
+<div class="terminal-block terminal-block--shell"><div class="terminal-head"><span class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></span><span class="terminal-title">Terminal</span></div><pre class="terminal-body"><span class="terminal-line"><span class="terminal-prompt" aria-hidden="true">$</span><span class="terminal-content"><span class="terminal-cmd">git --version</span><span class="terminal-comment">  # Git 설치 여부 확인</span></span>
+</span><span class="terminal-line"><span class="terminal-prompt" aria-hidden="true">$</span><span class="terminal-content"><span class="terminal-cmd">git status</span><span class="terminal-comment">  # 현재 폴더가 Git 저장소인지 확인</span></span>
+</span></pre></div>
+<h2>Git을 쓰는 이유</h2>
+<p><strong>Git은 코드 변경 이력을 저장해서, 문제가 생겼을 때 이전 상태로 돌아갈 수 있게 해주는 도구입니다.</strong></p>
+<figure class="lesson-figure"><img src="../../assets/images/git-basics/figures/git-save-point-safety.png" alt="AI에게 큰 수정을 맡기기 전 커밋을 저장 지점으로 남기고 문제가 생기면 되돌아가는 흐름" loading="lazy" decoding="async"/><figcaption>커밋은 AI에게 큰 변경을 맡기기 전에 남겨두는 저장 지점입니다.</figcaption></figure>
+<ul>
+<li>Git은 코드의 변경 이력을 남겨서, 문제가 생기면 이전 상태로 돌아갈 수 있게 해줍니다.</li>
+<li>코딩 에이전트는 많은 파일을 빠르게 바꾸기 때문에, 되돌릴 기준점이 없으면 작업이 금방 불안해집니다.</li>
+<li>커밋은 "여기까지는 괜찮다"는 저장 지점으로 봅니다.</li>
+</ul>
+<aside class="callout warning"><p>AI에게 큰 변경을 맡기기 전에는 현재 상태를 먼저 커밋할지 판단해야 합니다. 변경 전 기준점이 없으면, 실패한 결과만 보고 어디서부터 망가졌는지 찾기 어렵습니다.</p></aside>
+<h2>기본 구조</h2>
+<p><strong>Git의 기본 흐름은 변경을 commit으로 저장하고, branch로 작업 흐름을 나누고, merge로 다시 합치는 방식입니다.</strong></p>
+<figure class="lesson-figure"><img src="../../assets/images/git-basics/figures/git-commit-stack.png" alt="수정한 파일이 Commit을 거쳐 카드 UI 수정 커밋으로 쌓이는 흐름" loading="lazy" decoding="async"/><figcaption>커밋은 수정한 파일을 하나로 묶어 기록 더미에 쌓아두는 일입니다.</figcaption></figure>
+<ul>
+<li><strong>commit</strong>: 지금까지의 변경을 하나의 저장 지점으로 남깁니다. AI에게 작업을 맡기기 전후의 기준점입니다.</li>
+<li><strong>branch</strong>: commit이 쌓이는 별도 작업 흐름입니다. <code>main</code> 브랜치를 시작으로, 새 기능이나 수정 등을 할 때 별도의 브랜치를 만들어 사용합니다.</li>
+<li><strong>merge</strong>: branch에서 만든 commit들을 기준 흐름으로 합칩니다. 보통 확인이 끝난 작업을 <code>main</code>에 합칠 때 씁니다.</li>
+<li><strong>push / fetch / pull</strong>: GitHub 같은 원격 저장소와 내 컴퓨터의 코드를 주고받습니다. 다음 레슨에서 이어서 봅니다.</li>
+</ul>
+<h2>브랜치와 머지</h2>
+<p><strong>브랜치와 머지는 작업을 나눠서 시도한 뒤, 괜찮은 결과만 기준 흐름에 합치는 방법입니다.</strong></p>
+<figure class="lesson-figure"><img src="../../assets/images/git-basics/figures/git-branch-experiment-merge.png" alt="branch에 쌓인 여러 commit이 merge 지점에서 main 흐름에 합쳐지는 그림" loading="lazy" decoding="async"/><figcaption>브랜치에서 만든 commit들은 merge 지점에서 main 흐름에 합쳐집니다.</figcaption></figure>
+<ul>
+<li>이 강의에서는 기본 브랜치를 <code>main</code>으로 두고 설명합니다.</li>
+<li><code>main</code>은 언제든 돌아갈 수 있는 안정적인 기준선으로 둡니다.</li>
+<li>중요한 기능 개발, 큰 리팩터링, AI에게 여러 파일 수정을 맡기는 작업은 새 branch에서 진행하는 편이 안전합니다.</li>
+<li>작업이 괜찮다고 확인되면 그 branch를 <code>main</code>으로 merge합니다.</li>
+<li>빠르게 MVP를 만드는 초반에는 <code>main</code>에서 작은 commit을 자주 남기며 바로 진행해도 됩니다.</li>
+<li>다만 에이전트에게 여러 작업을 병렬로 맡기기 시작하면 branch는 거의 필수 안전장치가 됩니다.</li>
+</ul>
+<h2>실습</h2>
+<ul>
+<li>이번 실습의 목표는 scaffold가 끝난 느좋카페 프로젝트를 <strong>첫 커밋으로 저장</strong>하는 것입니다.</li>
+<li>프로젝트 폴더에서 Git을 켜고, 현재 파일 상태를 확인한 뒤, 전체 파일을 staging area(스테이징 영역)에 올립니다.</li>
+<li>마지막으로 <code>"프로젝트 초기화"</code>라는 메시지로 첫 커밋을 남기고, 현재 브랜치 목록을 확인합니다.</li>
+</ul>
+<div class="terminal-block terminal-block--shell"><div class="terminal-head"><span class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></span><span class="terminal-title">프로젝트 첫 커밋 만들기</span></div><pre class="terminal-body"><span class="terminal-line"><span class="terminal-prompt" aria-hidden="true">$</span><span class="terminal-content"><span class="terminal-cmd">git init</span><span class="terminal-comment">  # 현재 프로젝트 폴더를 Git 저장소로 초기화</span></span>
+</span><span class="terminal-line"><span class="terminal-prompt" aria-hidden="true">$</span><span class="terminal-content"><span class="terminal-cmd">git branch -m master main</span><span class="terminal-comment">  # 기본 브랜치 이름을 main으로 변경</span></span>
+</span><span class="terminal-line"><span class="terminal-prompt" aria-hidden="true">$</span><span class="terminal-content"><span class="terminal-cmd">git status</span><span class="terminal-comment">  # 아직 커밋되지 않은 파일 확인</span></span>
+</span><span class="terminal-line"><span class="terminal-prompt" aria-hidden="true">$</span><span class="terminal-content"><span class="terminal-cmd">git add .</span><span class="terminal-comment">  # 현재 변경된 파일 전체를 커밋 후보로 올리기</span></span>
+</span><span class="terminal-line"><span class="terminal-prompt" aria-hidden="true">$</span><span class="terminal-content"><span class="terminal-cmd">git commit -m "프로젝트 초기화"</span><span class="terminal-comment">  # 첫 저장 지점 만들기</span></span>
+</span><span class="terminal-line"><span class="terminal-prompt" aria-hidden="true">$</span><span class="terminal-content"><span class="terminal-cmd">git branch</span><span class="terminal-comment">  # 현재 브랜치 목록 확인</span></span>
+</span></pre></div>
+<ul>
+<li><code>git status</code>에서 <code>Untracked files</code>가 보이면 Git이 아직 추적하지 않는 새 파일이 있다는 뜻입니다.</li>
+<li><code>git add .</code>는 현재 폴더 아래 변경을 한 번에 올리는 명령입니다. 처음 커밋에서는 보통 전체 프로젝트를 올려도 괜찮습니다.</li>
+<li>커밋이 끝나면 다시 <code>git status</code>를 실행해서 <code>nothing to commit</code> 상태인지 확인합니다.</li>
+<li><code>git branch</code>에서 <code>*</code> 표시가 붙은 줄이 지금 내가 서 있는 브랜치입니다.</li>
+</ul>
+<aside class="callout warning"><p>첫 커밋 전에 <code>.env.local</code>, <code>node_modules</code>, <code>.next</code>처럼 Git에 올리면 안 되는 파일이 <code>.gitignore</code>에 들어 있는지 확인합니다.</p></aside>
+<h2>마무리</h2>
+<ul>
+<li>Git은 어려운 명령어 모음이 아니라, AI가 바꾼 코드를 안전하게 실험하고 되돌리기 위한 기록 장치입니다.</li>
+<li>이번 레슨에서는 로컬 Git의 기본 흐름만 잡고, GitHub와 원격 저장소 연결은 다음 레슨에서 다룹니다.</li>
+</ul>
+</div>
+<nav class="lesson-nav">
+<a class="prev" href="../../lessons/practical-build/ai-api.html"><span class="dir">← Prev</span><span class="lbl">AI API 연결하기 (OpenAI)</span></a>
+<a class="next" href="../../lessons/practical-git/github-basics.html"><span class="dir">Next →</span><span class="lbl">GitHub 사용법 익히기</span></a>
+</nav>
+</article>
+</main>
+</div>
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>AIX102 X+AI 서비스 디자인</strong> · 실전편 (학습용 복제본)<br>
+    원본 콘텐츠: <a href="https://www.grabity.me/courses/vibecoding" target="_blank" rel="noopener">grabity.me/courses/vibecoding</a></p>
+    <p>실습 파일: <a href="../../VibeCafe.zip" download>VibeCafe.zip</a><br>
+    디자인 시스템: DESIGN.md</p>
+  </div>
+</footer>
+</body>
+</html>

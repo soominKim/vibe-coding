@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>바이브 디자인으로 방향 잡기 · 실전편 · AIX102 X+AI 서비스 디자인</title>
+<meta name="description" content="AI로 화면 시안을 빠르게 뽑고 Claude Code로 구현 요청하는 흐름을 봅니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script defer src="../../assets/js/copy.js"></script>
+</head>
+<body>
+<header class="nav-bar">
+  <a class="nav-wordmark" href="../../index.html"><span class="dot"></span>AIX102 X+AI 서비스 디자인</a>
+  <nav class="nav-links">
+    <a href="../../index.html">전체 목차</a>
+    <a href="../../VibeCafe.zip" download>실습 파일 (.zip)</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<p class="sidebar-eyebrow">Course</p>
+<a class="sidebar-title" href="../../index.html" style="text-decoration:none;display:block">AIX102 X+AI 서비스 디자인</a>
+<a class="sidebar-cta" href="../../VibeCafe.zip" download>실습 파일 다운로드 <span>⬇</span></a>
+<p class="nav-section-label">실전편 커리큘럼</p>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">01</span><span class="nav-chapter-title">인트로</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-intro/practical-overview.html"><span class="num">1.1</span><span>실전편 개요</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">02</span><span class="nav-chapter-title">프로젝트 세팅하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/project-setup/kakao-sdk-issue.html"><span class="num">2.1</span><span>카카오맵 SDK 발급받기</span></a></li>
+<li><a href="../../lessons/project-setup/folder-setup.html"><span class="num">2.2</span><span>실습 폴더 세팅하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">03</span><span class="nav-chapter-title">프로젝트 시작하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-build/data-reading.html"><span class="num">3.1</span><span>데이터 읽기 (JSON)</span></a></li>
+<li><a href="../../lessons/practical-build/scaffold.html"><span class="num">3.2</span><span>Scaffolding: 프로젝트 구조 잡기</span></a></li>
+<li><a href="../../lessons/practical-build/map-explained.html"><span class="num">3.3</span><span>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a></li>
+<li><a href="../../lessons/practical-build/ai-api.html"><span class="num">3.4</span><span>AI API 연결하기 (OpenAI)</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">04</span><span class="nav-chapter-title">코드 버전 관리하기 (Git &amp; GitHub)</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-git/git-basics.html"><span class="num">4.1</span><span>Git 기본기 다지기</span></a></li>
+<li><a href="../../lessons/practical-git/github-basics.html"><span class="num">4.2</span><span>GitHub 사용법 익히기</span></a></li>
+<li><a href="../../lessons/practical-git/git-advanced.html"><span class="num">4.3</span><span>조금 더 공부하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">05</span><span class="nav-chapter-title">지도 데이터베이스 구축하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-database/database-intro.html"><span class="num">5.1</span><span>데이터베이스 스키마 설계하기</span></a></li>
+<li><a href="../../lessons/practical-database/supabase-intro.html"><span class="num">5.2</span><span>Supabase 활용하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-migration.html"><span class="num">5.3</span><span>places 테이블 마이그레이션하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">06</span><span class="nav-chapter-title">느좋카페 가게 이미지 적용하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-image-storage/file-storage-intro.html"><span class="num">6.1</span><span>파일 스토리지 적용하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">07</span><span class="nav-chapter-title">사용자 기능 개발하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-auth/auth-intro.html"><span class="num">7.1</span><span>인증과 인가 이해하기</span></a></li>
+<li><a href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="num">7.2</span><span>카카오 로그인·Supabase 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/rls-supabase.html"><span class="num">7.3</span><span>Supabase RLS 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/login-bookmark.html"><span class="num">7.4</span><span>카카오 로그인과 북마크 기능 붙이기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">배포하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-deploy/deploy-basics.html"><span class="num">8.1</span><span>서버 배포의 과정 이해하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">8.2</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">8.3</span><span>나만의 도메인 설정하기</span></a></li>
+</ul></div>
+<details class="nav-appendix" open><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">A</span><span class="nav-chapter-title">디자인 개선하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-design/html-css-for-design.html"><span class="num">A.1</span><span>Claude Code에게 디자인 수정 요청하기</span></a></li>
+<li><a class="active" href="../../lessons/practical-design/vibe-design.html"><span class="num">A.2</span><span>바이브 디자인으로 방향 잡기</span></a></li>
+<li><a href="../../lessons/practical-design/design-md.html"><span class="num">A.3</span><span>DESIGN.md로 디자인 시스템 고정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">B</span><span class="nav-chapter-title">에이전틱 워크플로우</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/agentic-workflow/agentic-workflow-overview.html"><span class="num">B.1</span><span>에이전틱 워크플로우란</span></a></li>
+<li><a href="../../lessons/agentic-workflow/plan-implement.html"><span class="num">B.2</span><span>계획하고 구현하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/verify.html"><span class="num">B.3</span><span>검증 고도화하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/refactor-before-task.html"><span class="num">B.4</span><span>작업 전에 검증 환경 만들기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/long-running-task.html"><span class="num">B.5</span><span>긴 작업 태워보기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/compound-learnings.html"><span class="num">B.6</span><span>배운 걸 프로젝트에 남기기</span></a></li>
+</ul></div>
+</div></details>
+</aside>
+<main class="main">
+<article class="reading">
+<div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
+<a class="lesson-back" href="../../index.html">← course overview</a>
+<div class="reading-meta"><span>chapter A</span><span>lesson A.2</span><span>private</span></div>
+<div class="reading-head">
+<p class="chapter-eyebrow">디자인 개선하기</p>
+<h1>바이브 디자인으로 방향 잡기</h1>
+<p class="description">AI로 화면 시안을 빠르게 뽑고 Claude Code로 구현 요청하는 흐름을 봅니다.</p>
+</div>
+<div class="lesson-body">
+<h2>얻어갈 것</h2>
+<ul>
+<li>기존 디자인 프로세스와 바이브 디자인 프로세스의 차이를 구분합니다.</li>
+<li>기획서, Stitch/Figma Make 시안, Claude Code 구현 요청이 어떻게 이어지는지 봅니다.</li>
+<li>Shadcn 컴포넌트로 바로 조립하는 선택지도 함께 봅니다.</li>
+</ul>
+<h2>원래 디자인은 어떤 순서로 가나요</h2>
+<p>보통 제품 디자인은 아래 순서로 진행됩니다.</p>
+<figure class="lesson-figure"><img src="../../assets/images/vibe-design/design-process.png" alt="기획문서, 사용자 흐름과 IA, 와이어프레임, 디자인, 개발로 이어지는 일반적인 디자인 흐름" loading="lazy" decoding="async"/><figcaption>일반적인 디자인 프로세스는 아이디어를 기획문서, 흐름, 와이어프레임, 디자인, 개발 단계로 구체화합니다.</figcaption></figure>
+<table><thead><tr><th>단계</th><th>하는 일</th></tr></thead><tbody><tr><td>기획문서</td><td>어떤 문제를 풀고, 어떤 기능과 화면이 필요한지 정리</td></tr><tr><td>User Flow / IA</td><td>사용자가 어떤 순서로 움직이고, 정보가 어떻게 묶이는지 정리</td></tr><tr><td>Wireframe</td><td>색과 디테일보다 화면 구조와 정보 배치를 먼저 잡기</td></tr><tr><td>Design</td><td>색, 타이포그래피, 컴포넌트, 상태, 반응형 화면까지 구체화</td></tr><tr><td>Development</td><td>디자인을 코드로 옮기고 실제 데이터와 동작을 연결</td></tr></tbody></table>
+<p>이 흐름은 팀 작업에서는 여전히 중요합니다. 다만 혼자 MVP를 빠르게 만들 때는 모든 산출물을 무겁게 만들기보다, AI가 이해할 만큼만 압축해서 넘기는 편이 현실적입니다.</p>
+<h2>바이브 디자인은 무엇을 줄이나요</h2>
+<p>바이브 디자인은 디자인 단계를 없애는 게 아니라, 탐색 속도를 크게 올리는 방식입니다.</p>
+<figure class="lesson-figure"><img src="../../assets/images/vibe-design/vibe-design.png" alt="기존 디자인 흐름과 바이브 디자인 흐름을 나란히 비교한 다이어그램" loading="lazy" decoding="async"/><figcaption>바이브 디자인은 기획, 흐름 정리, 시안 탐색, 개발 전달을 더 짧은 단위로 압축합니다.</figcaption></figure>
+<table><thead><tr><th>기존 흐름</th><th>바이브 디자인 흐름</th></tr></thead><tbody><tr><td>기획문서 작성</td><td>Claude로 만들 것 정리</td></tr><tr><td>User Flow / IA 정리</td><td>핵심 화면과 사용자 흐름만 짧게 정리</td></tr><tr><td>Wireframe 제작</td><td>Stitch/Figma Make로 여러 시안 생성</td></tr><tr><td>디자인 확정</td><td>마음에 드는 방향을 고르고 Export 하기</td></tr><tr><td>개발 전달</td><td>Claude Code에게 구현·수정 요청</td></tr></tbody></table>
+<p>핵심은 “느낌”만 던지는 게 아닙니다. 먼저 만들 것을 짧은 기획서로 정리하고, 그 내용을 디자인 생성 도구에 넣어 화면 후보를 빠르게 뽑는 것입니다.</p>
+<h2>1. 만들 것을 기획서로 정리하기</h2>
+<p>먼저 Claude에게 만들 서비스를 짧은 기획서로 정리하게 합니다.</p>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">디자인 생성 전에 기획서 정리하기</span></span></div><pre>공부하거나 작업하기 좋은 카페를 찾는 웹 서비스를 만들고 싶어.
+
+디자인 생성 도구에 넣을 수 있게 짧은 기획서로 정리해줘.
+
+- 서비스가 풀 문제
+- 핵심 사용자
+- 필요한 주요 화면 3-5개
+- 각 화면에 들어갈 정보
+- 전체 디자인 분위기</pre></div>
+<p>여기서 바로 “예쁘게 만들어줘”로 가지 않는 게 좋습니다. 어떤 화면이 필요한지 먼저 정리해야 Stitch나 Figma Make가 엉뚱한 화면을 덜 만듭니다.</p>
+<h2>2. Stitch나 Figma Make로 시안 뽑기</h2>
+<p>정리한 기획서를 Stitch나 Figma Make에 넣고 여러 방향의 화면을 뽑습니다.</p>
+<p>레퍼런스가 있다면 이 단계에서 같이 넣습니다. 마음에 드는 서비스의 스크린샷이나 링크를 2-3개 모아두면 색감, 화면 밀도, 카드 모양을 더 빨리 맞출 수 있습니다.</p>
+<p>레퍼런스는 <a href="https://www.awwwards.com/websites/ui-design/">Awwwards UI Design</a>, <a href="https://uibowl.io/">UI Bowl</a>, <a href="https://mobbin.com/">Mobbin</a> 같은 사이트에서 찾아볼 수 있습니다.</p>
+<table><thead><tr><th>도구</th><th>잘 맞는 경우</th></tr></thead><tbody><tr><td>Figma Make</td><td>팀 단위 디자인 협업이 많거나, PRD 기반 시안을 빠르게 만들고 싶은 경우</td></tr><tr><td>Google Stitch</td><td>디자인 리소스가 부족한 개발자 팀이 HTML/CSS 코드까지 빠르게 실험하고 싶은 경우</td></tr></tbody></table>
+<figure class="lesson-figure"><img src="../../assets/images/vibe-design/figures/figma-make-example.png" alt="Figma Make에서 대시보드 화면을 프롬프트로 수정하고 Preview 화면으로 확인하는 예시" loading="lazy" decoding="async"/><figcaption>Figma Make는 프롬프트로 UI를 만들고, 같은 Figma 작업 공간 안에서 미리보기와 수정을 이어갈 수 있습니다. 출처: Figma</figcaption></figure>
+<figure class="lesson-figure"><img src="../../assets/images/vibe-design/stitch.png" alt="Stitch에서 카페 탐색 서비스의 여러 화면 시안을 생성한 작업 화면" loading="lazy" decoding="async"/><figcaption>Stitch 같은 도구는 서비스 설명을 바탕으로 여러 화면과 스타일 방향을 빠르게 뽑아볼 때 좋습니다.</figcaption></figure>
+<ul>
+<li>한 번에 정답을 찾기보다 2-3개 방향을 비교합니다.</li>
+<li>마음에 드는 화면에서 색감, 카드 밀도, 버튼 모양, 정보 배치를 봅니다.</li>
+<li>어색한 부분은 “지도 화면을 더 크게”, “상세 화면에 예약 버튼 강조”처럼 다시 요청합니다.</li>
+</ul>
+<h2>3. Claude Code에게 구현 요청하기</h2>
+<p>시안이 마음에 들면 그 다음에 구현을 요청하면 됩니다. 이미 export한 <code>.zip</code>, Figma 링크, 스크린샷이 있다면 같이 첨부합니다.</p>
+<table><thead><tr><th>시안 출처</th><th>Claude Code에게 넘기는 방법</th></tr></thead><tbody><tr><td>Figma</td><td>Figma MCP를 연결해두고 특정 Figma 링크를 주면, Claude Code가 해당 화면을 읽고 구현 작업을 이어갈 수 있습니다.</td></tr><tr><td>Stitch</td><td>뒤에서 다룰 <code>DESIGN.md</code> 기준과 함께 스크린샷, export한 HTML/CSS, 필요한 태그 조각을 넘겨 작업을 요청합니다.</td></tr></tbody></table>
+<aside class="callout note"><p>디자인을 더 전문적으로 해야 한다면 Figma를 쓰는 쪽을 권장합니다.</p></aside>
+<h3>옵션: Shadcn으로 바로 조립하기</h3>
+<ul>
+<li>Figma Make나 Stitch는 화면 후보를 빠르게 뽑는 도구에 가깝습니다. <a href="https://ui.shadcn.com/">Shadcn</a>은 조금 다릅니다. 이미 코드로 구현된 UI 컴포넌트를 제공해주는 디자인 시스템입니다.</li>
+<li>Shadcn은 완성된 디자인 시안을 대신 만들어주는 도구라기보다, 재사용 가능한 컴포넌트들을 활용할 수 있도록 도와줍니다.</li>
+<li>대시보드, 설정 화면, 관리자 화면처럼 익숙한 UI를 빠르게 만들고 싶을 때 활용하면 좋습니다.</li>
+</ul>
+<h2>마무리</h2>
+<p>바이브 디자인은 방향을 찾는 데 좋습니다. 문제는 다음 화면을 만들 때입니다.</p>
+<ul>
+<li>첫 화면은 마음에 드는데 다음 화면의 버튼 색이 달라질 수 있습니다.</li>
+<li>여백, 폰트 크기가 화면마다 조금씩 흔들릴 수 있습니다.</li>
+<li>마음에 든 시안의 기준을 매번 말로 다시 설명해야 할 수 있습니다.</li>
+</ul>
+<p>그래서 마음에 드는 방향을 찾은 뒤에는 그 기준을 잡는 디자인 시스템이 필요합니다. 다음 레슨에서는 디자인 시스템, 토큰, 컴포넌트 기준을 <code>DESIGN.md</code>로 고정하는 흐름을 봅니다.</p>
+</div>
+<nav class="lesson-nav">
+<a class="prev" href="../../lessons/practical-design/html-css-for-design.html"><span class="dir">← Prev</span><span class="lbl">Claude Code에게 디자인 수정 요청하기</span></a>
+<a class="next" href="../../lessons/practical-design/design-md.html"><span class="dir">Next →</span><span class="lbl">DESIGN.md로 디자인 시스템 고정하기</span></a>
+</nav>
+</article>
+</main>
+</div>
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>AIX102 X+AI 서비스 디자인</strong> · 실전편 (학습용 복제본)<br>
+    원본 콘텐츠: <a href="https://www.grabity.me/courses/vibecoding" target="_blank" rel="noopener">grabity.me/courses/vibecoding</a></p>
+    <p>실습 파일: <a href="../../VibeCafe.zip" download>VibeCafe.zip</a><br>
+    디자인 시스템: DESIGN.md</p>
+  </div>
+</footer>
+</body>
+</html>

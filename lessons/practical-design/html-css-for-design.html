@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code에게 디자인 수정 요청하기 · 실전편 · AIX102 X+AI 서비스 디자인</title>
+<meta name="description" content="화면을 가리키는 기본 용어와 Claude Code에게 디자인 피드백을 주는 방법을 봅니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script defer src="../../assets/js/copy.js"></script>
+</head>
+<body>
+<header class="nav-bar">
+  <a class="nav-wordmark" href="../../index.html"><span class="dot"></span>AIX102 X+AI 서비스 디자인</a>
+  <nav class="nav-links">
+    <a href="../../index.html">전체 목차</a>
+    <a href="../../VibeCafe.zip" download>실습 파일 (.zip)</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<p class="sidebar-eyebrow">Course</p>
+<a class="sidebar-title" href="../../index.html" style="text-decoration:none;display:block">AIX102 X+AI 서비스 디자인</a>
+<a class="sidebar-cta" href="../../VibeCafe.zip" download>실습 파일 다운로드 <span>⬇</span></a>
+<p class="nav-section-label">실전편 커리큘럼</p>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">01</span><span class="nav-chapter-title">인트로</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-intro/practical-overview.html"><span class="num">1.1</span><span>실전편 개요</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">02</span><span class="nav-chapter-title">프로젝트 세팅하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/project-setup/kakao-sdk-issue.html"><span class="num">2.1</span><span>카카오맵 SDK 발급받기</span></a></li>
+<li><a href="../../lessons/project-setup/folder-setup.html"><span class="num">2.2</span><span>실습 폴더 세팅하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">03</span><span class="nav-chapter-title">프로젝트 시작하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-build/data-reading.html"><span class="num">3.1</span><span>데이터 읽기 (JSON)</span></a></li>
+<li><a href="../../lessons/practical-build/scaffold.html"><span class="num">3.2</span><span>Scaffolding: 프로젝트 구조 잡기</span></a></li>
+<li><a href="../../lessons/practical-build/map-explained.html"><span class="num">3.3</span><span>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a></li>
+<li><a href="../../lessons/practical-build/ai-api.html"><span class="num">3.4</span><span>AI API 연결하기 (OpenAI)</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">04</span><span class="nav-chapter-title">코드 버전 관리하기 (Git &amp; GitHub)</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-git/git-basics.html"><span class="num">4.1</span><span>Git 기본기 다지기</span></a></li>
+<li><a href="../../lessons/practical-git/github-basics.html"><span class="num">4.2</span><span>GitHub 사용법 익히기</span></a></li>
+<li><a href="../../lessons/practical-git/git-advanced.html"><span class="num">4.3</span><span>조금 더 공부하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">05</span><span class="nav-chapter-title">지도 데이터베이스 구축하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-database/database-intro.html"><span class="num">5.1</span><span>데이터베이스 스키마 설계하기</span></a></li>
+<li><a href="../../lessons/practical-database/supabase-intro.html"><span class="num">5.2</span><span>Supabase 활용하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-migration.html"><span class="num">5.3</span><span>places 테이블 마이그레이션하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">06</span><span class="nav-chapter-title">느좋카페 가게 이미지 적용하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-image-storage/file-storage-intro.html"><span class="num">6.1</span><span>파일 스토리지 적용하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">07</span><span class="nav-chapter-title">사용자 기능 개발하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-auth/auth-intro.html"><span class="num">7.1</span><span>인증과 인가 이해하기</span></a></li>
+<li><a href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="num">7.2</span><span>카카오 로그인·Supabase 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/rls-supabase.html"><span class="num">7.3</span><span>Supabase RLS 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/login-bookmark.html"><span class="num">7.4</span><span>카카오 로그인과 북마크 기능 붙이기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">배포하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-deploy/deploy-basics.html"><span class="num">8.1</span><span>서버 배포의 과정 이해하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">8.2</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">8.3</span><span>나만의 도메인 설정하기</span></a></li>
+</ul></div>
+<details class="nav-appendix" open><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">A</span><span class="nav-chapter-title">디자인 개선하기</span></div>
+<ul class="nav-lessons">
+<li><a class="active" href="../../lessons/practical-design/html-css-for-design.html"><span class="num">A.1</span><span>Claude Code에게 디자인 수정 요청하기</span></a></li>
+<li><a href="../../lessons/practical-design/vibe-design.html"><span class="num">A.2</span><span>바이브 디자인으로 방향 잡기</span></a></li>
+<li><a href="../../lessons/practical-design/design-md.html"><span class="num">A.3</span><span>DESIGN.md로 디자인 시스템 고정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">B</span><span class="nav-chapter-title">에이전틱 워크플로우</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/agentic-workflow/agentic-workflow-overview.html"><span class="num">B.1</span><span>에이전틱 워크플로우란</span></a></li>
+<li><a href="../../lessons/agentic-workflow/plan-implement.html"><span class="num">B.2</span><span>계획하고 구현하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/verify.html"><span class="num">B.3</span><span>검증 고도화하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/refactor-before-task.html"><span class="num">B.4</span><span>작업 전에 검증 환경 만들기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/long-running-task.html"><span class="num">B.5</span><span>긴 작업 태워보기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/compound-learnings.html"><span class="num">B.6</span><span>배운 걸 프로젝트에 남기기</span></a></li>
+</ul></div>
+</div></details>
+</aside>
+<main class="main">
+<article class="reading">
+<div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
+<a class="lesson-back" href="../../index.html">← course overview</a>
+<div class="reading-meta"><span>chapter A</span><span>lesson A.1</span><span>private</span></div>
+<div class="reading-head">
+<p class="chapter-eyebrow">디자인 개선하기</p>
+<h1>Claude Code에게 디자인 수정 요청하기</h1>
+<p class="description">화면을 가리키는 기본 용어와 Claude Code에게 디자인 피드백을 주는 방법을 봅니다.</p>
+</div>
+<div class="lesson-body">
+<h2>얻어갈 것</h2>
+<ul>
+<li>HTML/CSS가 디자인 수정에서 각각 어떤 역할을 하는지 구분합니다.</li>
+<li>Claude Code에게 자연어, 개발자 도구, 스크린샷으로 디자인 피드백을 주는 법을 봅니다.</li>
+</ul>
+<h2>디자인 피드백은 가리키는 말이 중요합니다</h2>
+<p>Claude Code에게 "화면을 더 예쁘게 해줘"라고만 말하면 원하는 디자인이 바로 나오지 않습니다.</p>
+<ul>
+<li>어느 화면인지</li>
+<li>어떤 UI 조각인지</li>
+<li>무엇을 어떻게 바꾸고 싶은지</li>
+</ul>
+<p>이 세 가지를 말해주면 수정 범위가 훨씬 선명해집니다. 화면을 가리키는 기본 단어를 알면 AI에게 피드백을 더 정확하게 줄 수 있습니다.</p>
+<h2>HTML/CSS 기본</h2>
+<ul>
+<li>HTML은 화면에 무엇이 놓이는지 정합니다. 제목, 버튼, 입력창, 카드, 목록 같은 구조입니다.</li>
+<li>CSS는 그것이 어떻게 보이는지 정합니다. 색, 크기, 여백, 정렬, 모서리 둥글기 같은 표현입니다.</li>
+</ul>
+<figure class="lesson-figure"><img src="../../assets/images/html-css-for-design/figures/html-css-screen-layers.png" alt="HTML은 화면의 구조를, CSS는 화면의 표현을 정하고 브라우저가 둘을 합쳐 실제 UI로 보여주는 흐름" loading="lazy" decoding="async"/><figcaption>HTML은 카드 안의 내용을 정하고, CSS는 그 카드가 브라우저에서 어떻게 보일지 정합니다.</figcaption></figure>
+<pre class="code-block "><code class="language-tsx"><span class="code-token-punctuation">&lt;</span>section<!-- --> <!-- -->className<span class="code-token-punctuation">=</span><span class="code-token-string">"cafe-card"</span><span class="code-token-punctuation">&gt;</span>
+  <span class="code-token-punctuation">&lt;</span>p<!-- --> <!-- -->className<span class="code-token-punctuation">=</span><span class="code-token-string">"eyebrow"</span><span class="code-token-punctuation">&gt;</span>CAFE<!-- --> <!-- -->MAP<span class="code-token-punctuation">&lt;</span><span class="code-token-punctuation">/</span>p<span class="code-token-punctuation">&gt;</span>
+  <span class="code-token-punctuation">&lt;</span>h2<span class="code-token-punctuation">&gt;</span>연남 작업카페<span class="code-token-punctuation">&lt;</span><span class="code-token-punctuation">/</span>h2<span class="code-token-punctuation">&gt;</span>
+  <span class="code-token-punctuation">&lt;</span>p<span class="code-token-punctuation">&gt;</span>조용하고 콘센트가 많습니다<span class="code-token-punctuation">.</span><span class="code-token-punctuation">&lt;</span><span class="code-token-punctuation">/</span>p<span class="code-token-punctuation">&gt;</span>
+
+  <span class="code-token-punctuation">&lt;</span>div<!-- --> <!-- -->className<span class="code-token-punctuation">=</span><span class="code-token-string">"tags"</span><span class="code-token-punctuation">&gt;</span>
+    <span class="code-token-punctuation">&lt;</span>span<span class="code-token-punctuation">&gt;</span>와이파이<span class="code-token-punctuation">&lt;</span><span class="code-token-punctuation">/</span>span<span class="code-token-punctuation">&gt;</span>
+    <span class="code-token-punctuation">&lt;</span>span<span class="code-token-punctuation">&gt;</span>콘센트<span class="code-token-punctuation">&lt;</span><span class="code-token-punctuation">/</span>span<span class="code-token-punctuation">&gt;</span>
+  <span class="code-token-punctuation">&lt;</span><span class="code-token-punctuation">/</span>div<span class="code-token-punctuation">&gt;</span>
+
+  <span class="code-token-punctuation">&lt;</span>button<span class="code-token-punctuation">&gt;</span>자세히 보기<span class="code-token-punctuation">&lt;</span><span class="code-token-punctuation">/</span>button<span class="code-token-punctuation">&gt;</span>
+<span class="code-token-punctuation">&lt;</span><span class="code-token-punctuation">/</span>section<span class="code-token-punctuation">&gt;</span>
+</code></pre>
+<ul>
+<li><code>section</code>: 하나의 카드나 영역을 감싸는 요소</li>
+<li><code>h2</code>: 제목을 표현하는 요소</li>
+<li><code>p</code>: paragraph(문단)를 표현하는 요소</li>
+<li><code>span</code>: 짧은 라벨이나 작은 텍스트를 표현하는 요소</li>
+<li><code>button</code>: 클릭할 수 있는 버튼을 표현하는 요소</li>
+</ul>
+<p>CSS는 같은 구조를 어떤 분위기로 보여줄지 정합니다. 보통 HTML의 <code>class</code>나 React의 <code>className</code>으로 CSS를 연결합니다.</p>
+<pre class="code-block "><code class="language-css">.cafe-card {
+  width: 320px;
+  height: 220px;
+  margin: 24px;
+  padding: 30px;
+  background: white;
+  color: #111827;
+  font-size: 16px;
+  border-radius: 28px;
+}
+
+.cafe-card button {
+  background: #34d399;
+  border-radius: 16px;
+}
+</code></pre>
+<ul>
+<li><code>width</code>: 카드의 가로 크기입니다.</li>
+<li><code>height</code>: 카드의 세로 크기입니다.</li>
+<li><code>margin</code>: 카드 바깥쪽 여백입니다.</li>
+<li><code>padding</code>: 카드 안쪽 여백입니다.</li>
+<li><code>background</code>: 카드나 버튼의 배경색입니다.</li>
+<li><code>color</code>: 글자 색입니다.</li>
+<li><code>font-size</code>: 글자 크기입니다.</li>
+<li><code>border-radius</code>: 카드나 버튼의 모서리 둥글기입니다.</li>
+<li><code>.cafe-card button</code>: 카드 안에 있는 버튼만 골라 스타일을 바꾸는 선택자(Selector)입니다.</li>
+</ul>
+<figure class="lesson-figure"><img src="../../assets/images/html-css-for-design/figures/css-property-map.png" alt="CSS 속성인 margin, padding, background, color, font-size, width, height가 카드 UI에서 바꾸는 영역" loading="lazy" decoding="async"/><figcaption>CSS 속성은 카드의 바깥 여백, 안쪽 여백, 배경, 글자색, 글자 크기, 너비, 높이를 나눠 조정합니다.</figcaption></figure>
+<h2>디자인 수정 때 자주 쓰는 UI 용어</h2>
+<p>디자인 피드백을 줄 때 UI 용어들을 미리 알고 있으면 더 수월하게 수정 요청을 할 수 있습니다.</p>
+<div class="shadcn-component-preview"><div class="ui-preview-head"><strong>자주 만나는 UI 컴포넌트 이름</strong><span>영어 이름으로 부르고, 괄호 안의 한국어로 의미를 확인합니다.</span></div><div class="ui-preview-grid"><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Button</strong><span>버튼</span><p>사용자가 누르는 액션</p></div><div class="ui-preview-surface"></div><p class="ui-preview-request"><span>요청 예시</span>Button을 더 눈에 띄게 해줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Card</strong><span>카드</span><p>하나의 정보 묶음을 담는 박스</p></div><div class="ui-preview-surface"><div class="ui-preview-card"><strong>연남 작업카페</strong><span>조용하고 콘센트가 많습니다.</span></div></div><p class="ui-preview-request"><span>요청 예시</span>Card 안쪽 여백을 줄여줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Input</strong><span>입력창</span><p>짧은 텍스트를 입력하는 영역</p></div><div class="ui-preview-surface"><input class="ui-preview-input" placeholder="카페 이름"></div><p class="ui-preview-request"><span>요청 예시</span>Input 높이를 조금 키워줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Textarea</strong><span>여러 줄 입력창</span><p>여러 줄 텍스트를 입력하는 영역</p></div><div class="ui-preview-surface"><textarea class="ui-preview-textarea" placeholder="메모"></textarea></div><p class="ui-preview-request"><span>요청 예시</span>Textarea의 줄 간격을 넓혀줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Select</strong><span>선택 메뉴</span><p>여러 옵션 중 하나를 고르는 메뉴</p></div><div class="ui-preview-surface"><select class="ui-preview-select" aria-label="지역 선택"><option value="hongdae" selected="">홍대입구</option><option value="yeonnam">연남동</option><option value="sangsu">상수</option></select></div><p class="ui-preview-request"><span>요청 예시</span>Select가 너무 좁아 보이지 않게 해줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Checkbox</strong><span>체크박스</span><p>여러 항목을 동시에 선택하는 UI</p></div><div class="ui-preview-surface"><div class="ui-preview-field-group"><label><input type="checkbox" checked=""> 와이파이</label><label><input type="checkbox"> 콘센트</label></div></div><p class="ui-preview-request"><span>요청 예시</span>필터 조건을 Checkbox로 고르게 해줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>RadioGroup</strong><span>라디오버튼</span><p>여러 옵션 중 하나만 고르는 선택지</p></div><div class="ui-preview-surface"><div class="ui-preview-field-group"><label><input type="radio" name="ui-preview-sort" checked=""> 평점순</label><label><input type="radio" name="ui-preview-sort"> 가까운 순</label></div></div><p class="ui-preview-request"><span>요청 예시</span>정렬 기준을 RadioGroup으로 바꿔줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Switch</strong><span>토글 스위치</span><p>켜기/끄기를 전환하는 스위치</p></div><div class="ui-preview-surface"></div><p class="ui-preview-request"><span>요청 예시</span>알림 설정을 Switch로 켜고 끄게 해줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Slider</strong><span>슬라이더</span><p>범위 안에서 값을 밀어서 조절하는 UI</p></div><div class="ui-preview-surface"><input class="ui-preview-slider" type="range" aria-label="가격 범위" value="60"></div><p class="ui-preview-request"><span>요청 예시</span>가격 필터를 Slider로 만들어줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Tabs</strong><span>탭</span><p>한 화면 안에서 보기를 전환하는 UI</p></div><div class="ui-preview-surface"><div class="ui-preview-tabs" aria-label="탭 예시" role="tablist"></div></div><p class="ui-preview-request"><span>요청 예시</span>Tabs의 선택된 상태를 더 분명하게 해줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Dialog</strong><span>다이얼로그</span><p>확인, 입력, 경고를 위해 화면 위에 뜨는 창</p></div><div class="ui-preview-surface"><div class="ui-preview-layer"></div></div><p class="ui-preview-request"><span>요청 예시</span>Dialog의 확인 Button을 오른쪽 아래에 둬.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Popover</strong><span>팝오버</span><p>버튼 주변에 뜨는 작은 패널</p></div><div class="ui-preview-surface"><div class="ui-preview-popover"></div></div><p class="ui-preview-request"><span>요청 예시</span>필터 Button을 누르면 Popover가 열리게 해줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Tooltip</strong><span>툴팁</span><p>마우스를 올리면 뜨는 짧은 설명</p></div><div class="ui-preview-surface"><div class="ui-preview-tooltip"><em id="ui-preview-tooltip-copy">도움말</em></div></div><p class="ui-preview-request"><span>요청 예시</span>아이콘에 Tooltip을 붙여줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>DropdownMenu</strong><span>드롭다운 메뉴</span><p>버튼을 눌렀을 때 아래로 열리는 메뉴</p></div><div class="ui-preview-surface"><div class="ui-preview-dropdown"></div></div><p class="ui-preview-request"><span>요청 예시</span>정렬 옵션을 DropdownMenu로 보여줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Badge</strong><span>배지</span><p>상태나 분류를 작게 보여주는 라벨</p></div><div class="ui-preview-surface"><div class="ui-preview-badge-list"><span class="ui-preview-badge">와이파이</span><span class="ui-preview-badge is-muted">콘센트</span></div></div><p class="ui-preview-request"><span>요청 예시</span>Badge 색을 더 차분하게 해줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Avatar</strong><span>아바타</span><p>사용자를 나타내는 동그란 프로필 이미지</p></div><div class="ui-preview-surface"><div class="ui-preview-avatar-group"><span class="ui-preview-avatar">호</span><span class="ui-preview-avatar">김</span></div></div><p class="ui-preview-request"><span>요청 예시</span>댓글 옆에 작성자 Avatar를 보여줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Progress</strong><span>진행바</span><p>작업이 얼마나 진행됐는지 보여주는 막대</p></div><div class="ui-preview-surface"><div class="ui-preview-progress"><span class="track" aria-hidden="true"><span class="fill"></span></span>65%</div></div><p class="ui-preview-request"><span>요청 예시</span>업로드 중에 Progress를 보여줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Skeleton</strong><span>로딩 자리표시자</span><p>데이터가 오기 전 임시로 보이는 회색 박스</p></div><div class="ui-preview-surface"><div class="ui-preview-skeleton" aria-label="Skeleton 예시"><span></span><span></span></div></div><p class="ui-preview-request"><span>요청 예시</span>목록을 불러오는 동안 Skeleton을 보여줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Toast</strong><span>알림</span><p>저장 완료처럼 잠깐 떴다 사라지는 안내</p></div><div class="ui-preview-surface"><div class="ui-preview-layer"></div></div><p class="ui-preview-request"><span>요청 예시</span>저장에 성공하면 Toast를 띄워줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Accordion</strong><span>아코디언</span><p>제목을 누르면 내용이 접혔다 펼쳐지는 목록</p></div><div class="ui-preview-surface"><div class="ui-preview-accordion"><div class="item"><p>네, 전화로 문의해 주세요.</p></div><div class="item"></div></div></div><p class="ui-preview-request"><span>요청 예시</span>FAQ를 Accordion으로 정리해줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Table</strong><span>테이블</span><p>행과 열로 데이터를 정리한 표</p></div><div class="ui-preview-surface"><table class="ui-preview-table"><thead><tr><th>카페</th><th>평점</th></tr></thead><tbody><tr><td>연남 작업카페</td><td>4.8</td></tr><tr><td>성수 라운지</td><td>4.5</td></tr></tbody></table></div><p class="ui-preview-request"><span>요청 예시</span>저장 목록을 Table로 정리해줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Breadcrumb</strong><span>브레드크럼</span><p>현재 위치까지의 경로 표시</p></div><div class="ui-preview-surface"></div><p class="ui-preview-request"><span>요청 예시</span>상세 페이지 위에 Breadcrumb을 달아줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Carousel</strong><span>캐러셀</span><p>옆으로 넘겨 보는 카드 묶음</p></div><div class="ui-preview-surface"><div class="ui-preview-carousel"><div class="slide">연남 작업카페<span>1<!-- --> / <!-- -->3</span></div></div></div><p class="ui-preview-request"><span>요청 예시</span>후기 사진을 Carousel로 넘겨보게 해줘.</p></article><article class="ui-preview-row"><div class="ui-preview-copy"><strong>Empty</strong><span>빈 상태</span><p>보여줄 데이터가 없을 때 안내하는 화면</p></div><div class="ui-preview-surface"><div class="ui-preview-empty">저장한 카페가 없습니다<span>지도를 눌러 카페를 추가해 보세요.</span></div></div><p class="ui-preview-request"><span>요청 예시</span>검색 결과가 없을 때 Empty 상태를 보여줘.</p></article></div></div>
+<p>화면을 보면서 "Card 간격", "Dialog 안의 Button", "Popover 위치"처럼 부를 수 있으면 충분합니다.</p>
+<p>더 많은 컴포넌트 이름과 실제 동작이 궁금하면 <a href="https://ui.shadcn.com/docs/components">shadcn/ui Components 문서</a>에서 컴포넌트별 예시를 확인해도 좋습니다.</p>
+<h2>디자인 피드백을 주는 세 가지 방법</h2>
+<h3>자연어로 설명하기</h3>
+<p>가장 빠른 방법입니다. 화면 이름, 고칠 대상, 원하는 방향을 같이 말합니다.</p>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">자연어로 디자인 수정 요청하기</span></span></div><pre>카페 상세 화면 디자인을 다듬어줘.
+
+- 카드 사이 간격이 너무 넓어 보여서 조금 줄여줘.
+- 버튼은 더 눈에 띄게 만들되, 전체 색감은 지금보다 튀지 않게 해줘.
+- 모바일에서도 텍스트가 버튼 밖으로 넘치지 않게 확인해줘.</pre></div>
+<h3>개발자 도구로 찍어서 말하기</h3>
+<p>브라우저 개발자 도구에서 요소를 선택하면 어떤 HTML 조각, 컴포넌트, class가 문제인지 더 정확히 말할 수 있습니다.</p>
+<ul>
+<li>개발자 도구 열기: Windows는 <code>F12</code> 또는 <code>Ctrl + Shift + I</code>, Mac은 <code>Cmd + Option + I</code>를 누릅니다.</li>
+<li>화면에서 요소 찍기: Windows는 <code>Ctrl + Shift + C</code>, Mac은 <code>Cmd + Shift + C</code>를 누른 뒤 고치고 싶은 부분을 클릭합니다.</li>
+<li>선택된 HTML, class 이름, 컴포넌트 이름 중 보이는 것을 Claude Code에게 알려줍니다.</li>
+</ul>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P2</span><span class="prompt-title">개발자 도구 기준으로 수정 요청하기</span></span></div><pre>[복사한 HTML 태그]
+
+위 카드를 기준으로
+- padding을 조금 줄여줘.
+- 제목과 본문 사이 간격도 줄여줘.
+- 수정 후 데스크톱과 모바일에서 레이아웃이 깨지지 않는지 확인해줘.</pre></div>
+<h3>스크린샷으로 보여주기</h3>
+<p>말로 설명하기 어려운 시각 문제는 스크린샷이 가장 빠릅니다.</p>
+<ul>
+<li>문제 화면을 캡처해서 올립니다.</li>
+<li>가능하면 고치고 싶은 부분을 표시합니다.</li>
+<li>"이 부분의 여백", "이 버튼의 대비", "이 카드의 정렬"처럼 캡처 안에서 대상을 콕 집습니다.</li>
+</ul>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P3</span><span class="prompt-title">스크린샷으로 디자인 피드백 주기</span></span></div><pre>첨부한 스크린샷을 기준으로 디자인을 수정해줘.
+
+@스크린샷 이미지
+
+- 빨간색으로 표시한 영역의 여백이 너무 커 보여.
+- 파란색으로 표시한 버튼은 클릭 가능한 요소처럼 더 분명하게 보여야 해.</pre></div>
+<h2>마무리</h2>
+<ul>
+<li>디자인 수정 요청은 "어느 화면의 어떤 UI를 어떻게 바꿀지"를 말하는 작업입니다.</li>
+<li>자연어, 개발자 도구, 스크린샷을 같이 쓰면 Claude Code가 수정 위치와 의도를 더 잘 잡습니다.</li>
+<li>다음 레슨에서는 이 감각을 바탕으로 디자인 시스템과 토큰이라는 기준을 봅니다.</li>
+</ul>
+</div>
+<nav class="lesson-nav">
+<a class="prev" href="../../index.html"><span class="dir">← Prev</span><span class="lbl">전체 목차</span></a>
+<a class="next" href="../../lessons/practical-design/vibe-design.html"><span class="dir">Next →</span><span class="lbl">바이브 디자인으로 방향 잡기</span></a>
+</nav>
+</article>
+</main>
+</div>
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>AIX102 X+AI 서비스 디자인</strong> · 실전편 (학습용 복제본)<br>
+    원본 콘텐츠: <a href="https://www.grabity.me/courses/vibecoding" target="_blank" rel="noopener">grabity.me/courses/vibecoding</a></p>
+    <p>실습 파일: <a href="../../VibeCafe.zip" download>VibeCafe.zip</a><br>
+    디자인 시스템: DESIGN.md</p>
+  </div>
+</footer>
+</body>
+</html>

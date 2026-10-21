@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>카카오맵 SDK 발급받기 · 실전편 · AIX102 X+AI 서비스 디자인</title>
+<meta name="description" content="느좋카페 지도를 띄울 카카오맵 JavaScript 키를 발급받고 로컬 도메인까지 등록합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script defer src="../../assets/js/copy.js"></script>
+</head>
+<body>
+<header class="nav-bar">
+  <a class="nav-wordmark" href="../../index.html"><span class="dot"></span>AIX102 X+AI 서비스 디자인</a>
+  <nav class="nav-links">
+    <a href="../../index.html">전체 목차</a>
+    <a href="../../VibeCafe.zip" download>실습 파일 (.zip)</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<p class="sidebar-eyebrow">Course</p>
+<a class="sidebar-title" href="../../index.html" style="text-decoration:none;display:block">AIX102 X+AI 서비스 디자인</a>
+<a class="sidebar-cta" href="../../VibeCafe.zip" download>실습 파일 다운로드 <span>⬇</span></a>
+<p class="nav-section-label">실전편 커리큘럼</p>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">01</span><span class="nav-chapter-title">인트로</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-intro/practical-overview.html"><span class="num">1.1</span><span>실전편 개요</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">02</span><span class="nav-chapter-title">프로젝트 세팅하기</span></div>
+<ul class="nav-lessons">
+<li><a class="active" href="../../lessons/project-setup/kakao-sdk-issue.html"><span class="num">2.1</span><span>카카오맵 SDK 발급받기</span></a></li>
+<li><a href="../../lessons/project-setup/folder-setup.html"><span class="num">2.2</span><span>실습 폴더 세팅하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">03</span><span class="nav-chapter-title">프로젝트 시작하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-build/data-reading.html"><span class="num">3.1</span><span>데이터 읽기 (JSON)</span></a></li>
+<li><a href="../../lessons/practical-build/scaffold.html"><span class="num">3.2</span><span>Scaffolding: 프로젝트 구조 잡기</span></a></li>
+<li><a href="../../lessons/practical-build/map-explained.html"><span class="num">3.3</span><span>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a></li>
+<li><a href="../../lessons/practical-build/ai-api.html"><span class="num">3.4</span><span>AI API 연결하기 (OpenAI)</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">04</span><span class="nav-chapter-title">코드 버전 관리하기 (Git &amp; GitHub)</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-git/git-basics.html"><span class="num">4.1</span><span>Git 기본기 다지기</span></a></li>
+<li><a href="../../lessons/practical-git/github-basics.html"><span class="num">4.2</span><span>GitHub 사용법 익히기</span></a></li>
+<li><a href="../../lessons/practical-git/git-advanced.html"><span class="num">4.3</span><span>조금 더 공부하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">05</span><span class="nav-chapter-title">지도 데이터베이스 구축하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-database/database-intro.html"><span class="num">5.1</span><span>데이터베이스 스키마 설계하기</span></a></li>
+<li><a href="../../lessons/practical-database/supabase-intro.html"><span class="num">5.2</span><span>Supabase 활용하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-migration.html"><span class="num">5.3</span><span>places 테이블 마이그레이션하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">06</span><span class="nav-chapter-title">느좋카페 가게 이미지 적용하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-image-storage/file-storage-intro.html"><span class="num">6.1</span><span>파일 스토리지 적용하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">07</span><span class="nav-chapter-title">사용자 기능 개발하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-auth/auth-intro.html"><span class="num">7.1</span><span>인증과 인가 이해하기</span></a></li>
+<li><a href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="num">7.2</span><span>카카오 로그인·Supabase 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/rls-supabase.html"><span class="num">7.3</span><span>Supabase RLS 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/login-bookmark.html"><span class="num">7.4</span><span>카카오 로그인과 북마크 기능 붙이기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">배포하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-deploy/deploy-basics.html"><span class="num">8.1</span><span>서버 배포의 과정 이해하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">8.2</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">8.3</span><span>나만의 도메인 설정하기</span></a></li>
+</ul></div>
+<details class="nav-appendix"><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">A</span><span class="nav-chapter-title">디자인 개선하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-design/html-css-for-design.html"><span class="num">A.1</span><span>Claude Code에게 디자인 수정 요청하기</span></a></li>
+<li><a href="../../lessons/practical-design/vibe-design.html"><span class="num">A.2</span><span>바이브 디자인으로 방향 잡기</span></a></li>
+<li><a href="../../lessons/practical-design/design-md.html"><span class="num">A.3</span><span>DESIGN.md로 디자인 시스템 고정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">B</span><span class="nav-chapter-title">에이전틱 워크플로우</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/agentic-workflow/agentic-workflow-overview.html"><span class="num">B.1</span><span>에이전틱 워크플로우란</span></a></li>
+<li><a href="../../lessons/agentic-workflow/plan-implement.html"><span class="num">B.2</span><span>계획하고 구현하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/verify.html"><span class="num">B.3</span><span>검증 고도화하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/refactor-before-task.html"><span class="num">B.4</span><span>작업 전에 검증 환경 만들기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/long-running-task.html"><span class="num">B.5</span><span>긴 작업 태워보기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/compound-learnings.html"><span class="num">B.6</span><span>배운 걸 프로젝트에 남기기</span></a></li>
+</ul></div>
+</div></details>
+</aside>
+<main class="main">
+<article class="reading">
+<div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
+<a class="lesson-back" href="../../index.html">← course overview</a>
+<div class="reading-meta"><span>chapter 02</span><span>lesson 2.1</span><span>public</span></div>
+<div class="reading-head">
+<p class="chapter-eyebrow">프로젝트 세팅하기</p>
+<h1>카카오맵 SDK 발급받기</h1>
+<p class="description">느좋카페 지도를 띄울 카카오맵 JavaScript 키를 발급받고 로컬 도메인까지 등록합니다.</p>
+</div>
+<div class="lesson-body">
+<h2>얻어갈 것</h2>
+<p>느좋카페는 지도 위에 카페를 보여주는 서비스라, 가장 먼저 <strong>지도를 띄울 수 있는 열쇠</strong>가 필요합니다. 카카오맵은 <code>JavaScript 키</code>로 지도를 불러오는데, 이 키는 Kakao Developers에서 앱을 만들고 발급받습니다.</p>
+<p>카카오맵을 프로젝트에 붙이려면 <strong>코드보다 외부 서비스 설정이 먼저</strong>입니다. 우리 프로젝트를 카카오에 앱으로 등록하고, 로컬 개발 서버에서 JavaScript SDK를 쓸 수 있게 만드는 것이 이번 레슨의 목표입니다.</p>
+<ul>
+<li>Kakao Developers에 앱을 만들고 <strong>JavaScript 키</strong>를 발급받습니다.</li>
+<li>카카오맵 제품 사용을 켜고, 개발 주소(<code>http://localhost:3030</code>)를 플랫폼 도메인으로 등록합니다.</li>
+<li>발급받은 키를 프로젝트의 <code>.env.local</code>에 넣어 코드에서 안전하게 쓸 수 있게 합니다.</li>
+</ul>
+<h2>1. Kakao Developers 접속</h2>
+<p><a href="https://developers.kakao.com" target="_blank" rel="noopener">developers.kakao.com</a>에 카카오 계정으로 로그인합니다. 상단 메뉴의 <strong>내 애플리케이션</strong>으로 이동합니다.</p>
+<figure class="lesson-figure"><img src="../../assets/images/project-setup/sdk01.png" alt="카카오 디벨로퍼스 메인 화면" loading="lazy" decoding="async"/><figcaption>Kakao Developers 메인. 카카오맵 API로 지도를 붙일 수 있습니다.</figcaption></figure>
+<h2>2. 애플리케이션 만들기</h2>
+<p>아직 앱이 없다면 <strong>애플리케이션 추가하기</strong>(앱 생성)를 누릅니다. 앱 이름은 <code>느좋카페</code>, 회사명은 본인 이름, 카테고리는 <strong>지도/내비게이션</strong>으로 지정합니다.</p>
+<figure class="lesson-figure"><img src="../../assets/images/project-setup/sdk02.png" alt="전체 앱 0, 앱 생성 버튼" loading="lazy" decoding="async"/><figcaption>내 애플리케이션 화면. 오른쪽 위 ‘앱 생성’으로 새 앱을 만듭니다.</figcaption></figure>
+<figure class="lesson-figure"><img src="../../assets/images/project-setup/sdk03.png" alt="앱 생성 모달에 느좋카페 입력" loading="lazy" decoding="async"/><figcaption>앱 이름 ‘느좋카페’, 카테고리 ‘지도/내비게이션’으로 생성합니다.</figcaption></figure>
+<figure class="lesson-figure"><img src="../../assets/images/project-setup/sdk04.png" alt="느좋카페 앱이 생성된 목록" loading="lazy" decoding="async"/><figcaption>앱이 생성되면 앱 ID와 함께 목록에 ‘느좋카페’가 나타납니다.</figcaption></figure>
+<h2>3. 카카오맵 사용 설정 켜기</h2>
+<p>생성한 앱에 들어가 <strong>제품 설정 → 카카오맵</strong>에서 <strong>사용 설정</strong>을 <code>ON</code>으로 바꿉니다. 이걸 켜야 지도 API 쿼터가 할당됩니다.</p>
+<figure class="lesson-figure"><img src="../../assets/images/project-setup/sdk05.png" alt="카카오맵 사용 설정 ON" loading="lazy" decoding="async"/><figcaption>제품 설정 &gt; 카카오맵 &gt; 사용 설정을 ON으로 바꿉니다.</figcaption></figure>
+<h2>4. JavaScript 키 확인</h2>
+<p><strong>앱 설정 → 플랫폼 키</strong>로 가면 REST API 키, JavaScript 키, 네이티브 앱 키가 보입니다. 지도는 브라우저에서 불러오므로 <strong>JavaScript 키</strong>를 사용합니다.</p>
+<figure class="lesson-figure"><img src="../../assets/images/project-setup/sdk06.png" alt="플랫폼 키 화면의 JavaScript 키" loading="lazy" decoding="async"/><figcaption>플랫폼 키 화면. 가운데 ‘JavaScript 키’가 지도에 쓰는 키입니다.</figcaption></figure>
+<h2>5. 로컬 도메인 등록</h2>
+<p>JavaScript 키 수정 화면에서 <strong>JavaScript SDK 도메인</strong>에 개발 서버 주소 <code>http://localhost:3030</code>을 등록하고 저장합니다. 등록한 도메인에서만 키가 동작합니다.</p>
+<ul>
+<li><code>http://localhost:3030</code>처럼 <strong>프로토콜과 포트까지</strong> 정확히 맞춰 적습니다.</li>
+<li>개발 서버 포트를 바꾸면 카카오 콘솔의 도메인도 같이 바꿔야 합니다.</li>
+<li>나중에 배포 도메인이 생기면 <code>https://...</code> 형태의 실제 서비스 주소도 추가합니다.</li>
+</ul>
+<figure class="lesson-figure"><img src="../../assets/images/project-setup/sdk07.png" alt="JavaScript SDK 도메인에 localhost:3030 등록" loading="lazy" decoding="async"/><figcaption>JavaScript SDK 도메인에 http://localhost:3030을 추가합니다. (배포 후에는 실제 주소도 추가)</figcaption></figure>
+<h2>6. 키를 프로젝트에 넣기</h2>
+<p>발급받은 JavaScript 키는 코드에 직접 박지 않고 환경변수로 관리합니다. 프로젝트 루트에 <code>.env.local</code>을 만들고 다음처럼 넣습니다. (실습 파일 <strong>VibeCafe.zip</strong>에 <code>.env.local</code> 템플릿이 들어 있으니, 키 값만 채우면 됩니다.)</p>
+<pre><code># .env.local
+NEXT_PUBLIC_KAKAO_MAP_KEY=여기에_발급받은_JavaScript_키
+</code></pre>
+<blockquote><p>JavaScript 키는 브라우저에 노출되는 키라 <strong>도메인 등록으로 보호</strong>합니다. 등록되지 않은 주소에서는 지도가 뜨지 않으니, 개발 주소와 배포 주소를 모두 등록해 두세요.</p></blockquote>
+
+</div>
+<nav class="lesson-nav">
+<a class="prev" href="../../lessons/practical-intro/practical-overview.html"><span class="dir">← Prev</span><span class="lbl">실전편 개요</span></a>
+<a class="next" href="../../lessons/project-setup/folder-setup.html"><span class="dir">Next →</span><span class="lbl">실습 폴더 세팅하기</span></a>
+</nav>
+</article>
+</main>
+</div>
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>AIX102 X+AI 서비스 디자인</strong> · 실전편 (학습용 복제본)<br>
+    원본 콘텐츠: <a href="https://www.grabity.me/courses/vibecoding" target="_blank" rel="noopener">grabity.me/courses/vibecoding</a></p>
+    <p>실습 파일: <a href="../../VibeCafe.zip" download>VibeCafe.zip</a><br>
+    디자인 시스템: DESIGN.md</p>
+  </div>
+</footer>
+</body>
+</html>

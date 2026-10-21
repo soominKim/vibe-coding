@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>에이전틱 워크플로우란 · 실전편 · AIX102 X+AI 서비스 디자인</title>
+<meta name="description" content="AI에게 일을 맡길 때 계획, 구현, 검증, 학습을 하나의 루프로 보는 관점">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script defer src="../../assets/js/copy.js"></script>
+</head>
+<body>
+<header class="nav-bar">
+  <a class="nav-wordmark" href="../../index.html"><span class="dot"></span>AIX102 X+AI 서비스 디자인</a>
+  <nav class="nav-links">
+    <a href="../../index.html">전체 목차</a>
+    <a href="../../VibeCafe.zip" download>실습 파일 (.zip)</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<p class="sidebar-eyebrow">Course</p>
+<a class="sidebar-title" href="../../index.html" style="text-decoration:none;display:block">AIX102 X+AI 서비스 디자인</a>
+<a class="sidebar-cta" href="../../VibeCafe.zip" download>실습 파일 다운로드 <span>⬇</span></a>
+<p class="nav-section-label">실전편 커리큘럼</p>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">01</span><span class="nav-chapter-title">인트로</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-intro/practical-overview.html"><span class="num">1.1</span><span>실전편 개요</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">02</span><span class="nav-chapter-title">프로젝트 세팅하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/project-setup/kakao-sdk-issue.html"><span class="num">2.1</span><span>카카오맵 SDK 발급받기</span></a></li>
+<li><a href="../../lessons/project-setup/folder-setup.html"><span class="num">2.2</span><span>실습 폴더 세팅하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">03</span><span class="nav-chapter-title">프로젝트 시작하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-build/data-reading.html"><span class="num">3.1</span><span>데이터 읽기 (JSON)</span></a></li>
+<li><a href="../../lessons/practical-build/scaffold.html"><span class="num">3.2</span><span>Scaffolding: 프로젝트 구조 잡기</span></a></li>
+<li><a href="../../lessons/practical-build/map-explained.html"><span class="num">3.3</span><span>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a></li>
+<li><a href="../../lessons/practical-build/ai-api.html"><span class="num">3.4</span><span>AI API 연결하기 (OpenAI)</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">04</span><span class="nav-chapter-title">코드 버전 관리하기 (Git &amp; GitHub)</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-git/git-basics.html"><span class="num">4.1</span><span>Git 기본기 다지기</span></a></li>
+<li><a href="../../lessons/practical-git/github-basics.html"><span class="num">4.2</span><span>GitHub 사용법 익히기</span></a></li>
+<li><a href="../../lessons/practical-git/git-advanced.html"><span class="num">4.3</span><span>조금 더 공부하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">05</span><span class="nav-chapter-title">지도 데이터베이스 구축하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-database/database-intro.html"><span class="num">5.1</span><span>데이터베이스 스키마 설계하기</span></a></li>
+<li><a href="../../lessons/practical-database/supabase-intro.html"><span class="num">5.2</span><span>Supabase 활용하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-migration.html"><span class="num">5.3</span><span>places 테이블 마이그레이션하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">06</span><span class="nav-chapter-title">느좋카페 가게 이미지 적용하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-image-storage/file-storage-intro.html"><span class="num">6.1</span><span>파일 스토리지 적용하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">07</span><span class="nav-chapter-title">사용자 기능 개발하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-auth/auth-intro.html"><span class="num">7.1</span><span>인증과 인가 이해하기</span></a></li>
+<li><a href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="num">7.2</span><span>카카오 로그인·Supabase 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/rls-supabase.html"><span class="num">7.3</span><span>Supabase RLS 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/login-bookmark.html"><span class="num">7.4</span><span>카카오 로그인과 북마크 기능 붙이기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">배포하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-deploy/deploy-basics.html"><span class="num">8.1</span><span>서버 배포의 과정 이해하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">8.2</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">8.3</span><span>나만의 도메인 설정하기</span></a></li>
+</ul></div>
+<details class="nav-appendix" open><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">A</span><span class="nav-chapter-title">디자인 개선하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-design/html-css-for-design.html"><span class="num">A.1</span><span>Claude Code에게 디자인 수정 요청하기</span></a></li>
+<li><a href="../../lessons/practical-design/vibe-design.html"><span class="num">A.2</span><span>바이브 디자인으로 방향 잡기</span></a></li>
+<li><a href="../../lessons/practical-design/design-md.html"><span class="num">A.3</span><span>DESIGN.md로 디자인 시스템 고정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">B</span><span class="nav-chapter-title">에이전틱 워크플로우</span></div>
+<ul class="nav-lessons">
+<li><a class="active" href="../../lessons/agentic-workflow/agentic-workflow-overview.html"><span class="num">B.1</span><span>에이전틱 워크플로우란</span></a></li>
+<li><a href="../../lessons/agentic-workflow/plan-implement.html"><span class="num">B.2</span><span>계획하고 구현하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/verify.html"><span class="num">B.3</span><span>검증 고도화하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/refactor-before-task.html"><span class="num">B.4</span><span>작업 전에 검증 환경 만들기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/long-running-task.html"><span class="num">B.5</span><span>긴 작업 태워보기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/compound-learnings.html"><span class="num">B.6</span><span>배운 걸 프로젝트에 남기기</span></a></li>
+</ul></div>
+</div></details>
+</aside>
+<main class="main">
+<article class="reading">
+<div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
+<a class="lesson-back" href="../../index.html">← course overview</a>
+<div class="reading-meta"><span>chapter B</span><span>lesson B.1</span><span>private</span><span class="wb">workbench</span></div>
+<div class="reading-head">
+<p class="chapter-eyebrow">에이전틱 워크플로우</p>
+<h1>에이전틱 워크플로우란</h1>
+<p class="description">AI에게 일을 맡길 때 계획, 구현, 검증, 학습을 하나의 루프로 보는 관점</p>
+</div>
+<div class="lesson-body">
+<h2>얻어갈 것</h2>
+<ul>
+<li>큰 기능을 "한 번에 만들어줘"가 아니라 <code>탐색/계획 -&gt; 구현 -&gt; 검증 -&gt; 학습</code>으로 나눠 맡기는 이유를 확인합니다.</li>
+<li>에이전틱 워크플로우를 위한 스킬을 다운받습니다.</li>
+</ul>
+<h2>왜 여기서 흐름을 바꾸나</h2>
+<p>지금까지는 데이터 읽기, Git, 데이터베이스, 디자인, 로그인처럼 주요 구성요소를 하나씩 다뤘습니다.
+앞으로 서비스를 더 개발하다 보면 코드는 복잡해지고, 한 번에 원하는 결과가 나오지 않을 수 있습니다.</p>
+<ul>
+<li>로그인 이후의 기능은 화면, 데이터, 권한, 예외 상태가 함께 움직입니다.</li>
+<li>"지도에 리뷰 추가해줘"처럼 한 줄로 맡기면 AI가 어디까지 만들고 어디서 멈춰야 하는지 알기 어렵습니다.</li>
+<li>구현이 맞아 보여도 DB row, RLS, 새로고침 뒤 상태, 모바일 화면, 에러 같은 것을 검증해야 합니다.</li>
+<li>그래서 하나의 기능을 개발한다는 것은 <strong>계획, 구현, 검증, 학습까지 이어지는 단위</strong>가 되어야 합니다.</li>
+</ul>
+<table><thead><tr><th>방식</th><th>빠른 점</th><th>막히는 지점</th></tr></thead><tbody><tr><td>그냥 해줘</td><td>작은 UI 수정, 문구 변경에는 빠릅니다.</td><td>범위와 완료 조건이 흐려집니다.</td></tr><tr><td>대화로 계속 수정</td><td>눈에 보이는 결과를 빨리 맞출 수 있습니다.</td><td>같은 설명을 반복하고, 코드 품질은 뒤늦게 발견합니다.</td></tr><tr><td>에이전틱 워크플로우</td><td>시작 전에 기준을 잡고 실행합니다.</td><td>처음에 범위와 검증 방식을 쓰는 시간이 필요합니다.</td></tr></tbody></table>
+<h2>에이전틱 워크플로우</h2>
+<p><strong>에이전틱 워크플로우는 AI에게 한 번에 결과물을 요구하는 방식이 아니라, 작업을 단계로 나누고 실행하는 방식입니다.</strong></p>
+<table><thead><tr><th>단계</th><th>AI에게 맡길 일</th><th>사람이 볼 것</th></tr></thead><tbody><tr><td>탐색/계획(Plan)</td><td>코드베이스를 읽고, 모호한 요구사항을 질문하고, PRD로 정리합니다.</td><td>이번에 만들 것과 만들지 않을 것.</td></tr><tr><td>구현(Implementation)</td><td>PRD의 완료 조건을 체크리스트로 바꾸고 코드를 수정합니다.</td><td>PRD대로 잘 구현되었는지.</td></tr><tr><td>검증(Verification)</td><td>테스트, 빌드, 브라우저 시나리오, diff 리뷰로 증거를 모읍니다.</td><td>AI의 완료 선언이 아니라 실제 증거.</td></tr><tr><td>학습(Compounding)</td><td>반복된 실수, 검증 명령, 프로젝트 규칙을 남깁니다.</td><td>다음에도 남길 만큼 반복 가능한 내용인지.</td></tr></tbody></table>
+<p>검증과 코드리뷰를 통과한 뒤에야 풀 리퀘스트(PR), 배포, 다음 작업으로 넘깁니다.</p>
+<figure class="lesson-figure"><img src="../../assets/images/agentic-workflow-overview/figures/ai-dev-process-cycle.png" alt="계획, 구현, 검증과 코드리뷰, 개선으로 도는 로컬 개발 루프에서 검증을 통과하면 원격 푸시와 배포로 이어지는 흐름" loading="lazy" decoding="async"/><figcaption>AI와 개발할 때도 먼저 로컬에서 계획, 구현, 검증, 개선 루프를 돌리고, 검증을 통과한 뒤 원격 푸시와 배포로 넘기는 편이 안전합니다.</figcaption></figure>
+<h2>Skill로 책임을 나눕니다</h2>
+<p>이 워크플로우를 크게 스킬로 나눠보면 아래와 같습니다.</p>
+<ul>
+<li><code>clarify</code>: 모호한 요청을 질문으로 좁힙니다.</li>
+<li><code>prd</code>: 요구사항, 범위, 완료 조건, 검증 방식을 문서로 만듭니다.</li>
+<li><code>implement</code>: 승인된 PRD를 기준으로 코드를 수정하고, 구현 중 필요한 검증을 추적합니다.</li>
+<li><code>verify</code>: 구현자와 분리해서 화면, 데이터, 테스트, diff 증거를 다시 확인합니다.</li>
+<li><code>pr</code>: 변경 범위와 검증 결과를 리뷰 가능한 형태로 묶습니다.</li>
+<li><code>learn</code>: 반복된 실수와 검증 명령을 다음 작업의 기본값으로 남깁니다.</li>
+</ul>
+<h3>Skill들 추가하기</h3>
+<p><code>vibe-engineering</code>은 이 흐름을 Claude Code에서 바로 써볼 수 있게 만든 Skill 묶음입니다. 수업에서는 설치 명령을 외우기보다, 에이전트에게 README를 읽고 현재 프로젝트에 맞게 설치하게 시킵니다.</p>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">vibe-engineering Skill 설치하기</span></span></div><pre>https://github.com/yansfil/vibe-engineering README를 읽고, 이 프로젝트에서 Claude Code에 vibe-engineering Skill들을 설치해줘.
+
+- README의 Claude Code 설치 명령을 기준으로 진행해줘
+- 설치 후 설치된 Skill 목록이나 위치를 확인해줘</pre></div>
+<h2>이번 챕터에서 다룰 것</h2>
+<ul>
+<li><code>계획하고 맡기고 검증하기</code>: PRD를 작업 주문서와 채점표로 보고, 구현과 검증까지 한 번에 묶습니다.</li>
+<li><code>에이전트에게 검증 최대한 위임하기</code>: 사람이 눈으로 하고 직접 테스트하는 흐름을 에이전트에게 최대한 위임합니다.</li>
+<li><code>긴 작업 돌려보기</code>: 여러 사용자 흐름이 섞인 작업을 하나의 PRD 안에서 담아서 구현해보기.</li>
+<li><code>배운 걸 프로젝트에 남기기</code>: 반복된 실수, 검증 명령, Skill 후보를 프로젝트 규칙으로 바꿉니다.</li>
+</ul>
+<h2>마무리</h2>
+<ul>
+<li>바이브코딩은 즉흥적인 요청으로 시작할 수 있지만, 기능이 커지면 에이전틱 워크플로우가 필요합니다.</li>
+<li>다음 레슨부터는 계획, 구현 그리고 검증에 대해 더 자세하게 알아보도록 하겠습니다.</li>
+</ul>
+</div>
+<nav class="lesson-nav">
+<a class="prev" href="../../lessons/practical-design/design-md.html"><span class="dir">← Prev</span><span class="lbl">DESIGN.md로 디자인 시스템 고정하기</span></a>
+<a class="next" href="../../lessons/agentic-workflow/plan-implement.html"><span class="dir">Next →</span><span class="lbl">계획하고 구현하기</span></a>
+</nav>
+</article>
+</main>
+</div>
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>AIX102 X+AI 서비스 디자인</strong> · 실전편 (학습용 복제본)<br>
+    원본 콘텐츠: <a href="https://www.grabity.me/courses/vibecoding" target="_blank" rel="noopener">grabity.me/courses/vibecoding</a></p>
+    <p>실습 파일: <a href="../../VibeCafe.zip" download>VibeCafe.zip</a><br>
+    디자인 시스템: DESIGN.md</p>
+  </div>
+</footer>
+</body>
+</html>

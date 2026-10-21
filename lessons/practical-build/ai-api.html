@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI API 연결하기 (OpenAI) · 실전편 · AIX102 X+AI 서비스 디자인</title>
+<meta name="description" content="OpenAI API로 느좋카페에 AI 카페 추천 챗봇을 붙이는 큰 흐름을 이해하고, SDK와 API의 차이까지 정리합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script defer src="../../assets/js/copy.js"></script>
+</head>
+<body>
+<header class="nav-bar">
+  <a class="nav-wordmark" href="../../index.html"><span class="dot"></span>AIX102 X+AI 서비스 디자인</a>
+  <nav class="nav-links">
+    <a href="../../index.html">전체 목차</a>
+    <a href="../../VibeCafe.zip" download>실습 파일 (.zip)</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<p class="sidebar-eyebrow">Course</p>
+<a class="sidebar-title" href="../../index.html" style="text-decoration:none;display:block">AIX102 X+AI 서비스 디자인</a>
+<a class="sidebar-cta" href="../../VibeCafe.zip" download>실습 파일 다운로드 <span>⬇</span></a>
+<p class="nav-section-label">실전편 커리큘럼</p>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">01</span><span class="nav-chapter-title">인트로</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-intro/practical-overview.html"><span class="num">1.1</span><span>실전편 개요</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">02</span><span class="nav-chapter-title">프로젝트 세팅하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/project-setup/kakao-sdk-issue.html"><span class="num">2.1</span><span>카카오맵 SDK 발급받기</span></a></li>
+<li><a href="../../lessons/project-setup/folder-setup.html"><span class="num">2.2</span><span>실습 폴더 세팅하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">03</span><span class="nav-chapter-title">프로젝트 시작하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-build/data-reading.html"><span class="num">3.1</span><span>데이터 읽기 (JSON)</span></a></li>
+<li><a href="../../lessons/practical-build/scaffold.html"><span class="num">3.2</span><span>Scaffolding: 프로젝트 구조 잡기</span></a></li>
+<li><a href="../../lessons/practical-build/map-explained.html"><span class="num">3.3</span><span>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a></li>
+<li><a class="active" href="../../lessons/practical-build/ai-api.html"><span class="num">3.4</span><span>AI API 연결하기 (OpenAI)</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">04</span><span class="nav-chapter-title">코드 버전 관리하기 (Git &amp; GitHub)</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-git/git-basics.html"><span class="num">4.1</span><span>Git 기본기 다지기</span></a></li>
+<li><a href="../../lessons/practical-git/github-basics.html"><span class="num">4.2</span><span>GitHub 사용법 익히기</span></a></li>
+<li><a href="../../lessons/practical-git/git-advanced.html"><span class="num">4.3</span><span>조금 더 공부하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">05</span><span class="nav-chapter-title">지도 데이터베이스 구축하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-database/database-intro.html"><span class="num">5.1</span><span>데이터베이스 스키마 설계하기</span></a></li>
+<li><a href="../../lessons/practical-database/supabase-intro.html"><span class="num">5.2</span><span>Supabase 활용하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-migration.html"><span class="num">5.3</span><span>places 테이블 마이그레이션하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">06</span><span class="nav-chapter-title">느좋카페 가게 이미지 적용하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-image-storage/file-storage-intro.html"><span class="num">6.1</span><span>파일 스토리지 적용하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">07</span><span class="nav-chapter-title">사용자 기능 개발하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-auth/auth-intro.html"><span class="num">7.1</span><span>인증과 인가 이해하기</span></a></li>
+<li><a href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="num">7.2</span><span>카카오 로그인·Supabase 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/rls-supabase.html"><span class="num">7.3</span><span>Supabase RLS 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/login-bookmark.html"><span class="num">7.4</span><span>카카오 로그인과 북마크 기능 붙이기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">배포하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-deploy/deploy-basics.html"><span class="num">8.1</span><span>서버 배포의 과정 이해하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">8.2</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">8.3</span><span>나만의 도메인 설정하기</span></a></li>
+</ul></div>
+<details class="nav-appendix"><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">A</span><span class="nav-chapter-title">디자인 개선하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-design/html-css-for-design.html"><span class="num">A.1</span><span>Claude Code에게 디자인 수정 요청하기</span></a></li>
+<li><a href="../../lessons/practical-design/vibe-design.html"><span class="num">A.2</span><span>바이브 디자인으로 방향 잡기</span></a></li>
+<li><a href="../../lessons/practical-design/design-md.html"><span class="num">A.3</span><span>DESIGN.md로 디자인 시스템 고정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">B</span><span class="nav-chapter-title">에이전틱 워크플로우</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/agentic-workflow/agentic-workflow-overview.html"><span class="num">B.1</span><span>에이전틱 워크플로우란</span></a></li>
+<li><a href="../../lessons/agentic-workflow/plan-implement.html"><span class="num">B.2</span><span>계획하고 구현하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/verify.html"><span class="num">B.3</span><span>검증 고도화하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/refactor-before-task.html"><span class="num">B.4</span><span>작업 전에 검증 환경 만들기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/long-running-task.html"><span class="num">B.5</span><span>긴 작업 태워보기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/compound-learnings.html"><span class="num">B.6</span><span>배운 걸 프로젝트에 남기기</span></a></li>
+</ul></div>
+</div></details>
+</aside>
+<main class="main">
+<article class="reading">
+<div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
+<a class="lesson-back" href="../../index.html">← course overview</a>
+<div class="reading-meta"><span>chapter 03</span><span>lesson 3.4</span><span>public</span></div>
+<div class="reading-head">
+<p class="chapter-eyebrow">프로젝트 시작하기</p>
+<h1>AI API 연결하기 (OpenAI)</h1>
+<p class="description">OpenAI API로 느좋카페에 AI 카페 추천 챗봇을 붙이는 큰 흐름을 이해하고, SDK와 API의 차이까지 정리합니다.</p>
+</div>
+<div class="lesson-body">
+<h2>얻어갈 것</h2>
+<p>느좋카페에 <strong>OpenAI API 기반 AI 카페 추천 챗봇</strong>을 붙이는 큰 흐름을 이해합니다. 코드를 직접 짜기보다, <strong>AI API가 무엇이고 어떤 순서로 동작하는지</strong> 그림을 잡는 데 집중합니다. (이번 레슨은 OpenAI API 기준입니다.)</p>
+<h2>AI API란? — 똑똑한 모델을 ‘빌려 쓰기’</h2>
+<p>OpenAI 같은 회사는 이미 잘 학습된 AI 모델을 서버에 올려 두고, 누구나 <strong>요청(request)</strong>을 보내면 <strong>응답(response)</strong>을 돌려주는 창구를 열어 뒀습니다. 이 창구가 <strong>API</strong>입니다. 우리는 모델을 직접 만들거나 학습시킬 필요 없이, 요청만 보내서 결과를 빌려 씁니다.</p>
+<h2>큰 흐름 — 질문 한 번에 무슨 일이 일어나나</h2>
+<p>사용자가 챗봇에 “조용하고 콘센트 많은 카페 추천해줘”라고 입력하면:</p>
+<ol>
+<li>브라우저(채팅창)가 그 메시지를 <strong>우리 서버</strong>로 보냅니다.</li>
+<li>우리 서버가 <strong>사용자 메시지 + <code>data/cafes.json</code>의 카페 데이터</strong>를 묶어 OpenAI API로 보냅니다.</li>
+<li>OpenAI 모델이 조건에 맞는 카페를 골라 <strong>추천 답변</strong>을 생성합니다.</li>
+<li>우리 서버가 그 답변을 받아 채팅창에 보여주고, 추천 카페를 지도와 연결합니다.</li>
+</ol>
+<pre><code>[사용자] → [우리 서버 (+ cafes.json)] → [OpenAI 모델]
+                                            │
+[사용자에게 표시] ← [우리 서버] ← ── 추천 답변 ──┘</code></pre>
+<p>핵심은 <strong>브라우저가 OpenAI를 직접 부르지 않고 우리 서버를 거친다</strong>는 점입니다. 이유는 아래 ‘API 키’에서 설명합니다.</p>
+<h2>1. 결제 등록과 API 키 발급</h2>
+<p>OpenAI API는 사용한 만큼 과금되므로, 먼저 결제 수단을 등록하고 크레딧을 충전해야 합니다. <a href="https://platform.openai.com/home" target="_blank" rel="noopener">platform.openai.com</a>에서 결제를 등록한 뒤 <strong>API 키</strong>를 발급받습니다.</p>
+<ul>
+<li>발급된 키는 <strong>생성 직후 한 번만 전체가 보이므로</strong> 안전한 곳에 복사해 둡니다.</li>
+<li>API 키는 비밀번호와 같습니다 — 코드나 깃허브에 올리면 안 됩니다.</li>
+</ul>
+<h2>2. 모델 고르기</h2>
+<p>작업에 맞는 모델을 고릅니다. 모델마다 성능·속도·가격이 다릅니다. 종류와 특징은 <a href="https://developers.openai.com/api/docs/models" target="_blank" rel="noopener">OpenAI 모델 문서</a>에서 확인할 수 있습니다. 이번 실습에서는 <code>gpt-6-luna</code> 모델을 <strong>Responses API</strong>로 연동합니다.</p>
+<h2>3. 키를 .env.local에 저장</h2>
+<p>발급받은 키는 <code>.env.local</code>에 <code>OPENAI_API_KEY</code>로 저장하고, <strong>서버에서만</strong> 사용합니다. 그래야 브라우저(사용자)에게 키가 노출되지 않습니다. 카카오맵 키처럼 브라우저에 노출되는 <code>NEXT_PUBLIC_</code> 키와 다릅니다.</p>
+<pre><code># .env.local
+NEXT_PUBLIC_KAKAO_MAP_KEY=카카오맵_JavaScript_키
+OPENAI_API_KEY=여기에_발급받은_OpenAI_API_키</code></pre>
+<blockquote><p><code>.env.local</code>은 반드시 <code>.gitignore</code>에 넣어 깃허브에 올라가지 않게 합니다. 나중에 Vercel로 배포할 때는 같은 값을 <strong>배포 환경의 환경변수</strong>로 등록하면 그대로 동작합니다.</p></blockquote>
+<h2>4. 프롬프트로 구현 요청하기</h2>
+<p>준비가 됐으면 아래 프롬프트로 챗봇 구현을 요청합니다. 동작·데이터·모델·보안·배포 요구사항을 한 번에 정리해 전달하는 것이 핵심입니다.</p>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">OpenAI 추천 챗봇 구현 요청</span></span></div><pre>현재 느좋카페 서비스에 OpenAI API 기반 AI 카페 추천 챗봇을 추가해줘.
+1. 오른쪽 하단에 둥둥 떠 있는 채팅 아이콘을 만들고, 클릭하면 채팅창이 열리게 해줘.
+2. 사용자가 자연어로 원하는 조건을 말하면 대화를 통해 취향을 파악하고 적합한 카페를 추천해줘.
+3. 기존 data/cafes.json 데이터를 활용하고, 실제 등록된 카페만 추천해줘. 추천 이유도 간단히 설명해줘. 데이터에 없는 정보는 지어내지 마.
+4. 추천 카페를 클릭하면 카카오맵에서 해당 위치와 상세 정보를 보여줘.
+5. **OpenAI 모델은 gpt-6-luna**를 사용하고 Responses API로 연동해줘. 비용 절감을 위해 reasoning.effort는 none으로 설정해줘.
+6. API Key는 .env.local에 OPENAI_API_KEY로 저장하고, 서버에서만 호출해줘. .env.local은 .gitignore에 포함해줘.
+7. 기존 기능을 유지하고 모바일에서도 자연스럽게 작동하도록 구현해줘.
+8. 추후 GitHub에 업로드하고 Vercel로 배포할 예정이므로, 배포 환경에서도 환경변수 설정만으로 정상 작동하도록 해줘.
+최대한 간단하게 구현하고, 불필요한 기능이나 복잡한 구조는 추가하지 마. 로컬 개발 포트는 3030으로 유지해줘.</pre></div>
+<h2>SDK와 API는 뭐가 다를까</h2>
+<p>마지막으로, 자주 헷갈리는 <strong>SDK</strong>와 <strong>API</strong>의 차이를 정리합니다.</p>
+<ul>
+<li><strong>API</strong> — 서버에 보내는 <strong>요청 규칙</strong>입니다. 정해진 주소(엔드포인트)에 정해진 형식으로 HTTP 요청을 보내면 응답이 옵니다. 언어·도구와 상관없이 HTTP만 보낼 수 있으면 됩니다.</li>
+<li><strong>SDK</strong> — 그 API를 특정 언어에서 <strong>쉽게 쓰라고 감싸 놓은 라이브러리</strong>입니다(예: <code>openai</code> npm 패키지). 내부적으로는 결국 같은 API를 호출합니다.</li>
+</ul>
+<p>비유하면 <strong>API는 콘센트 규격</strong>, <strong>SDK는 그 규격에 맞춘 충전기</strong>입니다. 규격만 맞으면 직접 선을 연결(API)해도 되고, 만들어진 충전기(SDK)를 꽂아 써도 됩니다.</p>
+<ul>
+<li>앞서 <strong>카카오맵</strong>은 브라우저에서 지도를 그리려고 <strong>JavaScript SDK</strong>를 썼습니다.</li>
+<li><strong>OpenAI</strong>는 키를 숨겨야 하므로 <strong>서버에서</strong> API(또는 서버용 <code>openai</code> SDK)로 호출합니다.</li>
+</ul>
+
+</div>
+<nav class="lesson-nav">
+<a class="prev" href="../../lessons/practical-build/map-explained.html"><span class="dir">← Prev</span><span class="lbl">지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a>
+<a class="next" href="../../lessons/practical-git/git-basics.html"><span class="dir">Next →</span><span class="lbl">Git 기본기 다지기</span></a>
+</nav>
+</article>
+</main>
+</div>
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>AIX102 X+AI 서비스 디자인</strong> · 실전편 (학습용 복제본)<br>
+    원본 콘텐츠: <a href="https://www.grabity.me/courses/vibecoding" target="_blank" rel="noopener">grabity.me/courses/vibecoding</a></p>
+    <p>실습 파일: <a href="../../VibeCafe.zip" download>VibeCafe.zip</a><br>
+    디자인 시스템: DESIGN.md</p>
+  </div>
+</footer>
+</body>
+</html>

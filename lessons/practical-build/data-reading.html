@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>데이터 읽기 (JSON) · 실전편 · AIX102 X+AI 서비스 디자인</title>
+<meta name="description" content="느좋카페 데이터를 JSON으로 읽고 지도와 카드에 필요한 필드를 구분합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script defer src="../../assets/js/copy.js"></script>
+</head>
+<body>
+<header class="nav-bar">
+  <a class="nav-wordmark" href="../../index.html"><span class="dot"></span>AIX102 X+AI 서비스 디자인</a>
+  <nav class="nav-links">
+    <a href="../../index.html">전체 목차</a>
+    <a href="../../VibeCafe.zip" download>실습 파일 (.zip)</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<p class="sidebar-eyebrow">Course</p>
+<a class="sidebar-title" href="../../index.html" style="text-decoration:none;display:block">AIX102 X+AI 서비스 디자인</a>
+<a class="sidebar-cta" href="../../VibeCafe.zip" download>실습 파일 다운로드 <span>⬇</span></a>
+<p class="nav-section-label">실전편 커리큘럼</p>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">01</span><span class="nav-chapter-title">인트로</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-intro/practical-overview.html"><span class="num">1.1</span><span>실전편 개요</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">02</span><span class="nav-chapter-title">프로젝트 세팅하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/project-setup/kakao-sdk-issue.html"><span class="num">2.1</span><span>카카오맵 SDK 발급받기</span></a></li>
+<li><a href="../../lessons/project-setup/folder-setup.html"><span class="num">2.2</span><span>실습 폴더 세팅하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">03</span><span class="nav-chapter-title">프로젝트 시작하기</span></div>
+<ul class="nav-lessons">
+<li><a class="active" href="../../lessons/practical-build/data-reading.html"><span class="num">3.1</span><span>데이터 읽기 (JSON)</span></a></li>
+<li><a href="../../lessons/practical-build/scaffold.html"><span class="num">3.2</span><span>Scaffolding: 프로젝트 구조 잡기</span></a></li>
+<li><a href="../../lessons/practical-build/map-explained.html"><span class="num">3.3</span><span>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a></li>
+<li><a href="../../lessons/practical-build/ai-api.html"><span class="num">3.4</span><span>AI API 연결하기 (OpenAI)</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">04</span><span class="nav-chapter-title">코드 버전 관리하기 (Git &amp; GitHub)</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-git/git-basics.html"><span class="num">4.1</span><span>Git 기본기 다지기</span></a></li>
+<li><a href="../../lessons/practical-git/github-basics.html"><span class="num">4.2</span><span>GitHub 사용법 익히기</span></a></li>
+<li><a href="../../lessons/practical-git/git-advanced.html"><span class="num">4.3</span><span>조금 더 공부하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">05</span><span class="nav-chapter-title">지도 데이터베이스 구축하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-database/database-intro.html"><span class="num">5.1</span><span>데이터베이스 스키마 설계하기</span></a></li>
+<li><a href="../../lessons/practical-database/supabase-intro.html"><span class="num">5.2</span><span>Supabase 활용하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-migration.html"><span class="num">5.3</span><span>places 테이블 마이그레이션하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">06</span><span class="nav-chapter-title">느좋카페 가게 이미지 적용하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-image-storage/file-storage-intro.html"><span class="num">6.1</span><span>파일 스토리지 적용하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">07</span><span class="nav-chapter-title">사용자 기능 개발하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-auth/auth-intro.html"><span class="num">7.1</span><span>인증과 인가 이해하기</span></a></li>
+<li><a href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="num">7.2</span><span>카카오 로그인·Supabase 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/rls-supabase.html"><span class="num">7.3</span><span>Supabase RLS 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/login-bookmark.html"><span class="num">7.4</span><span>카카오 로그인과 북마크 기능 붙이기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">배포하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-deploy/deploy-basics.html"><span class="num">8.1</span><span>서버 배포의 과정 이해하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">8.2</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">8.3</span><span>나만의 도메인 설정하기</span></a></li>
+</ul></div>
+<details class="nav-appendix"><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">A</span><span class="nav-chapter-title">디자인 개선하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-design/html-css-for-design.html"><span class="num">A.1</span><span>Claude Code에게 디자인 수정 요청하기</span></a></li>
+<li><a href="../../lessons/practical-design/vibe-design.html"><span class="num">A.2</span><span>바이브 디자인으로 방향 잡기</span></a></li>
+<li><a href="../../lessons/practical-design/design-md.html"><span class="num">A.3</span><span>DESIGN.md로 디자인 시스템 고정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">B</span><span class="nav-chapter-title">에이전틱 워크플로우</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/agentic-workflow/agentic-workflow-overview.html"><span class="num">B.1</span><span>에이전틱 워크플로우란</span></a></li>
+<li><a href="../../lessons/agentic-workflow/plan-implement.html"><span class="num">B.2</span><span>계획하고 구현하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/verify.html"><span class="num">B.3</span><span>검증 고도화하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/refactor-before-task.html"><span class="num">B.4</span><span>작업 전에 검증 환경 만들기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/long-running-task.html"><span class="num">B.5</span><span>긴 작업 태워보기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/compound-learnings.html"><span class="num">B.6</span><span>배운 걸 프로젝트에 남기기</span></a></li>
+</ul></div>
+</div></details>
+</aside>
+<main class="main">
+<article class="reading">
+<div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
+<a class="lesson-back" href="../../index.html">← course overview</a>
+<div class="reading-meta"><span>chapter 03</span><span>lesson 3.1</span><span>private</span><span class="wb">workbench</span></div>
+<div class="reading-head">
+<p class="chapter-eyebrow">프로젝트 시작하기</p>
+<h1>데이터 읽기 (JSON)</h1>
+<p class="description">느좋카페 데이터를 JSON으로 읽고 지도와 카드에 필요한 필드를 구분합니다.</p>
+</div>
+<div class="lesson-body">
+<h2>얻어갈 것</h2>
+<ul>
+<li>JSON 구조를 이해하고 느좋카페에서 사용할 데이터를 직접 확인합니다.</li>
+</ul>
+<h2>왜 데이터와 지도부터 보나</h2>
+<ul>
+<li>느좋카페은 일반 웹페이지가 아니라 <strong>장소 데이터를 지도 위에 보여주는 서비스</strong>입니다.</li>
+<li>이번 레슨에서는 "우리가 지도에 올릴 데이터가 어떤 모양인지"를 먼저 확인합니다.</li>
+</ul>
+<h2>데이터 구조를 먼저 보는 이유 (중요)</h2>
+<ul>
+<li><strong>데이터 구조는 API 응답과 화면 구성을 구성하는 기준입니다.</strong></li>
+<li>서비스 개발은 보통 데이터베이스에서 시작해 API 서버를 거쳐 프론트엔드 화면으로 흘러갑니다.</li>
+<li>데이터 구조가 흔들리면 API 응답 모양과 화면 구성도 같이 흔들려서, 뒤로 갈수록 바꾸기 어려워집니다.</li>
+<li>그래서 처음에는 기능을 바로 만들기보다, 서비스에 어떤 데이터가 필요한지 먼저 논의하면 뒤에서 덜 흔들립니다.</li>
+</ul>
+<figure class="lesson-figure"><img src="../../assets/images/data-reading/figures/data-api-ui-foundation.png" alt="데이터 구조를 기반으로 API 응답과 UI 화면이 쌓이는 피라미드 구조" loading="lazy" decoding="async"/><figcaption>아래층인 데이터 구조가 흔들리면 API와 UI도 다시 맞춰야 합니다.</figcaption></figure>
+<h2>JSON과 CSV</h2>
+<figure class="lesson-figure"><img src="../../assets/images/data-reading/figures/json-csv-data-shapes.png" alt="CSV는 표처럼, JSON은 객체와 배열로 데이터를 적는 방식" loading="lazy" decoding="async"/><figcaption>CSV와 JSON은 데이터를 적는 방식이고, 느좋카페 실습에서는 여러 장소 객체가 들어 있는 JSON 파일을 읽습니다.</figcaption></figure>
+<ul>
+<li>CSV는 표처럼 행과 열로 보는 데이터에 가깝습니다.</li>
+<li>JSON은 객체와 배열로 구조를 표현하기 좋아서, 웹앱에서 자주 씁니다.</li>
+<li>이번 실습 파일은 여러 카페 객체가 배열 안에 들어 있는 JSON 형식으로 봅니다.</li>
+</ul>
+<h3>JSON 기본</h3>
+<figure class="lesson-figure"><img src="../../assets/images/data-reading/figures/json-key-value-structure.png" alt="스타벅스 석촌호수점 JSON 객체에서 key와 value, object, array, 값 타입을 구분하는 그림" loading="lazy" decoding="async"/><figcaption>key는 데이터의 이름이고, value는 그 이름에 들어 있는 실제 값입니다.</figcaption></figure>
+<ul>
+<li>JSON은 기본적으로 <code>"key": value</code> 구조입니다. 왼쪽 key는 데이터 이름이고, 오른쪽 value는 실제 값입니다.</li>
+<li>예를 들어 <code>"name": "스타벅스 석촌호수점"</code>은 <code>name</code>이라는 이름으로 <code>"스타벅스 석촌호수점"</code>이라는 값을 저장한 것입니다.</li>
+<li>객체(object)는 <code>{ ... }</code>로 감싸고, 여러 key/value를 묶어 한 장소의 정보를 표현합니다.</li>
+<li>배열(array)은 <code>[ ... ]</code>로 감싸고, 여러 장소 객체를 순서대로 담아 둔 목록입니다.</li>
+<li>값의 타입은 문자열(<code>"스타벅스 석촌호수점"</code>), 숫자(<code>37.5095155</code>), 참/거짓(<code>true</code>), 배열(<code>["석촌호수뷰", "통창"]</code>)처럼 나뉩니다.</li>
+</ul>
+<h2>느좋카페 데이터 읽기</h2>
+<ul>
+<li>오른쪽 workbench에서 <code>cafes.json</code>을 열어 첫 몇 줄만 확인합니다.</li>
+<li>배열 안의 객체 하나가 하나의 카페이고, 카페마다 이름, 주소, 좌표, 작업 적합도 정보가 들어 있습니다.</li>
+<li>지금은 지도에 꼭 필요한 값과 나중에 보여줄 값을 나눠봅니다.</li>
+</ul>
+<h3>기본 필드 읽기</h3>
+<pre class="code-block "><code class="language-jsonc"><span class="code-token-punctuation">{</span>
+  <span class="code-token-comment">// 화면에서 사용자가 바로 읽는 장소 이름과 주소입니다.</span>
+  <span class="code-token-key">"name"</span><span class="code-token-punctuation">:</span> <span class="code-token-string">"스타벅스 석촌호수점"</span><span class="code-token-punctuation">,</span>
+  <span class="code-token-key">"address"</span><span class="code-token-punctuation">:</span> <span class="code-token-string">"서울 송파구 석촌호수로 262 (송파동)"</span><span class="code-token-punctuation">,</span>
+
+  <span class="code-token-comment">// 지도 위에 마커를 찍기 위한 위도와 경도입니다.</span>
+  <span class="code-token-key">"lat"</span><span class="code-token-punctuation">:</span> <span class="code-token-number">37.5095155</span><span class="code-token-punctuation">,</span>
+  <span class="code-token-key">"lng"</span><span class="code-token-punctuation">:</span> <span class="code-token-number">127.1052962</span><span class="code-token-punctuation">,</span>
+
+  <span class="code-token-comment">// 장소 상세를 외부 지도 서비스로 연결할 때 쓸 수 있는 링크입니다.</span>
+  <span class="code-token-key">"naver_place_url"</span><span class="code-token-punctuation">:</span> <span class="code-token-string">"https://map.naver.com/p/entry/place/33979877"</span><span class="code-token-punctuation">,</span>
+
+  <span class="code-token-comment">// 영업시간과 24시간 운영 여부입니다.</span>
+  <span class="code-token-key">"open_time"</span><span class="code-token-punctuation">:</span> <span class="code-token-string">"08:00"</span><span class="code-token-punctuation">,</span>
+  <span class="code-token-key">"close_time"</span><span class="code-token-punctuation">:</span> <span class="code-token-string">"22:00"</span><span class="code-token-punctuation">,</span>
+  <span class="code-token-key">"is_24h"</span><span class="code-token-punctuation">:</span> <span class="code-token-literal">false</span><span class="code-token-punctuation">,</span>
+
+  <span class="code-token-comment">// 가격 감각을 보여주기 위한 대표 메뉴 가격입니다.</span>
+  <span class="code-token-key">"iced_americano_price"</span><span class="code-token-punctuation">:</span> <span class="code-token-number">4700</span><span class="code-token-punctuation">,</span>
+
+  <span class="code-token-comment">// 작업 환경을 판단하기 위한 핵심 기준입니다.</span>
+  <span class="code-token-key">"outlet"</span><span class="code-token-punctuation">:</span> <span class="code-token-string">"some"</span><span class="code-token-punctuation">,</span>
+  <span class="code-token-key">"wifi"</span><span class="code-token-punctuation">:</span> <span class="code-token-literal">true</span><span class="code-token-punctuation">,</span>
+  <span class="code-token-key">"noise"</span><span class="code-token-punctuation">:</span> <span class="code-token-string">"quiet"</span><span class="code-token-punctuation">,</span>
+  <span class="code-token-key">"work_fit"</span><span class="code-token-punctuation">:</span> <span class="code-token-string">"ok"</span><span class="code-token-punctuation">,</span>
+
+  <span class="code-token-comment">// 카드 뱃지나 필터로 보여주기 좋은 짧은 설명 목록입니다.</span>
+  <span class="code-token-key">"tags"</span><span class="code-token-punctuation">:</span> <span class="code-token-punctuation">[</span><span class="code-token-string">"석촌호수뷰"</span><span class="code-token-punctuation">,</span> <span class="code-token-string">"넓은매장"</span><span class="code-token-punctuation">,</span> <span class="code-token-string">"3층"</span><span class="code-token-punctuation">,</span> <span class="code-token-string">"통창"</span><span class="code-token-punctuation">,</span> <span class="code-token-string">"콘센트자리한정"</span><span class="code-token-punctuation">]</span><span class="code-token-punctuation">,</span>
+<span class="code-token-punctuation">}</span>
+</code></pre>
+<ul>
+<li>지도에 바로 필요한 값: <code>name</code>, <code>address</code>, <code>lat</code>, <code>lng</code></li>
+<li>운영/비용 판단: <code>open_time</code>, <code>close_time</code>, <code>is_24h</code>, <code>iced_americano_price</code></li>
+<li>작업 적합도 판단: <code>outlet</code>, <code>wifi</code>, <code>noise</code>, <code>work_fit</code></li>
+<li>화면 보조 정보: <code>tags</code>, <code>naver_place_url</code></li>
+</ul>
+<h2>마무리</h2>
+<ul>
+<li>지도 서비스는 화면을 만들기 전에 데이터가 어떤 모양인지 알아야 합니다.</li>
+<li>다음 레슨에서는 이 데이터를 올릴 지도 캔버스, 즉 카카오맵 SDK 설정을 준비합니다.</li>
+</ul>
+</div>
+<nav class="lesson-nav">
+<a class="prev" href="../../lessons/project-setup/folder-setup.html"><span class="dir">← Prev</span><span class="lbl">실습 폴더 세팅하기</span></a>
+<a class="next" href="../../lessons/practical-build/scaffold.html"><span class="dir">Next →</span><span class="lbl">Scaffolding: 프로젝트 구조 잡기</span></a>
+</nav>
+</article>
+</main>
+</div>
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>AIX102 X+AI 서비스 디자인</strong> · 실전편 (학습용 복제본)<br>
+    원본 콘텐츠: <a href="https://www.grabity.me/courses/vibecoding" target="_blank" rel="noopener">grabity.me/courses/vibecoding</a></p>
+    <p>실습 파일: <a href="../../VibeCafe.zip" download>VibeCafe.zip</a><br>
+    디자인 시스템: DESIGN.md</p>
+  </div>
+</footer>
+</body>
+</html>

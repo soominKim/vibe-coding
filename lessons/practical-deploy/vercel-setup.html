@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vercel로 느좋카페 배포하기 · 실전편 · AIX102 X+AI 서비스 디자인</title>
+<meta name="description" content="GitHub 저장소를 Vercel에 연결해 첫 배포를 진행합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script defer src="../../assets/js/copy.js"></script>
+</head>
+<body>
+<header class="nav-bar">
+  <a class="nav-wordmark" href="../../index.html"><span class="dot"></span>AIX102 X+AI 서비스 디자인</a>
+  <nav class="nav-links">
+    <a href="../../index.html">전체 목차</a>
+    <a href="../../VibeCafe.zip" download>실습 파일 (.zip)</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<p class="sidebar-eyebrow">Course</p>
+<a class="sidebar-title" href="../../index.html" style="text-decoration:none;display:block">AIX102 X+AI 서비스 디자인</a>
+<a class="sidebar-cta" href="../../VibeCafe.zip" download>실습 파일 다운로드 <span>⬇</span></a>
+<p class="nav-section-label">실전편 커리큘럼</p>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">01</span><span class="nav-chapter-title">인트로</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-intro/practical-overview.html"><span class="num">1.1</span><span>실전편 개요</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">02</span><span class="nav-chapter-title">프로젝트 세팅하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/project-setup/kakao-sdk-issue.html"><span class="num">2.1</span><span>카카오맵 SDK 발급받기</span></a></li>
+<li><a href="../../lessons/project-setup/folder-setup.html"><span class="num">2.2</span><span>실습 폴더 세팅하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">03</span><span class="nav-chapter-title">프로젝트 시작하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-build/data-reading.html"><span class="num">3.1</span><span>데이터 읽기 (JSON)</span></a></li>
+<li><a href="../../lessons/practical-build/scaffold.html"><span class="num">3.2</span><span>Scaffolding: 프로젝트 구조 잡기</span></a></li>
+<li><a href="../../lessons/practical-build/map-explained.html"><span class="num">3.3</span><span>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a></li>
+<li><a href="../../lessons/practical-build/ai-api.html"><span class="num">3.4</span><span>AI API 연결하기 (OpenAI)</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">04</span><span class="nav-chapter-title">코드 버전 관리하기 (Git &amp; GitHub)</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-git/git-basics.html"><span class="num">4.1</span><span>Git 기본기 다지기</span></a></li>
+<li><a href="../../lessons/practical-git/github-basics.html"><span class="num">4.2</span><span>GitHub 사용법 익히기</span></a></li>
+<li><a href="../../lessons/practical-git/git-advanced.html"><span class="num">4.3</span><span>조금 더 공부하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">05</span><span class="nav-chapter-title">지도 데이터베이스 구축하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-database/database-intro.html"><span class="num">5.1</span><span>데이터베이스 스키마 설계하기</span></a></li>
+<li><a href="../../lessons/practical-database/supabase-intro.html"><span class="num">5.2</span><span>Supabase 활용하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-migration.html"><span class="num">5.3</span><span>places 테이블 마이그레이션하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">06</span><span class="nav-chapter-title">느좋카페 가게 이미지 적용하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-image-storage/file-storage-intro.html"><span class="num">6.1</span><span>파일 스토리지 적용하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">07</span><span class="nav-chapter-title">사용자 기능 개발하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-auth/auth-intro.html"><span class="num">7.1</span><span>인증과 인가 이해하기</span></a></li>
+<li><a href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="num">7.2</span><span>카카오 로그인·Supabase 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/rls-supabase.html"><span class="num">7.3</span><span>Supabase RLS 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/login-bookmark.html"><span class="num">7.4</span><span>카카오 로그인과 북마크 기능 붙이기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">배포하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-deploy/deploy-basics.html"><span class="num">8.1</span><span>서버 배포의 과정 이해하기</span></a></li>
+<li><a class="active" href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">8.2</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">8.3</span><span>나만의 도메인 설정하기</span></a></li>
+</ul></div>
+<details class="nav-appendix"><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">A</span><span class="nav-chapter-title">디자인 개선하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-design/html-css-for-design.html"><span class="num">A.1</span><span>Claude Code에게 디자인 수정 요청하기</span></a></li>
+<li><a href="../../lessons/practical-design/vibe-design.html"><span class="num">A.2</span><span>바이브 디자인으로 방향 잡기</span></a></li>
+<li><a href="../../lessons/practical-design/design-md.html"><span class="num">A.3</span><span>DESIGN.md로 디자인 시스템 고정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">B</span><span class="nav-chapter-title">에이전틱 워크플로우</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/agentic-workflow/agentic-workflow-overview.html"><span class="num">B.1</span><span>에이전틱 워크플로우란</span></a></li>
+<li><a href="../../lessons/agentic-workflow/plan-implement.html"><span class="num">B.2</span><span>계획하고 구현하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/verify.html"><span class="num">B.3</span><span>검증 고도화하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/refactor-before-task.html"><span class="num">B.4</span><span>작업 전에 검증 환경 만들기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/long-running-task.html"><span class="num">B.5</span><span>긴 작업 태워보기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/compound-learnings.html"><span class="num">B.6</span><span>배운 걸 프로젝트에 남기기</span></a></li>
+</ul></div>
+</div></details>
+</aside>
+<main class="main">
+<article class="reading">
+<div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
+<a class="lesson-back" href="../../index.html">← course overview</a>
+<div class="reading-meta"><span>chapter 08</span><span>lesson 8.2</span><span>private</span></div>
+<div class="reading-head">
+<p class="chapter-eyebrow">배포하기</p>
+<h1>Vercel로 느좋카페 배포하기</h1>
+<p class="description">GitHub 저장소를 Vercel에 연결해 첫 배포를 진행합니다.</p>
+</div>
+<div class="lesson-body">
+<h2>얻어갈 것</h2>
+<ul>
+<li>Vercel에서 GitHub 저장소를 가져와 첫 배포를 하기까지 전체 과정을 진행합니다.</li>
+</ul>
+<h2>Vercel이란</h2>
+<ul>
+<li><a href="https://vercel.com/">Vercel</a>은 GitHub 저장소와 연결해 웹 앱을 자동으로 빌드하고 배포해 주는 서비스입니다.</li>
+<li>Next.js 프로젝트는 대부분 자동으로 감지되므로, 처음 배포할 때 설정할 것이 많지 않습니다.</li>
+<li>중요한 건 "어떤 저장소를 가져오는지", "환경 변수가 빠지지 않았는지", "배포 뒤 어떤 URL에서 확인하는지"입니다.</li>
+</ul>
+<h2>1. 가입 후 프로젝트 만들기</h2>
+<ul>
+<li>Vercel 대시보드에서 <code>Add New</code>를 누르고 <code>Create Project</code>로 새 배포 프로젝트를 시작합니다.</li>
+<li>이미 연결된 프로젝트가 있어도, 새 GitHub 저장소를 배포할 때는 이 흐름으로 들어갑니다.</li>
+</ul>
+<figure class="lesson-figure"><img src="../../assets/images/vercel-setup/1.vercel-create-project.png" alt="Vercel 대시보드에서 Add New 메뉴와 Create Project 항목이 강조된 화면" loading="lazy" decoding="async"/><figcaption>Vercel에서는 먼저 새 프로젝트를 만들고, 그 프로젝트에 GitHub 저장소를 연결합니다.</figcaption></figure>
+<h2>2. GitHub 연결하기</h2>
+<ul>
+<li>처음 연결할 때는 Vercel GitHub App을 설치하거나 접근 권한을 허용해야 합니다.</li>
+<li>개인 계정이나 조직 계정 중 어디에 설치할지 선택합니다.</li>
+<li>이 권한이 있어야 Vercel이 GitHub 저장소 목록을 보고, push나 merge를 감지할 수 있습니다.</li>
+</ul>
+<figure class="lesson-figure"><img src="../../assets/images/vercel-setup/2.vercel-github-connect.png" alt="Vercel GitHub App 설치 화면에서 GitHub 계정을 선택하는 화면" loading="lazy" decoding="async"/><figcaption>Vercel이 GitHub 저장소를 가져오려면 먼저 GitHub 계정이나 조직에 접근 권한을 받아야 합니다.</figcaption></figure>
+<h2>3. 저장소 가져오기</h2>
+<ul>
+<li>GitHub 연결이 끝나면 배포할 저장소를 선택하고 <code>Import</code>를 누릅니다.</li>
+<li>이 단계에서 저장소를 잘못 고르면 전혀 다른 프로젝트가 배포될 수 있으니 이름을 한 번 확인합니다.</li>
+<li>수업에서는 느좋카페 프로젝트 저장소를 가져오는 흐름으로 보면 됩니다.</li>
+</ul>
+<figure class="lesson-figure"><img src="../../assets/images/vercel-setup/3.vercel-github-select.png" alt="Import Git Repository 화면에서 GitHub 계정과 저장소 Import 버튼이 강조된 화면" loading="lazy" decoding="async"/><figcaption>저장소를 고르는 단계에서는 계정과 repo 이름을 같이 확인하는 습관이 좋습니다.</figcaption></figure>
+<h2>4. 프로젝트 설정</h2>
+<ul>
+<li>Next.js 프로젝트라면 <code>Application Preset</code>은 보통 자동으로 <code>Next.js</code>로 잡힙니다.</li>
+<li>환경 변수는 자동으로 채워지지 않으므로 직접 확인해야 합니다.</li>
+</ul>
+<figure class="lesson-figure"><img src="../../assets/images/vercel-setup/4.vercel-deploy-settings.png" alt="Vercel New Project 화면에서 프로젝트 이름, Next.js 프리셋, 환경 변수 입력 영역이 강조된 화면" loading="lazy" decoding="async"/><figcaption>Vercel은 프레임워크 설정을 꽤 잘 감지하지만, 환경 변수는 사람이 직접 넣어야 합니다.</figcaption></figure>
+<h2>5. 환경 변수 설정</h2>
+<ul>
+<li>배포 사고는 환경 변수에서 자주 납니다. 로컬 <code>.env.local</code>에는 있는데 Vercel에는 없는 경우가 대표적입니다.</li>
+<li>브라우저에서 읽어야 하는 값은 <code>NEXT_PUBLIC_</code> 접두사가 필요하고, 비밀키는 절대 <code>NEXT_PUBLIC_</code>으로 노출하면 안 됩니다.</li>
+<li>우리 프로젝트의 <code>.env.local</code>에서 쓰는 환경 변수를 그대로 넣으면 됩니다.</li>
+</ul>
+<figure class="lesson-figure"><img src="../../assets/images/vercel-setup/5.vercel-env-deploy.png" alt="Vercel 환경 변수 입력 영역에 Kakao Map 키와 Supabase URL, Supabase anon key가 추가된 화면" loading="lazy" decoding="async"/><figcaption>환경 변수는 Production과 Preview에 모두 필요한지 확인하고, 누락 없이 넣은 뒤 배포합니다.</figcaption></figure>
+<aside class="callout warning"><p>서버 전용 secret key에는 <code>NEXT_PUBLIC_</code>을 붙이면 안 됩니다. 예를 들어 Supabase의 <code>SUPABASE_SERVICE_ROLE_KEY</code>는 서버에서만 써야 하고, 붙이는 순간 브라우저 코드에 노출될 수 있습니다.</p></aside>
+<h2>6. 배포 확인</h2>
+<figure class="lesson-figure"><img src="../../assets/images/vercel-setup/6.complete.png" alt="Vercel에 배포가 완료된 화면" loading="lazy" decoding="async"/><figcaption>Ready 상태가 뜨면 배포된 서비스 URL을 열어볼 수 있습니다.</figcaption></figure>
+<h2>7. 외부 서비스에 배포 URL 등록하기</h2>
+<ul>
+<li>Vercel 배포가 끝나면 외부 서비스에도 새 배포 주소를 알려줘야 합니다.</li>
+<li>여기서 말하는 URL 등록은 DNS 연결이 아니라, Kakao나 Supabase가 이 URL을 믿고 요청을 받아주도록 허용 목록에 추가하는 일입니다.</li>
+<li>로컬 주소만 등록되어 있으면 배포된 사이트에서 지도나 로그인이 깨질 수 있습니다.</li>
+</ul>
+<h3>Kakao JavaScript SDK 도메인</h3>
+<ul>
+<li>Kakao 지도 SDK를 쓰는 프로젝트라면 Kakao Developers의 JavaScript SDK 도메인에 배포된 Vercel 주소를 추가합니다.</li>
+<li>로컬 개발용 <code>localhost</code>와 배포용 <code>https://...vercel.app</code> 주소를 함께 둘 수 있습니다.</li>
+<li>주소 끝의 <code>/</code> 포함 여부가 서비스마다 다르게 처리될 수 있으니, Kakao 화면에 들어간 값을 그대로 확인합니다.</li>
+</ul>
+<figure class="lesson-figure"><img src="../../assets/images/vercel-setup/7.kakao-js.png" alt="Kakao Developers JavaScript SDK 도메인 설정 화면에 Vercel 배포 주소가 추가된 화면" loading="lazy" decoding="async"/><figcaption>Kakao 지도 SDK는 등록된 도메인에서만 동작하므로, 배포된 Vercel 주소를 JavaScript SDK 도메인에 추가해야 합니다.</figcaption></figure>
+<h3>Supabase Redirect URLs</h3>
+<ul>
+<li>Supabase Auth를 쓰는 프로젝트라면 Authentication 설정의 Redirect URLs에도 배포 주소를 추가합니다.</li>
+<li>로그인 뒤 돌아올 주소가 허용 목록에 없으면, 로컬에서는 되던 로그인이 배포 환경에서 실패할 수 있습니다.</li>
+<li>Preview 배포까지 받을 계획이면 <code>/**</code> 같은 패턴을 쓸지, Production 주소만 등록할지 프로젝트 기준으로 정합니다.</li>
+</ul>
+<figure class="lesson-figure"><img src="../../assets/images/vercel-setup/8.supabase-redirect-urls.png" alt="Supabase Authentication URL Configuration 화면에 Vercel 배포 주소가 Redirect URLs로 추가된 화면" loading="lazy" decoding="async"/><figcaption>Supabase Auth는 로그인 후 돌아갈 수 있는 Redirect URL을 제한하므로, 배포 주소를 허용 목록에 추가해야 합니다.</figcaption></figure>
+<h2>8. 실제 서비스 화면 확인하기</h2>
+<figure class="lesson-figure"><img src="../../assets/images/vercel-setup/9.complete.png" alt="Vercel 배포 후 실제 느좋카페 서비스가 브라우저에서 열린 화면" loading="lazy" decoding="async"/><figcaption>Vercel 배포가 끝나면 실제 서비스 URL에서 화면, 지도, 로그인 흐름이 함께 동작하는지 확인합니다.</figcaption></figure>
+<h2>Vercel MCP</h2>
+<ul>
+<li>Vercel은 MCP나 CLI로도 다룰 수 있습니다. 배포 설정이나 환경 변수 확인 같은 작업은 도구를 쓰면 더 빠르게 처리할 수 있습니다.</li>
+<li>수업에서는 먼저 웹 화면으로 흐름을 이해하고, 자동화가 필요해질 때 MCP나 CLI를 쓰는 쪽이 좋습니다.</li>
+</ul>
+<h2>마무리</h2>
+<ul>
+<li>Vercel 첫 배포는 <code>프로젝트 생성 -&gt; GitHub 연결 -&gt; 저장소 import -&gt; 설정 확인 -&gt; 환경 변수 입력 -&gt; Deploy</code> 흐름입니다.</li>
+<li>다음 레슨에서는 배포된 사이트에 나만의 도메인을 연결하는 DNS 흐름을 봅니다.</li>
+</ul>
+</div>
+<nav class="lesson-nav">
+<a class="prev" href="../../lessons/practical-deploy/deploy-basics.html"><span class="dir">← Prev</span><span class="lbl">서버 배포의 과정 이해하기</span></a>
+<a class="next" href="../../lessons/practical-deploy/custom-domain.html"><span class="dir">Next →</span><span class="lbl">나만의 도메인 설정하기</span></a>
+</nav>
+</article>
+</main>
+</div>
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>AIX102 X+AI 서비스 디자인</strong> · 실전편 (학습용 복제본)<br>
+    원본 콘텐츠: <a href="https://www.grabity.me/courses/vibecoding" target="_blank" rel="noopener">grabity.me/courses/vibecoding</a></p>
+    <p>실습 파일: <a href="../../VibeCafe.zip" download>VibeCafe.zip</a><br>
+    디자인 시스템: DESIGN.md</p>
+  </div>
+</footer>
+</body>
+</html>
