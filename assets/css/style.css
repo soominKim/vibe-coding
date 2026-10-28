@@ -109,6 +109,9 @@ a{color:inherit;}
   padding:10px 14px;border-radius:var(--r-md);margin-bottom:var(--xl);
 }
 .sidebar-cta:hover{background:var(--primary-deep);}
+.sidebar-cta--tight{margin-bottom:var(--sm);}
+.sidebar-cta--ghost{background:transparent;color:var(--primary);border:1px solid var(--primary);}
+.sidebar-cta--ghost:hover{background:var(--primary);color:var(--on-primary);}
 .nav-section-label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-mute-2);margin:var(--xl) 0 var(--sm);}
 .nav-chapter{margin-bottom:var(--md);}
 .nav-chapter-head{display:flex;gap:10px;align-items:baseline;margin:var(--lg) 0 var(--sm);}
