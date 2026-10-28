@@ -128,9 +128,10 @@
 <h2>이번 작업 범위</h2>
 <table><thead><tr><th>단계</th><th>할 일</th><th>확인할 것</th></tr></thead><tbody><tr><td>1</td><td><code>places</code> 테이블 만들기</td><td>column, type, nullable(비워 둘 수 있음)</td></tr><tr><td>2</td><td><code>cafes.json</code> 데이터 넣기</td><td>row 개수, 샘플 데이터</td></tr><tr><td>3</td><td>서비스 코드 전환</td><td>로컬 JSON 대신 Supabase 조회</td></tr><tr><td>4</td><td>화면 검증</td><td>지도와 카드가 그대로 보이는지</td></tr></tbody></table>
 <h2>Migration 준비하기</h2>
-<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">마이그레이션 준비</span></span></div><pre>Supabase에서 places 테이블과 데이터 추가 마이그레이션을 준비해 줘.
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">마이그레이션 준비</span></span></div><pre>Supabase에서 places 테이블과 데이터 추가 마이그레이션을 준비해 줘. 만약 cafes로 되어있다면  cafes는 -> places로 바꿔줘.
+제보 장소 데이터는 지금은 구현하지 마.
 
-확인할 것 
+확인할 것
 1. 기존에 생성한 places 스키마 생성 로직
 2. data/cafes.json 데이터 추가 로직</pre></div>
 <h2>서비스 코드 전환하기</h2>
