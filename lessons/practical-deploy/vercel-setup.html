@@ -74,9 +74,8 @@
 <div class="nav-chapter">
 <div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">배포하기</span></div>
 <ul class="nav-lessons">
-<li><a href="../../lessons/practical-deploy/deploy-basics.html"><span class="num">8.1</span><span>서버 배포의 과정 이해하기</span></a></li>
-<li><a class="active" href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">8.2</span><span>Vercel로 느좋카페 배포하기</span></a></li>
-<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">8.3</span><span>나만의 도메인 설정하기</span></a></li>
+<li><a class="active" href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">8.1</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">8.2</span><span>나만의 도메인 설정하기</span></a></li>
 </ul></div>
 <details class="nav-appendix"><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
 <div class="nav-chapter">
@@ -102,13 +101,36 @@
 <article class="reading">
 <div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
 <a class="lesson-back" href="../../index.html">← course overview</a>
-<div class="reading-meta"><span>chapter 08</span><span>lesson 8.2</span><span>private</span></div>
+<div class="reading-meta"><span>chapter 08</span><span>lesson 8.1</span><span>private</span></div>
 <div class="reading-head">
 <p class="chapter-eyebrow">배포하기</p>
 <h1>Vercel로 느좋카페 배포하기</h1>
 <p class="description">GitHub 저장소를 Vercel에 연결해 첫 배포를 진행합니다.</p>
 </div>
 <div class="lesson-body">
+<h2>배포란 무엇인가</h2>
+<ul>
+<li>배포는 내 컴퓨터에서만 돌아가던 앱을 다른 사람이 인터넷으로 접속할 수 있는 상태로 올리는 일입니다.</li>
+<li>개발 중에는 <code>localhost</code>에서 확인하지만, 배포 후에는 실제 주소와 서버 환경에서 확인합니다.</li>
+<li>그래서 배포를 볼 때는 "어떤 코드가, 어떤 검증을 거쳐, 어느 환경에 반영되는가"를 먼저 잡으면 됩니다.</li>
+</ul>
+<h2>배포 흐름 먼저 보기</h2>
+<ul>
+<li>예전에는 서버에 직접 접속해서 파일을 복사하고, 명령어를 치고, 프로세스를 다시 켜는 식으로 배포하기도 했습니다.</li>
+<li>지금은 GitHub에 코드가 올라가면 자동으로 검증하고, 정해진 환경에 배포하는 흐름이 일반적입니다.</li>
+<li>가장 기본은 <code>main</code> 브랜치에 커밋이 올라오면, 배포 서비스가 그 코드를 빌드해서 운영 서버에 반영하는 구조입니다.</li>
+</ul>
+<h2>Github Actions</h2>
+<ul>
+<li><strong>GitHub Actions</strong>는 GitHub 안에서 실행하는 자동화 도구입니다.</li>
+<li>테스트 실행, DB 마이그레이션 확인, 배치 스크립트 실행, 알림 보내기처럼 CI나 운영 자동화를 직접 설계할 때 씁니다.</li>
+<li>보통 Github을 쓰면 Github Action을 활용해 CI/CD 과정을 자동화하게 됩니다.</li>
+</ul>
+<h2>CI/CD</h2>
+<p><strong>CI/CD는 코드 변경을 자동으로 검증하고, 통과한 변경을 배포까지 이어 주는 흐름입니다.</strong></p>
+<ul>
+<li>위 흐름에서 코드가 들어올 때 자동으로 검사하는 단계가 CI이고, 통과한 코드를 실제 주소에 올리는 단계가 CD입니다.</li>
+</ul>
 <h2>얻어갈 것</h2>
 <ul>
 <li>Vercel에서 GitHub 저장소를 가져와 첫 배포를 하기까지 전체 과정을 진행합니다.</li>
@@ -189,7 +211,7 @@
 </ul>
 </div>
 <nav class="lesson-nav">
-<a class="prev" href="../../lessons/practical-deploy/deploy-basics.html"><span class="dir">← Prev</span><span class="lbl">서버 배포의 과정 이해하기</span></a>
+<a class="prev" href="../../lessons/practical-auth/login-bookmark.html"><span class="dir">← Prev</span><span class="lbl">카카오 로그인과 북마크 기능 붙이기</span></a>
 <a class="next" href="../../lessons/practical-deploy/custom-domain.html"><span class="dir">Next →</span><span class="lbl">나만의 도메인 설정하기</span></a>
 </nav>
 </article>
