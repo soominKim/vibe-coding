@@ -119,6 +119,7 @@
 <li>AI 브라우저는 내가 보고 있는 웹 화면을 그대로 이해하고, 설정·클릭·입력 같은 작업을 대신 해 주는 브라우저입니다.</li>
 <li>이 과정에서는 <a href="https://aside.com" target="_blank" rel="noopener">Aside</a>를 예시로 씁니다. Supabase·Vercel·카카오 디벨로퍼스 같은 콘솔 화면에서 "이 설정을 해 줘"라고 시키면, 현재 화면 맥락을 읽고 대신 처리해 줍니다.</li>
 </ul>
+<figure class="lesson-figure"><img src="../../assets/images/kakao-login-supabase/kakao-auth/aside.png" alt="Aside AI 브라우저가 Kakao Developers 콘솔 화면 옆에서 현재 설정을 읽고 다음에 할 일을 안내하는 모습" loading="lazy" decoding="async"/><figcaption>Aside는 지금 보고 있는 콘솔 화면을 그대로 읽고, 오른쪽 패널에서 무엇을 어떻게 설정할지 안내하며 대신 작업해 줍니다.</figcaption></figure>
 <h2>역할 나누기 — Claude Code가 메인, Aside는 브라우저 보조</h2>
 <ul>
 <li><strong>Claude Code</strong>가 전체 진행 순서, 코드, 마이그레이션, 환경변수, git을 맡습니다. 다음에 뭘 할지도 Claude Code가 정합니다.</li>
@@ -127,10 +128,10 @@
 </ul>
 <aside class="callout note"><p>아래 프롬프트를 Aside에 먼저 붙여넣어 "맥락"을 심어 두세요. 그러면 이후에는 Claude Code가 시킨 브라우저 작업만 전달해도, Aside가 규칙에 맞게 처리합니다. 빈 칸([ ])은 본인 정보로 채워 넣으세요.</p></aside>
 <h2>맥락 프롬프트 (복사할 수 있게)</h2>
-<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">Aside 맥락 심기</span></span></div><pre># 프로젝트 맥락: 카공맵 실습 (Aside = 브라우저 보조)
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">Aside 맥락 심기</span></span></div><pre># 프로젝트 맥락: 느좋카페 실습 (Aside = 브라우저 보조)
 
 ## 프로젝트
-&quot;카공맵&quot;: 노트북 작업하기 좋은 카페를 지도에서 찾는 웹 서비스.
+&quot;느좋카페&quot;: 노트북 작업하기 좋은 카페를 지도에서 찾는 웹 서비스.
 - Next.js, 카카오맵 JavaScript SDK
 - Supabase (DB, 인증), 카카오·구글 소셜 로그인, 북마크
 - GitHub → Vercel 배포, (선택) 커스텀 도메인
