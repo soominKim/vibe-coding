@@ -155,7 +155,7 @@
 </code></pre>
 <aside class="callout note"><p>처음 프로젝트를 만들 때도 가능하면 이 세 가지를 기본 환경으로 잡는 걸 추천합니다. 나중에 붙일 수도 있지만, 기능이 쌓인 뒤에는 기존 코드 정리부터 해야 해서 작업이 커집니다.</p></aside>
 <h2>리팩토링 계획 세우기</h2>
-<p>아래 P1 프롬프트는 기능 구현이 아니라 검증 환경 정비만 맡깁니다. 범위를 이렇게 잘라야 다음 작업에서 <code>verify</code>나 코드리뷰가 볼 증거가 생깁니다.</p>
+<p>아래 P1 프롬프트는 기능 구현이 아니라 검증 환경 정비만 맡깁니다. 범위를 이렇게 잘라야 다음 작업에서 <code>verification-before-completion</code>이나 코드 리뷰가 볼 증거가 생깁니다.</p>
 <div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">검증 환경 먼저 갖추기</span></span></div><pre>큰 기능을 만들기 전에 이 프로젝트를 검증 가능한 상태로 정비하려고 한다. 
 
 - TypeScript 타입 체크, lint, test를 실행할 수 있게 만든다.

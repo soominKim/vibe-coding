@@ -129,7 +129,7 @@
 <p>검증을 한 사람이 한 번 훑어보는 일로 생각하면 금방 지칩니다. 대신 세 겹으로 나눠서, 싸고 자동인 것부터 돌립니다.</p>
 <ul>
 <li><strong>기계 검증</strong>: 테스트 코드, lint, build처럼 명령 한 줄로 돌아가는 확인. 빠르고 매번 똑같이 실행됩니다.</li>
-<li><strong>에이전트 검증</strong>: 코드를 직접 읽어 PRD대로 구현됐는지 보고, 실제로 돌려서 동작까지 확인합니다.</li>
+<li><strong>에이전트 검증</strong>: 코드를 직접 읽어 계획대로 구현됐는지 보고, 실제로 돌려서 동작까지 확인합니다.</li>
 <li><strong>사람 검증</strong>: 의도대로 됐는지 최종 판단. 화면을 직접 열어 사용자가 할 행동을 해봅니다.</li>
 </ul>
 <figure class="lesson-figure"><img src="../../assets/images/verify/figures/three-layer-verification.png" alt="AI의 완료 선언을 기계 검증, 에이전트 검증, 사람 검증으로 확인한 뒤 완료로 판단하는 흐름" loading="lazy" decoding="async"/><figcaption>검증은 하나의 단계가 아니라, 기계가 실행하는 명령과 에이전트의 재점검, 사람이 보는 결과를 함께 확인하는 과정입니다.</figcaption></figure>
@@ -156,13 +156,13 @@
   <!-- -->expect<span class="code-token-punctuation">(</span>game<span class="code-token-punctuation">.</span>score<span class="code-token-punctuation">)</span><span class="code-token-punctuation">.</span>toBe<span class="code-token-punctuation">(</span><span class="code-token-number">0</span><span class="code-token-punctuation">)</span><span class="code-token-punctuation">;</span>
 <span class="code-token-punctuation">}</span><span class="code-token-punctuation">)</span><span class="code-token-punctuation">;</span>
 </code></pre>
-<p>코드를 못 읽어도 괜찮습니다. 내가 적은 조건이 빠짐없이 테스트로 들어갔는지, 그게 통과하는지만 보면 됩니다.</p>
+<p>코드를 못 읽어도 괜찮습니다. 내가 적은 조건이 빠짐없이 테스트로 들어갔는지, 그게 통과하는지만 보면 됩니다. Superpowers의 <code>test-driven-development</code> Skill을 쓰면 실패하는 테스트를 먼저 쓰고 최소 구현으로 통과시키는 순서를 지키게 할 수 있습니다.</p>
 <h2>에이전트 검증: 코드를 읽고, 직접 돌려보기</h2>
-<p>기계 검증이 통과해도 PRD 누락이나 빈 구현은 남을 수 있습니다. 이건 에이전트에게 두 갈래로 맡깁니다.</p>
+<p>기계 검증이 통과해도 계획 누락이나 빈 구현은 남을 수 있습니다. 이건 에이전트에게 두 갈래로 맡깁니다.</p>
 <h3>코드를 읽혀서 점검하기</h3>
-<p>테스트가 전부 초록불이어도 요구사항을 반만 구현했거나, 통과만 하고 속은 빈 껍데기일 수 있습니다. 그래서 변경을 만들지 않은 에이전트에게 PRD와 diff를 주고, 코드를 직접 읽으며 점검하게 합니다.</p>
+<p>테스트가 전부 초록불이어도 요구사항을 반만 구현했거나, 통과만 하고 속은 빈 껍데기일 수 있습니다. 그래서 변경을 만들지 않은 에이전트에게 계획과 diff를 주고, 코드를 직접 읽으며 점검하게 합니다.</p>
 <ul>
-<li>PRD 완료 조건 중 코드에 실제로 들어간 것과 빠진 것.</li>
+<li>계획의 완료 조건 중 코드에 실제로 들어간 것과 빠진 것.</li>
 <li>요구한 적 없는데 슬쩍 바뀐 부분이나 위험한 변경.</li>
 <li>테스트는 통과하지만 실제 동작은 비어 있는 구현.</li>
 </ul>
@@ -190,15 +190,15 @@
 <li><a href="https://code.claude.com/docs/ko/chrome">Claude in Chrome</a>은 클로드 코드에서 크롬에 접근할 수 있도록 돕습니다.</li>
 <li>크롬 익스텐션을 설치하고 로그인을 해두면, Claude Code에서 해당 크롬에 접근하여 명령을 수행할 수 있습니다.</li>
 </ul>
-<h2>verify 스킬로 한 번에 돌리기</h2>
-<p>위 검증들을 매번 직접 고르지 않아도 됩니다. <code>vibe-engineering</code>의 <code>/verify</code> 스킬에 맡기면 바뀐 범위를 보고 필요한 단계만 골라 돌린 뒤, 증거와 판정만 돌려줍니다.</p>
+<h2>verification-before-completion으로 완료 전에 확인하기</h2>
+<p>위 검증들을 매번 직접 챙기지 않아도 됩니다. Superpowers의 <code>verification-before-completion</code> Skill은 에이전트가 "완료했습니다"라고 선언하기 전에, 실제 명령 실행 결과와 테스트 증거를 먼저 확인하도록 강제합니다.</p>
 <ul>
-<li><strong>Level 1 정적</strong>: lint, 타입 체크, build, 콘텐츠 검증처럼 명령 한 줄로 끝나는 확인.</li>
-<li><strong>Level 2 동작</strong>: 단위·통합 테스트, smoke 스크립트.</li>
-<li><strong>Level 3 런타임</strong>: 브라우저·API·DB·로그로 실제 동작 확인. 브라우저는 위에서 설치한 playwright-cli를 씁니다.</li>
-<li><strong>Level 4 적대적</strong>: 변경이 크거나 위험할 때만 켜는 한 겹 더. 바로 아래에서 설명합니다.</li>
+<li>lint, 타입 체크, build, 테스트처럼 명령으로 돌릴 수 있는 것은 실제로 실행한 결과를 증거로 남깁니다.</li>
+<li>화면·API·DB처럼 돌려봐야 보이는 동작은 직접 실행해 확인합니다. 브라우저는 위에서 설치한 playwright-cli를 씁니다.</li>
+<li>증거 없이 "될 것 같다"로 끝나는 완료 선언은 통과로 치지 않습니다.</li>
 </ul>
-<aside class="callout warning"><p><code>verify</code>는 보고만 하고 코드를 직접 고치지 않습니다. 검증과 수정을 섞으면 "검증하는 김에 슬쩍 바꿨다가 다른 걸 깨뜨리는" 일이 생기기 쉽습니다. 고칠 게 나오면 <code>implement</code>나 사람이 맡습니다.</p></aside>
+<p>코드 자체의 점검은 <code>requesting-code-review</code>로 맡깁니다. 변경을 만들지 않은 에이전트가 계획 준수 여부와 결함·품질 관점에서 diff를 리뷰하고, 리뷰 결과는 <code>receiving-code-review</code>로 기술적으로 평가해 타당한 피드백만 반영합니다.</p>
+<aside class="callout warning"><p>검증 단계는 보고만 하고 코드를 직접 고치지 않게 합니다. 검증과 수정을 섞으면 "검증하는 김에 슬쩍 바꿨다가 다른 걸 깨뜨리는" 일이 생기기 쉽습니다. 고칠 게 나오면 구현 단계(<code>executing-plans</code>)나 사람이 맡습니다.</p></aside>
 <h3>큰 변경은 적대적으로 한 번 더</h3>
 <p>변경이 작으면 여기까지로 충분합니다. 하지만 변경이 크거나(여러 파일·수백 줄), 권한·결제·데이터 삭제처럼 한 번 틀리면 위험한 부분이라면, 만든 에이전트가 스스로 "잘 됐다"고 하는 말을 그대로 믿기 어렵습니다.</p>
 <ul>

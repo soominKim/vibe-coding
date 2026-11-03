@@ -131,30 +131,42 @@
 <table><thead><tr><th>방식</th><th>빠른 점</th><th>막히는 지점</th></tr></thead><tbody><tr><td>그냥 해줘</td><td>작은 UI 수정, 문구 변경에는 빠릅니다.</td><td>범위와 완료 조건이 흐려집니다.</td></tr><tr><td>대화로 계속 수정</td><td>눈에 보이는 결과를 빨리 맞출 수 있습니다.</td><td>같은 설명을 반복하고, 코드 품질은 뒤늦게 발견합니다.</td></tr><tr><td>에이전틱 워크플로우</td><td>시작 전에 기준을 잡고 실행합니다.</td><td>처음에 범위와 검증 방식을 쓰는 시간이 필요합니다.</td></tr></tbody></table>
 <h2>에이전틱 워크플로우</h2>
 <p><strong>에이전틱 워크플로우는 AI에게 한 번에 결과물을 요구하는 방식이 아니라, 작업을 단계로 나누고 실행하는 방식입니다.</strong></p>
-<table><thead><tr><th>단계</th><th>AI에게 맡길 일</th><th>사람이 볼 것</th></tr></thead><tbody><tr><td>탐색/계획(Plan)</td><td>코드베이스를 읽고, 모호한 요구사항을 질문하고, PRD로 정리합니다.</td><td>이번에 만들 것과 만들지 않을 것.</td></tr><tr><td>구현(Implementation)</td><td>PRD의 완료 조건을 체크리스트로 바꾸고 코드를 수정합니다.</td><td>PRD대로 잘 구현되었는지.</td></tr><tr><td>검증(Verification)</td><td>테스트, 빌드, 브라우저 시나리오, diff 리뷰로 증거를 모읍니다.</td><td>AI의 완료 선언이 아니라 실제 증거.</td></tr><tr><td>학습(Compounding)</td><td>반복된 실수, 검증 명령, 프로젝트 규칙을 남깁니다.</td><td>다음에도 남길 만큼 반복 가능한 내용인지.</td></tr></tbody></table>
+<table><thead><tr><th>단계</th><th>AI에게 맡길 일</th><th>사람이 볼 것</th></tr></thead><tbody><tr><td>탐색/계획(Plan)</td><td>코드베이스를 읽고, 모호한 요구사항을 질문하고, 설계안과 실행 계획으로 정리합니다.</td><td>이번에 만들 것과 만들지 않을 것.</td></tr><tr><td>구현(Implementation)</td><td>계획의 완료 조건을 체크리스트로 바꾸고 코드를 수정합니다.</td><td>계획대로 잘 구현되었는지.</td></tr><tr><td>검증(Verification)</td><td>테스트, 빌드, 브라우저 시나리오, diff 리뷰로 증거를 모읍니다.</td><td>AI의 완료 선언이 아니라 실제 증거.</td></tr><tr><td>학습(Compounding)</td><td>반복된 실수, 검증 명령, 프로젝트 규칙을 남깁니다.</td><td>다음에도 남길 만큼 반복 가능한 내용인지.</td></tr></tbody></table>
 <p>검증과 코드리뷰를 통과한 뒤에야 풀 리퀘스트(PR), 배포, 다음 작업으로 넘깁니다.</p>
 <figure class="lesson-figure"><img src="../../assets/images/agentic-workflow-overview/figures/ai-dev-process-cycle.png" alt="계획, 구현, 검증과 코드리뷰, 개선으로 도는 로컬 개발 루프에서 검증을 통과하면 원격 푸시와 배포로 이어지는 흐름" loading="lazy" decoding="async"/><figcaption>AI와 개발할 때도 먼저 로컬에서 계획, 구현, 검증, 개선 루프를 돌리고, 검증을 통과한 뒤 원격 푸시와 배포로 넘기는 편이 안전합니다.</figcaption></figure>
 <h2>Skill로 책임을 나눕니다</h2>
-<p>이 워크플로우를 크게 스킬로 나눠보면 아래와 같습니다.</p>
+<p>이 수업에서는 이 워크플로우를 Skill 묶음으로 제공하는 <strong>Superpowers</strong>를 씁니다.</p>
+<h3>Superpowers란</h3>
+<p><a href="https://github.com/obra/superpowers">Superpowers</a>는 Claude Code 같은 AI 코딩 에이전트가 생각 없이 바로 코드를 작성하지 않고, 요구사항을 탐색·설계한 뒤 <strong>계획 → 구현 → 테스트 → 코드 리뷰 → PR/마무리</strong> 순서로 일하도록 도와주는 오픈소스 개발 방법론 및 Skill 모음입니다. 각 기능은 독립된 <code>SKILL.md</code> 파일로 정의되며, 적절한 상황에서 Claude가 자동으로 사용하거나 사용자가 슬래시 명령어로 직접 실행할 수 있습니다.</p>
 <ul>
-<li><code>clarify</code>: 모호한 요청을 질문으로 좁힙니다.</li>
-<li><code>prd</code>: 요구사항, 범위, 완료 조건, 검증 방식을 문서로 만듭니다.</li>
-<li><code>implement</code>: 승인된 PRD를 기준으로 코드를 수정하고, 구현 중 필요한 검증을 추적합니다.</li>
-<li><code>verify</code>: 구현자와 분리해서 화면, 데이터, 테스트, diff 증거를 다시 확인합니다.</li>
-<li><code>pr</code>: 변경 범위와 검증 결과를 리뷰 가능한 형태로 묶습니다.</li>
-<li><code>learn</code>: 반복된 실수와 검증 명령을 다음 작업의 기본값으로 남깁니다.</li>
+<li><strong>탐색</strong>: <code>brainstorming</code>으로 아이디어·요구사항을 질문하며 정리</li>
+<li><strong>계획</strong>: <code>writing-plans</code>로 실행 가능한 세부 작업 계획 생성</li>
+<li><strong>구현</strong>: <code>executing-plans</code> 또는 <code>subagent-driven-development</code>로 단계별 코딩</li>
+<li><strong>검증</strong>: TDD, 디버깅, 완료 검증, 코드 리뷰를 결합</li>
+<li><strong>마무리</strong>: 테스트 결과 확인 후 PR·병합 등 선택</li>
 </ul>
 <h3>Skill들 추가하기</h3>
-<p><code>vibe-engineering</code>은 이 흐름을 Claude Code에서 바로 써볼 수 있게 만든 Skill 묶음입니다. 수업에서는 설치 명령을 외우기보다, 에이전트에게 README를 읽고 현재 프로젝트에 맞게 설치하게 시킵니다.</p>
-<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">vibe-engineering Skill 설치하기</span></span></div><pre>https://github.com/yansfil/vibe-engineering README를 읽고, 이 프로젝트에서 Claude Code에 vibe-engineering Skill들을 설치해줘.
+<p>수업에서는 설치 명령을 외우기보다, 에이전트에게 README를 읽고 설치하게 시킵니다.</p>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">Superpowers Skill 설치하기</span></span></div><pre>https://github.com/obra/superpowers README를 읽고, Claude Code에 Superpowers 관련 Skill들을 모두 설치해줘.
 
-- README의 Claude Code 설치 명령을 기준으로 진행해줘
-- 설치 후 설치된 Skill 목록이나 위치를 확인해줘</pre></div>
+- README의 Claude Code 공식 마켓플레이스 설치 명령을 기준으로 진행해줘.
+- 현재 프로젝트뿐 아니라 모든 프로젝트에서 사용할 수 있도록 user scope로 설치해줘.
+- 설치 후 활성화 상태와 설치된 Skill 목록을 확인해줘.
+- /superpowers:brainstorming 같은 슬래시 명령어를 사용할 수 있는지 확인해줘.
+- 설치 결과와 필요한 후속 조치를 간단히 요약해줘.</pre></div>
+<p>직접 설치하려면 Claude Code 입력창에서 <code>/plugin install superpowers@claude-plugins-official</code>을 실행해도 됩니다. 설치가 끝나면 새 세션을 열고, <code>/</code> 자동완성 목록에 <code>/superpowers:brainstorming</code>이 보이는지 확인합니다.</p>
+<h3>전체 Skill 목록</h3>
+<p>설치가 끝나면 아래 14개 Skill(v5.1.0 기준)을 쓸 수 있습니다.</p>
+<table><thead><tr><th>구분</th><th>Skill 이름</th><th>Claude Code 호출 예시</th><th>주요 기능</th></tr></thead><tbody><tr><td>탐색·기획</td><td><code>brainstorming</code></td><td><code>/superpowers:brainstorming</code></td><td>질문으로 요구사항을 구체화하고 대안을 비교한 뒤 설계안 작성</td></tr><tr><td>계획</td><td><code>writing-plans</code></td><td><code>/superpowers:writing-plans</code></td><td>승인된 설계를 파일·작업·테스트 단위의 실행 계획으로 분해</td></tr><tr><td>구현</td><td><code>executing-plans</code></td><td><code>/superpowers:executing-plans</code></td><td>계획을 작업 묶음으로 실행하고 중간 점검</td></tr><tr><td>구현</td><td><code>subagent-driven-development</code></td><td><code>/superpowers:subagent-driven-development</code></td><td>작업별 하위 에이전트로 구현하고 명세·품질을 2단계 검토</td></tr><tr><td>구현 지원</td><td><code>using-git-worktrees</code></td><td><code>/superpowers:using-git-worktrees</code></td><td>독립 Git 작업 공간과 브랜치 생성, 기본 테스트 확인</td></tr><tr><td>구현 지원</td><td><code>dispatching-parallel-agents</code></td><td><code>/superpowers:dispatching-parallel-agents</code></td><td>서로 독립적인 작업을 여러 하위 에이전트에 병렬 배정</td></tr><tr><td>테스트</td><td><code>test-driven-development</code></td><td><code>/superpowers:test-driven-development</code></td><td>실패하는 테스트 → 최소 구현 → 리팩터링의 TDD 절차</td></tr><tr><td>디버깅</td><td><code>systematic-debugging</code></td><td><code>/superpowers:systematic-debugging</code></td><td>현상 재현과 근본 원인 파악 후 수정·재검증</td></tr><tr><td>검증</td><td><code>verification-before-completion</code></td><td><code>/superpowers:verification-before-completion</code></td><td>완료 주장 전에 실제 명령 실행 결과와 테스트 증거 확인</td></tr><tr><td>코드 리뷰</td><td><code>requesting-code-review</code></td><td><code>/superpowers:requesting-code-review</code></td><td>계획 준수 여부와 결함·품질 관점의 코드 리뷰 요청</td></tr><tr><td>코드 리뷰</td><td><code>receiving-code-review</code></td><td><code>/superpowers:receiving-code-review</code></td><td>리뷰 내용을 기술적으로 평가하고 타당한 피드백 반영</td></tr><tr><td>PR·마무리</td><td><code>finishing-a-development-branch</code></td><td><code>/superpowers:finishing-a-development-branch</code></td><td>테스트 확인 후 머지·PR·유지·정리 옵션 결정</td></tr><tr><td>Skill 관리</td><td><code>writing-skills</code></td><td><code>/superpowers:writing-skills</code></td><td>새 Skill 작성·수정·테스트 절차 제공</td></tr><tr><td>Skill 관리</td><td><code>using-superpowers</code></td><td><code>/superpowers:using-superpowers</code></td><td>Skill을 언제 어떻게 선택하고 적용할지 안내</td></tr></tbody></table>
+<h3>참고할 만한 다른 유명 에이전틱 개발 워크플로우</h3>
+<p>Superpowers 외에도 비슷한 흐름을 제공하는 워크플로우 프로젝트들이 있습니다.</p>
+<table><thead><tr><th>프로젝트</th><th>GitHub</th><th>주요 특징</th><th>Superpowers와의 차이</th></tr></thead><tbody><tr><td>GitHub Spec Kit</td><td><a href="https://github.com/github/spec-kit">github/spec-kit</a></td><td>명세 작성 → 명확화 → 계획 → 작업 분해 → 구현</td><td>사양(specification) 중심</td></tr><tr><td>Get Shit Done (GSD)</td><td><a href="https://github.com/gsd-build/get-shit-done">gsd-build/get-shit-done</a></td><td>프로젝트·단계별 계획과 실행·검증</td><td>단계별 프로젝트 관리 중심</td></tr><tr><td>BMAD Method</td><td><a href="https://github.com/bmad-code-org/BMAD-METHOD">bmad-code-org/BMAD-METHOD</a></td><td>PM·분석·개발·QA 등 역할을 나눈 다중 에이전트</td><td>팀 역할·프로세스 중심</td></tr><tr><td>Everything Claude Code</td><td><a href="https://github.com/affaan-m/everything-claude-code">affaan-m/everything-claude-code</a></td><td>Claude Code용 명령어·에이전트·Skill·규칙 모음</td><td>도구 및 설정 확장 범위가 넓음</td></tr><tr><td>Compound Engineering</td><td><a href="https://github.com/EveryInc/compound-engineering-plugin">EveryInc/compound-engineering-plugin</a></td><td>계획 → 구현 → 리뷰 → 해결 경험 축적</td><td>학습/지식 재사용 루프 강조</td></tr></tbody></table>
+<p>위 프로젝트들은 설치 방식·명령어·지원 환경이 서로 다릅니다. 자세한 사용법은 각 레포의 최신 README를 확인합니다.</p>
 <h2>이번 챕터에서 다룰 것</h2>
 <ul>
-<li><code>계획하고 맡기고 검증하기</code>: PRD를 작업 주문서와 채점표로 보고, 구현과 검증까지 한 번에 묶습니다.</li>
+<li><code>계획하고 맡기고 검증하기</code>: 설계안과 실행 계획을 작업 주문서와 채점표로 보고, 구현과 검증까지 한 번에 묶습니다.</li>
 <li><code>에이전트에게 검증 최대한 위임하기</code>: 사람이 눈으로 하고 직접 테스트하는 흐름을 에이전트에게 최대한 위임합니다.</li>
-<li><code>긴 작업 돌려보기</code>: 여러 사용자 흐름이 섞인 작업을 하나의 PRD 안에서 담아서 구현해보기.</li>
+<li><code>긴 작업 돌려보기</code>: 여러 사용자 흐름이 섞인 작업을 하나의 계획 안에 담아서 구현해보기.</li>
 <li><code>배운 걸 프로젝트에 남기기</code>: 반복된 실수, 검증 명령, Skill 후보를 프로젝트 규칙으로 바꿉니다.</li>
 </ul>
 <h2>마무리</h2>
