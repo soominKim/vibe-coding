@@ -192,6 +192,14 @@ a{color:inherit;}
 }
 .lesson-body pre code{font-family:var(--font-mono);background:none;border:none;padding:0;color:inherit;font-size:14px;}
 
+/* Syntax highlight tokens on dark code blocks */
+.lesson-body pre .code-token-key{color:var(--primary);}
+.lesson-body pre .code-token-string{color:#fcd34d;}
+.lesson-body pre .code-token-number{color:#fda4af;}
+.lesson-body pre .code-token-literal{color:#fda4af;}
+.lesson-body pre .code-token-comment{color:#8b98a5;font-style:italic;}
+.lesson-body pre .code-token-punctuation{color:#9fb0bb;}
+
 /* Copy button on code blocks */
 .lesson-body pre{position:relative;}
 .copy-btn{
