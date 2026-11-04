@@ -212,6 +212,18 @@ a{color:inherit;}
 .copy-btn:hover{background:rgba(255,255,255,0.2);opacity:1;}
 .copy-btn.copied{background:var(--primary);color:var(--on-primary);border-color:var(--primary);}
 
+/* Step-flow diagram (Branch → PR → CI → Merge 같은 단계 흐름) */
+.flow-steps{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;margin:1.4em 0 1.6em;}
+.flow-step{flex:1 1 140px;min-width:140px;background:var(--canvas-soft);border:1px solid var(--hairline);border-radius:var(--r-md);padding:14px 12px;text-align:center;}
+.flow-step .flow-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:var(--r-full);background:var(--primary);color:var(--on-primary);font-family:var(--font-mono);font-size:12px;font-weight:600;margin-bottom:8px;}
+.flow-step .flow-title{display:block;font-weight:600;color:var(--ink);font-size:15px;letter-spacing:-0.2px;}
+.flow-step .flow-desc{display:block;font-size:13px;color:var(--ink-mute);margin-top:4px;line-height:1.45;}
+.flow-arrow{align-self:center;color:var(--ink-faint);font-size:16px;font-weight:600;padding:0 2px;}
+@media (max-width:720px){
+  .flow-steps{flex-direction:column;}
+  .flow-arrow{transform:rotate(90deg);align-self:center;padding:2px 0;}
+}
+
 /* Labeled prompt blocks (P1, P2 ...) */
 .prompt-block{margin:1.6em 0;}
 .prompt-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;}

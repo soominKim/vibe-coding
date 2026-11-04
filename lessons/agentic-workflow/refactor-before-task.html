@@ -189,6 +189,35 @@
 <li>나중에는 여기서 더 나아가 브랜치 → PR → CI를 거쳐 머지하는 식으로 더 안정적으로 갖춥니다.</li>
 </ul>
 <div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P2</span><span class="prompt-title">커밋 전에 자동 검사 걸기</span></span></div><pre>커밋할 때마다 타입 체크, lint, test가 자동으로 돌게 pre-commit을 걸어주라</pre></div>
+<h3>참고: 브랜치 → PR → CI 흐름 이해하기</h3>
+<p><strong>브랜치(Branch) → PR(Pull Request) → CI(Continuous Integration)</strong>는 여러 개발자가 코드를 안전하게 수정하고, 검토하고, 테스트하는 과정입니다. 쉽게 말하면 <strong>작업 공간 만들기 → 코드 검토 요청하기 → 자동으로 검사하기</strong>입니다.</p>
+<div class="flow-steps">
+<div class="flow-step"><span class="flow-num">1</span><span class="flow-title">Branch 생성</span><span class="flow-desc">독립 작업 공간<br>feature/login에서 기능 개발</span></div>
+<span class="flow-arrow">→</span>
+<div class="flow-step"><span class="flow-num">2</span><span class="flow-title">PR 생성</span><span class="flow-desc">코드 합치기 요청<br>main에 합쳐달라고 요청</span></div>
+<span class="flow-arrow">→</span>
+<div class="flow-step"><span class="flow-num">3</span><span class="flow-title">CI 자동 실행</span><span class="flow-desc">자동 검사<br>Lint · Test · Build</span></div>
+<span class="flow-arrow">→</span>
+<div class="flow-step"><span class="flow-num">4</span><span class="flow-title">Merge</span><span class="flow-desc">검사 통과·승인 후<br>main에 반영</span></div>
+</div>
+<h4>① Branch: 내 작업 공간 만들기</h4>
+<p>서비스의 원본 코드를 직접 수정하면 실수로 서비스가 망가질 수 있습니다. 그래서 원본 코드에서 별도의 작업 공간을 만드는 것이 브랜치입니다. 예를 들어 느좋카페에 로그인 기능을 추가한다면:</p>
+<ul>
+<li><code>main</code>: 현재 정상 작동하는 원본 코드</li>
+<li><code>feature/login</code>: 로그인 기능을 개발하는 별도 브랜치</li>
+</ul>
+<p>로그인 기능을 개발하다 실수해도 <code>main</code>에는 직접 영향이 없습니다.</p>
+<h4>② PR: 내 코드를 합쳐달라고 요청하기</h4>
+<p>로그인 기능을 완성했다면 원본 코드에 합쳐야 합니다. 이때 <strong>"제가 로그인 기능을 만들었는데, 검토하고 합쳐주세요!"</strong>라고 요청하는 게 PR입니다. GitHub에서 PR을 만들면 다른 개발자가 변경된 코드를 확인하고 의견을 남기거나 승인할 수 있습니다.</p>
+<h4>③ CI: 자동으로 코드 검사하기</h4>
+<p>PR을 만들면 GitHub Actions 같은 자동화 도구가 코드를 검사할 수 있습니다.</p>
+<ul>
+<li>Lint: 코드 스타일과 규칙을 지켰나?</li>
+<li>Test: 로그인 기능이 제대로 작동하나?</li>
+<li>Build: 코드를 실제 실행 가능한 형태로 만들 수 있나?</li>
+</ul>
+<p>검사 결과가 통과하면 ✅, 실패하면 ❌ 표시가 나옵니다. CI는 사람이 일일이 테스트하지 않아도 미리 설정한 검사를 자동으로 실행해 주는 시스템입니다. 참고로 CI는 꼭 PR 이후에만 실행되는 건 아니고, 브랜치에 코드를 올릴 때마다 자동 실행하도록 설정할 수도 있습니다.</p>
+<aside class="callout note"><p>한 줄 요약: 브랜치는 안전하게 개발하는 공간, PR은 합쳐달라는 요청, CI는 코드에 문제가 없는지 자동으로 확인하는 검사 과정입니다. 검사를 통과하고 승인되면 메인 코드에 합칩니다(Merge).</p></aside>
 <h2>마무리</h2>
 <ul>
 <li>이번 레슨에서는 기능 구현 전에 검증 가능한 기본 환경을 먼저 만듭니다.</li>
