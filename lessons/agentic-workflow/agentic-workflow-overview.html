@@ -150,11 +150,16 @@
 <div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">Superpowers Skill 설치하기</span></span></div><pre>https://github.com/obra/superpowers README를 읽고, Claude Code에 Superpowers 관련 Skill들을 모두 설치해줘.
 
 - README의 Claude Code 공식 마켓플레이스 설치 명령을 기준으로 진행해줘.
-- 현재 프로젝트뿐 아니라 모든 프로젝트에서 사용할 수 있도록 user scope로 설치해줘.
+- 일단 현재 프로젝트에서만 사용할 수 있도록 project scope로 설치해줘.
 - 설치 후 활성화 상태와 설치된 Skill 목록을 확인해줘.
 - /superpowers:brainstorming 같은 슬래시 명령어를 사용할 수 있는지 확인해줘.
 - 설치 결과와 필요한 후속 조치를 간단히 요약해줘.</pre></div>
 <p>직접 설치하려면 Claude Code 입력창에서 <code>/plugin install superpowers@claude-plugins-official</code>을 실행해도 됩니다. 설치가 끝나면 새 세션을 열고, <code>/</code> 자동완성 목록에 <code>/superpowers:brainstorming</code>이 보이는지 확인합니다.</p>
+<p>Superpowers는 Skill이 많아 가볍지 않으니, 일단 이 프로젝트에서만 설치해 써보고 유용하다고 느껴지면 모든 프로젝트에서 쓰도록 전역(user scope)으로 올립니다.</p>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P2</span><span class="prompt-title">(참고) 모든 프로젝트에서 쓰도록 전역 설치하기</span></span></div><pre>Superpowers를 현재 프로젝트뿐 아니라 모든 프로젝트에서 사용할 수 있도록 user scope로 다시 설치해줘.
+
+- 이미 project 또는 local scope로 설치된 항목이 있다면 먼저 보고해줘. 기존 설정은 임의로 삭제하거나 변경하지 말아줘.
+- 설치 후 claude plugin list로 scope가 user인지 확인해줘.</pre></div>
 <h3>전체 Skill 목록</h3>
 <p>설치가 끝나면 아래 14개 Skill(v5.1.0 기준)을 쓸 수 있습니다.</p>
 <aside class="callout note"><p>설치 직후 <code>/superpowers:...</code> 호출이 바로 안 될 수 있습니다. 이때는 <code>/reload-skills</code>, <code>/reload-plugins</code>를 실행해 Skill과 플러그인을 다시 불러온 뒤, <code>/</code> 자동완성 목록에서 다시 확인합니다. 그래도 안 보이면 새 세션을 엽니다.</p></aside>
