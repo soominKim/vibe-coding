@@ -8,14 +8,15 @@
     var blocks = document.querySelectorAll('.lesson-body pre');
     blocks.forEach(function (pre) {
       if (pre.querySelector('.copy-btn')) return;
+      // Capture the text before the button is appended, so the
+      // button label never leaks into the copied text.
+      var text = (pre.querySelector('code') || pre).innerText;
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'copy-btn';
       btn.textContent = '복사';
       btn.setAttribute('aria-label', '코드 복사');
       btn.addEventListener('click', function () {
-        var code = pre.querySelector('code') || pre;
-        var text = code.innerText;
         function done() {
           btn.textContent = '복사됨 ✓';
           btn.classList.add('copied');
