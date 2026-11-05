@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>stageshow로 진짜 제품 같은 데모 UI 만들기 · 실전편 · AIX102 X+AI 서비스 디자인</title>
+<meta name="description" content="X 디자인 총괄 벤지 테일러의 stageshow 스킬로 AI 티 없는 제품 데모 UI를 만드는 방법">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script defer src="../../assets/js/copy.js"></script>
+</head>
+<body>
+<header class="nav-bar">
+  <a class="nav-wordmark" href="../../index.html"><span class="dot"></span>AIX102 X+AI 서비스 디자인</a>
+  <nav class="nav-links">
+    <a href="../../index.html">전체 목차</a>
+    <a href="../../VibeCafe.zip" download>실습 파일 (.zip)</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<p class="sidebar-eyebrow">Course</p>
+<a class="sidebar-title" href="../../index.html" style="text-decoration:none;display:block">AIX102 X+AI 서비스 디자인</a>
+<a class="sidebar-cta sidebar-cta--tight" href="../../VibeCafe.zip" download>실습 파일 다운로드 <span>⬇</span></a>
+<a class="sidebar-cta sidebar-cta--ghost" href="../../images.zip" download>이미지 파일 다운로드 <span>⬇</span></a>
+<p class="nav-section-label">실전편 커리큘럼</p>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">01</span><span class="nav-chapter-title">인트로</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-intro/practical-overview.html"><span class="num">1.1</span><span>실전편 개요</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">02</span><span class="nav-chapter-title">프로젝트 세팅하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/project-setup/kakao-sdk-issue.html"><span class="num">2.1</span><span>카카오맵 SDK 발급받기</span></a></li>
+<li><a href="../../lessons/project-setup/folder-setup.html"><span class="num">2.2</span><span>실습 폴더 세팅하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">03</span><span class="nav-chapter-title">프로젝트 시작하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-build/data-reading.html"><span class="num">3.1</span><span>데이터 읽기 (JSON)</span></a></li>
+<li><a href="../../lessons/practical-build/scaffold.html"><span class="num">3.2</span><span>Scaffolding: 프로젝트 구조 잡기</span></a></li>
+<li><a href="../../lessons/practical-build/map-explained.html"><span class="num">3.3</span><span>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a></li>
+<li><a href="../../lessons/practical-build/ai-api.html"><span class="num">3.4</span><span>AI API 연결하기 (OpenAI)</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">04</span><span class="nav-chapter-title">코드 버전 관리하기 (Git &amp; GitHub)</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-git/git-basics.html"><span class="num">4.1</span><span>Git 기본기 다지기</span></a></li>
+<li><a href="../../lessons/practical-git/github-basics.html"><span class="num">4.2</span><span>GitHub 사용법 익히기</span></a></li>
+<li><a href="../../lessons/practical-git/git-advanced.html"><span class="num">4.3</span><span>조금 더 공부하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">05</span><span class="nav-chapter-title">지도 데이터베이스 구축하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-database/database-intro.html"><span class="num">5.1</span><span>데이터베이스 스키마 설계하기</span></a></li>
+<li><a href="../../lessons/practical-database/supabase-intro.html"><span class="num">5.2</span><span>Supabase 활용하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-migration.html"><span class="num">5.3</span><span>places 테이블 마이그레이션하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-quiz.html"><span class="num">5.4</span><span>데이터베이스 복습 퀴즈</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">06</span><span class="nav-chapter-title">느좋카페 가게 이미지 적용하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-image-storage/file-storage-intro.html"><span class="num">6.1</span><span>파일 스토리지 적용하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">07</span><span class="nav-chapter-title">AI 브라우저로 작업하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/ai-browser/aside-intro.html"><span class="num">7.1</span><span>Aside로 브라우저 작업 맡기기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">사용자 기능 개발하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-auth/auth-intro.html"><span class="num">8.1</span><span>인증과 인가 이해하기</span></a></li>
+<li><a href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="num">8.2</span><span>카카오 로그인·Supabase 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/rls-supabase.html"><span class="num">8.3</span><span>Supabase RLS 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/login-bookmark.html"><span class="num">8.4</span><span>카카오 로그인과 북마크 기능 붙이기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">09</span><span class="nav-chapter-title">배포하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">9.1</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/link-preview.html"><span class="num">9.2</span><span>링크 미리보기 설정하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">9.3</span><span>나만의 도메인 설정하기</span></a></li>
+</ul></div>
+<details class="nav-appendix" open><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">A</span><span class="nav-chapter-title">디자인 개선하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-design/html-css-for-design.html"><span class="num">A.1</span><span>Claude Code에게 디자인 수정 요청하기</span></a></li>
+<li><a href="../../lessons/practical-design/vibe-design.html"><span class="num">A.2</span><span>바이브 디자인으로 방향 잡기</span></a></li>
+<li><a href="../../lessons/practical-design/design-md.html"><span class="num">A.3</span><span>DESIGN.md로 디자인 시스템 고정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">B</span><span class="nav-chapter-title">에이전틱 워크플로우</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/agentic-workflow/agentic-workflow-overview.html"><span class="num">B.1</span><span>에이전틱 워크플로우란</span></a></li>
+<li><a href="../../lessons/agentic-workflow/plan-implement.html"><span class="num">B.2</span><span>계획하고 구현하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/verify.html"><span class="num">B.3</span><span>검증 고도화하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/refactor-before-task.html"><span class="num">B.4</span><span>작업 전에 검증 환경 만들기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/long-running-task.html"><span class="num">B.5</span><span>긴 작업 태워보기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/compound-learnings.html"><span class="num">B.6</span><span>배운 걸 프로젝트에 남기기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">C</span><span class="nav-chapter-title">AI 티 덜기</span></div>
+<ul class="nav-lessons">
+<li><a class="active" href="../../lessons/ai-polish/stageshow.html"><span class="num">C.1</span><span>stageshow로 진짜 제품 같은 데모 UI 만들기</span></a></li>
+</ul></div>
+</div></details>
+</aside>
+<main class="main">
+<article class="reading">
+<div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
+<a class="lesson-back" href="../../index.html">← course overview</a>
+<div class="reading-meta"><span>chapter C</span><span>lesson C.1</span><span>private</span></div>
+<div class="reading-head">
+<p class="chapter-eyebrow">AI 티 덜기</p>
+<h1>stageshow로 진짜 제품 같은 데모 UI 만들기</h1>
+<p class="description">X 디자인 총괄 벤지 테일러의 stageshow 스킬로 AI 티 없는 제품 데모 UI를 만드는 방법</p>
+</div>
+<div class="lesson-body">
+<h2>얻어갈 것</h2>
+<ul>
+<li>AI가 만든 화면에서 나는 "AI 티"가 무엇인지 체크리스트로 확인합니다.</li>
+<li><code>stageshow</code> 스킬을 설치하고, 마케팅 페이지에 쓸 제품 데모 UI를 만들어봅니다.</li>
+</ul>
+<h2>"AI 티"는 어디서 나나</h2>
+<p>AI에게 화면이나 데모를 만들어 달라고 하면, 동작은 해도 어딘가 "생성된 티"가 나는 결과가 자주 나옵니다. stageshow는 가짜 UI가 실패하는 방식을 다섯 가지로 정리합니다.</p>
+<table><thead><tr><th>실패 방식</th><th>증상</th></tr></thead><tbody><tr><td>너무 많음</td><td>디테일이 과해서 오히려 생성된 것처럼 보입니다.</td></tr><tr><td>와이어프레임</td><td>너무 단순하거나 작게 만들어 성의 없어 보입니다.</td></tr><tr><td>박스형</td><td>전체 창을 통째로 축소해 스크린샷처럼 보입니다.</td></tr><tr><td>평탄함</td><td>모든 요소가 같은 시각적 무게라 눈 둘 곳이 없습니다.</td></tr><tr><td>심심함</td><td>회색 창에 커서만 움직이는, 의미 없는 장면입니다.</td></tr></tbody></table>
+<p>스파클·보라색 그라데이션 같은 "AI 스타일 로고", 균일한 회색 막대, 원인 없는 움직임과 갑작스러운 리셋도 전형적인 AI 티로 꼽습니다.</p>
+<h2>stageshow란</h2>
+<p><a href="https://www.ui-skills.com/skills/benjitaylor/stageshow">stageshow</a>는 X(구 트위터) 디자인 총괄 <strong>벤지 테일러(Benji Taylor)</strong>가 공개한 스킬로, <strong>가짜 제품 UI를 실제 제품처럼 보이게 만드는</strong> 도구입니다. 랜딩 페이지의 히어로·피처 카드 일러스트, 커서가 움직이며 제품을 시연하는 데모 애니메이션을 만들 때 씁니다.</p>
+<ul>
+<li>핵심 철학은 <strong>"저자가 만든 일러스트레이션이지, 브라우저 자동화가 아니다"</strong>입니다. 실제 화면을 녹화하는 게 아니라, 보여줄 것만 남긴 장면을 코드로 그립니다.</li>
+<li>실제 제품처럼 읽히되 시청자에게 필요한 것만 남기고, 의도적으로 프레이밍하고, 모든 움직임에 목적이 있어야 한다는 원칙을 따릅니다.</li>
+<li>React 기반 키트가 함께 옵니다: <code>Window</code>·<code>Phone</code> 같은 프레임, <code>Bar</code>·<code>Text</code>·<code>Row</code>·<code>Avatar</code>·<code>Chart</code> 같은 부품, 그리고 커서의 <code>move</code>·<code>click</code>·<code>type</code>을 연출하는 <code>Act</code> API.</li>
+</ul>
+<h2>설치하기</h2>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">stageshow 스킬 설치하기</span></span></div><pre>이 스킬 설치해줘.
+npx skills add benjitaylor/skills --skill stageshow</pre></div>
+<h2>어떻게 사용하나</h2>
+<p>스킬을 설치하면 Claude가 아래 7단계 워크플로우를 따라 작업합니다. 사용자는 만들고 싶은 장면만 설명하면 됩니다.</p>
+<ol>
+<li><strong>매체와 크기</strong>: 정지 이미지인지 애니메이션인지, 어디에 들어가는지 정합니다 (히어로 카드는 약 720×340px).</li>
+<li><strong>룩 맞추기</strong>: 내 제품의 색·폰트를 키트 토큰에 매핑하고 light / dark / blueprint / glass 테마를 고릅니다.</li>
+<li><strong>스토리</strong>: 10~16초 안에 3~5개 장면과 하나의 페이오프(결정적 순간)로 구성합니다.</li>
+<li><strong>예제에서 시작</strong>: 48개 골드 예제 중 가장 가까운 것을 복사해 구조를 유지한 채 바꿉니다.</li>
+<li><strong>화면 구성</strong>: 실제 텍스트는 3~7개만 쓰고 나머지는 추상 부품으로 채웁니다.</li>
+<li><strong>안무</strong>: <code>Act</code> API로 커서 이동·클릭·타이핑을 연출합니다. 모든 움직임에 원인이 있어야 합니다.</li>
+<li><strong>리허설</strong>: 멈춰 있어도 이야기가 전달되는 포스터 프레임부터 점검하고, 프레임 검증을 돌립니다.</li>
+</ol>
+<p>사용은 평소처럼 자연어로 부탁하면 됩니다. 느좋카페라면 이렇게 쓸 수 있습니다.</p>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P2</span><span class="prompt-title">느좋카페 데모 일러스트 만들기</span></span></div><pre>stageshow 스킬로 느좋카페 랜딩 페이지 히어로에 넣을 데모 일러스트를 만들어줘.
+
+- 지도에서 카페 핀을 클릭하면 상세 카드가 열리고 북마크를 누르는 10초짜리 애니메이션
+- 히어로 카드 크기(약 720x340), 우리 서비스 색을 반영한 light 테마
+- 실제 서비스처럼 보이게 하고, 과한 장식이나 의미 없는 움직임은 빼줘</pre></div>
+<aside class="callout note"><p>stageshow가 만드는 건 마케팅·소개용 "일러스트"입니다. 실제 기능 검증은 <a href="../../lessons/agentic-workflow/verify.html">검증 고도화하기</a>에서 다룬 Playwright CLI 같은 도구로 실제 화면을 돌려서 합니다. 둘을 혼동하지 않습니다.</p></aside>
+<h2>마무리</h2>
+<ul>
+<li>AI 티는 디테일 과잉, 균일한 회색 박스, 원인 없는 움직임처럼 패턴이 정해져 있어서, 체크리스트로 걸러낼 수 있습니다.</li>
+<li>stageshow는 "보여줄 것만 남긴 장면을 코드로 그린다"는 원칙으로, 랜딩 페이지에 쓸 데모 UI를 실제 제품처럼 만들어줍니다.</li>
+</ul>
+<p>출처: <a href="https://www.ui-skills.com/skills/benjitaylor/stageshow">ui-skills.com — stageshow</a> · <a href="https://github.com/benjitaylor/skills">GitHub benjitaylor/skills</a></p>
+</div>
+<nav class="lesson-nav">
+<a class="prev" href="../../lessons/agentic-workflow/compound-learnings.html"><span class="dir">← Prev</span><span class="lbl">배운 걸 프로젝트에 남기기</span></a>
+</nav>
+</article>
+</main>
+</div>
+</body>
+</html>
