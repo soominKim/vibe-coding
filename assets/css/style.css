@@ -170,6 +170,7 @@ a{color:inherit;}
 .lesson-body li{margin:0.4em 0;padding-left:0.2em;}
 .lesson-body li::marker{color:var(--ink-mute-2);}
 .lesson-body strong{font-weight:600;color:var(--ink);}
+.lesson-body mark{background:linear-gradient(180deg,transparent 12%,#ffe88a 12%,#ffe88a 88%,transparent 88%);color:inherit;padding:0 .1em;border-radius:1px;}
 .lesson-body a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--primary);text-underline-offset:3px;text-decoration-thickness:2px;}
 .lesson-body a:hover{color:var(--primary-deep);}
 .lesson-body hr{border:none;border-top:1px solid var(--hairline-cool);margin:2.4em 0;}
