@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="../../assets/css/style.css">
 <script defer src="../../assets/js/copy.js"></script>
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🤪</text></svg>'>
 </head>
 <body>
 <header class="nav-bar">
@@ -194,7 +195,7 @@
 </ul>
 <h2>구현 프롬프트</h2>
 <p>아래 P1 프롬프트는 지금까지 나눈 구조를 한 번에 구현 요청으로 묶은 것입니다. 요구사항이 이미 구체적이니, 부록 B에서 배운 <code>/superpowers:writing-plans</code>로 넘겨 실행 가능한 작업 계획으로 나눈 뒤 구현합니다. 새로운 제보 기능을 다시 만드는 것이 아니라, 이미 들어온 요청을 운영자가 처리하고 장소 데이터에 반영하는 화면을 만드는 데 초점을 둡니다.</p>
-<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">관리자 운영 화면 만들기</span></span></div><pre>/superpowers:writing-plans 느좋카페에 관리자 운영 화면을 만들려고 한다
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P1</span><span class="prompt-title">관리자 운영 화면 만들기</span></span></div><pre>느좋카페에 관리자 운영 화면을 만들려고 한다
 
 목표:
 - 제보 화면과 장소 관리 화면을 나눠서 만든다.
@@ -220,6 +221,15 @@
 
 UI:
 - shadcn/ui를 주요 UI 라이브러리로 활용하기</pre></div>
+<p><code>/superpowers:writing-plans</code> 명령어로 위 요구사항을 PRD 문서로 만들 수 있습니다.</p>
+<h2>Supabase Service Role Key 발급받기</h2>
+<p>관리자 Server Action은 승인, 반려, 장소 추가 같은 변경 작업을 서버에서 실행합니다. 이때 RLS 정책을 우회해 운영 데이터를 직접 바꿔야 하는 경우가 있는데, 이를 위해 Supabase의 <code>service_role</code> 키가 필요합니다. 일반 사용자에게 노출되는 <code>anon</code> 키와 달리, <code>service_role</code> 키는 모든 권한을 가지므로 <strong>서버에서만</strong> 사용해야 합니다.</p>
+<p>Supabase 대시보드에서 <strong>Project Settings → API Keys</strong>로 들어가면 <code>service_role</code> 키를 확인할 수 있습니다.</p>
+<figure class="lesson-figure"><img src="../../assets/images/launching-admin-feedback-queue/service_role_key1.png" alt="Supabase 대시보드의 Project Settings에서 API Keys 메뉴로 들어가는 화면" loading="lazy" decoding="async"/><figcaption>Supabase 대시보드 → Project Settings → API Keys로 이동합니다.</figcaption></figure>
+<figure class="lesson-figure"><img src="../../assets/images/launching-admin-feedback-queue/service_role_key2.png" alt="service_role 키 값을 확인하고 복사하는 화면" loading="lazy" decoding="async"/><figcaption><code>service_role</code> 키를 복사합니다. 이 키는 외부에 노출되면 안 됩니다.</figcaption></figure>
+<p>복사한 키는 프로젝트의 <code>.env.local</code> 파일에 아래처럼 추가합니다. <code>{{value 값 입력}}</code> 자리에 복사한 키를 붙여 넣습니다.</p>
+<pre>SUPABASE_SERVICE_ROLE_KEY={{value 값 입력}}</pre>
+<aside class="callout warning"><p><code>service_role</code> 키는 모든 권한을 우회하는 강력한 키입니다. <code>NEXT_PUBLIC_</code> 접두사를 붙이면 브라우저 번들에 노출되니 절대 붙이지 말고, <code>.env.local</code>은 <code>.gitignore</code>에 포함돼 Git에 올라가지 않는지 꼭 확인합니다.</p></aside>
 <h2>지도 기반 장소 입력 추가하기</h2>
 <p>좌표를 숫자로 직접 넣는 건 운영자 입장에서 꽤 불편합니다. 카카오맵 SDK의 <code>services</code> 라이브러리를 쓰면 가게 이름으로 검색해서 고르는 방식으로 바꿀 수 있습니다.</p>
 <figure class="lesson-figure"><img src="../../assets/images/launching-admin-feedback-queue/map-tomntoms.png" alt="장소 추가 화면에서 가게 이름으로 검색한 결과를 고르면 지도에 마커가 찍히고 선택한 좌표가 표시되는 모습" loading="lazy" decoding="async"/><figcaption>이름으로 찾고 지도에서 확인합니다. 좌표는 자동으로 채워집니다.</figcaption></figure>
