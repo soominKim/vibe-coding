@@ -181,12 +181,17 @@
 <p>처음에는 삭제보다 비공개나 보류 상태가 더 안전합니다. 잘못 지운 데이터는 되돌리기 어렵기 때문입니다.</p>
 <figure class="lesson-figure"><img src="../../assets/images/launching-admin-feedback-queue/figures/admin-feedback-to-place-flow.png" alt="사용자가 제보를 등록하면 제보 테이블에 row가 쌓이고, 관리자가 확인한 뒤 장소 테이블에 새 row를 추가하는 동시에 제보 상태를 갱신하는 흐름" loading="lazy" decoding="async"/><figcaption>관리자는 제보를 확인한 뒤 장소 테이블에 row를 추가하고, 같은 순간 제보의 상태도 함께 바꿉니다.</figcaption></figure>
 <h2>변경 작업은 서버에서 처리하기</h2>
-<p>관리자 화면에서는 단순히 데이터를 보는 것보다 승인, 반려, 장소 추가, 장소 수정처럼 중요한 변경 작업이 많습니다.</p>
-<p>이 작업을 브라우저에서 Supabase API로 바로 처리하면 처음에는 빠르지만, 나중에 권한 조건이 늘어날수록 RLS 정책이 복잡해지고 버그를 찾기 어려워질 수 있습니다.</p>
-<p>그래서 관리자 서버 로직은 브라우저에서 Supabase를 직접 부르지 않고, 별도의 API를 거쳐서 처리합니다.</p>
+<ul>
+<li>관리자 화면에서는 단순히 데이터를 보는 것보다 승인, 반려, 장소 추가, 장소 수정처럼 중요한 변경 작업이 많습니다.</li>
+<li>이 작업을 브라우저에서 Supabase API로 바로 처리하면 처음에는 빠르지만, 나중에 권한 조건이 늘어날수록 RLS 정책이 복잡해지고 버그를 찾기 어려워질 수 있습니다.</li>
+<li>그래서 관리자 서버 로직은 브라우저에서 Supabase를 직접 부르지 않고, 별도의 API를 거쳐서 처리합니다.</li>
+</ul>
 <aside class="callout note"><p>엄밀하게는 Next.js의 Server Action을 사용합니다. 눈에 보이는 API 주소는 따로 없지만, 클라이언트에서 폼을 제출하면 서버에서만 실행되는 함수를 호출해준다는 점에서 API와 하는 역할이 같습니다. 그래서 권한 확인도 API와 똑같이 해줘야 합니다.</p></aside>
 <table><thead><tr><th>구조</th><th>흐름</th></tr></thead><tbody><tr><td>as-is</td><td>브라우저 → Supabase</td></tr><tr><td>to-be</td><td>클라이언트 → API(Server Action) → Supabase</td></tr></tbody></table>
-<p>Server Action 안에서 관리자 권한을 다시 확인하고, 승인, 반려, 저장 같은 실제 변경 작업을 실행합니다. Supabase RLS는 유지하되, 운영 정책의 중심은 서버 코드에 둡니다.</p>
+<ul>
+<li>Server Action 안에서 관리자 권한을 다시 확인하고, 승인, 반려, 저장 같은 실제 변경 작업을 실행합니다.</li>
+<li>Supabase RLS는 유지하되, 운영 정책의 중심은 서버 코드에 둡니다.</li>
+</ul>
 <h3>/admin 기본 구조</h3>
 <ul>
 <li><code>/admin/reports</code>: 제보 화면</li>
@@ -223,8 +228,11 @@ UI:
 - shadcn/ui를 주요 UI 라이브러리로 활용하기</pre></div>
 <p><code>/superpowers:writing-plans</code> 명령어로 위 요구사항을 PRD 문서로 만들 수 있습니다.</p>
 <h2>Supabase Service Role Key 발급받기</h2>
-<p>관리자 Server Action은 승인, 반려, 장소 추가 같은 변경 작업을 서버에서 실행합니다. 이때 RLS 정책을 우회해 운영 데이터를 직접 바꿔야 하는 경우가 있는데, 이를 위해 Supabase의 <code>service_role</code> 키가 필요합니다. 일반 사용자에게 노출되는 <code>anon</code> 키와 달리, <code>service_role</code> 키는 모든 권한을 가지므로 <strong>서버에서만</strong> 사용해야 합니다.</p>
-<p>Supabase 대시보드에서 <strong>Project Settings → API Keys</strong>로 들어가면 <code>service_role</code> 키를 확인할 수 있습니다.</p>
+<ul>
+<li>관리자 Server Action은 승인, 반려, 장소 추가 같은 변경 작업을 서버에서 실행합니다. 이때 RLS 정책을 우회해 운영 데이터를 직접 바꿔야 하는 경우가 있는데, 이를 위해 Supabase의 <code>service_role</code> 키가 필요합니다.</li>
+<li>일반 사용자에게 노출되는 <code>anon</code> 키와 달리, <code>service_role</code> 키는 모든 권한을 가지므로 <strong>서버에서만</strong> 사용해야 합니다.</li>
+<li>Supabase 대시보드에서 <strong>Project Settings → API Keys</strong>로 들어가면 <code>service_role</code> 키를 확인할 수 있습니다.</li>
+</ul>
 <figure class="lesson-figure"><img src="../../assets/images/launching-admin-feedback-queue/service_role_key1.png" alt="Supabase 대시보드의 Project Settings에서 API Keys 메뉴로 들어가는 화면" loading="lazy" decoding="async"/><figcaption>Supabase 대시보드 → Project Settings → API Keys로 이동합니다.</figcaption></figure>
 <figure class="lesson-figure"><img src="../../assets/images/launching-admin-feedback-queue/service_role_key2.png" alt="service_role 키 값을 확인하고 복사하는 화면" loading="lazy" decoding="async"/><figcaption><code>service_role</code> 키를 복사합니다. 이 키는 외부에 노출되면 안 됩니다.</figcaption></figure>
 <p>복사한 키는 프로젝트의 <code>.env.local</code> 파일에 아래처럼 추가합니다. <code>{{value 값 입력}}</code> 자리에 복사한 키를 붙여 넣습니다.</p>
