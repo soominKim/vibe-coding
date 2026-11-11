@@ -247,6 +247,25 @@ UI:
 - 고른 장소의 좌표와 주소는 폼에 자동으로 채워줘
 
 이미 쓰고 있는 카카오맵 SDK를 그대로 쓰고 새 지도 라이브러리는 추가하지 마.</pre></div>
+<h2>코드 리뷰로 다듬고 배포하기</h2>
+<p>기능이 돌아가면 끝이 아니라, 커밋하고 코드 리뷰로 한 번 다듬은 뒤 배포까지 마무리합니다. 관리자 화면은 권한과 서버 로직이 얽혀 있어서, 리뷰로 놓친 부분을 짚고 넘어가면 운영 중 사고를 줄일 수 있습니다.</p>
+<p>먼저 지금까지 작업을 커밋해 기준점을 만듭니다.</p>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P3</span><span class="prompt-title">현재 작업 커밋하기</span></span></div><pre>커밋해줘</pre></div>
+<p>변경을 만들지 않은 에이전트에게 diff를 리뷰시켜, 계획 준수 여부와 결함·품질 관점에서 점검을 받습니다.</p>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P4</span><span class="prompt-title">코드 리뷰 받기</span></span></div><pre>/superpowers:requesting-code-review 코드리뷰 하고 한글로 대답해줘</pre></div>
+<p>리뷰 결과를 확인한 뒤, 구조를 크게 바꾸지 않는 선에서 지적된 이슈를 반영합니다.</p>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P5</span><span class="prompt-title">리뷰 이슈 반영하기</span></span></div><pre>구조적으로 크게 바뀌지 않는 한, 코드 리뷰에서 발견된 이슈를 다 반영해줘</pre></div>
+<p>반영이 끝나면 다시 커밋해 변경 이력을 남깁니다.</p>
+<div class="prompt-block prompt-block--seq"><div class="prompt-head"><span class="prompt-head-main"><span class="prompt-seq is-seq">P6</span><span class="prompt-title">리뷰 반영분 커밋하기</span></span></div><pre>다시 커밋해줘</pre></div>
+<h3>Vercel에 환경변수 추가하고 재배포하기</h3>
+<p>관리자 기능은 서버에서 <code>service_role</code> 키와 관리자 이메일 목록을 읽습니다. 로컬 <code>.env.local</code>에만 있으면 배포된 서비스에서는 동작하지 않으니, 같은 값을 Vercel에도 넣어줘야 합니다.</p>
+<figure class="lesson-figure"><img src="../../assets/images/launching-admin-feedback-queue/vercel_env.png" alt="Vercel 프로젝트 설정의 Environment Variables 화면에서 환경변수를 추가하는 모습" loading="lazy" decoding="async"/><figcaption>Vercel → Settings → Environment Variables에서 키와 값을 추가합니다.</figcaption></figure>
+<ul>
+<li>Vercel 프로젝트의 <strong>Settings → Environment Variables</strong>로 들어갑니다.</li>
+<li>로컬 <code>.env.local</code>에 있는 <code>SUPABASE_SERVICE_ROLE_KEY</code>와 <code>ADMIN_EMAILS</code> 값을 그대로 추가합니다.</li>
+<li><strong>Save</strong>한 뒤 <strong>Redeploy</strong>로 다시 배포해야 새 환경변수가 반영됩니다.</li>
+</ul>
+<aside class="callout warning"><p>환경변수는 저장만 해서는 적용되지 않고, 반드시 Redeploy를 해야 반영됩니다. 또한 <code>SUPABASE_SERVICE_ROLE_KEY</code>는 서버 전용 키이므로 <code>NEXT_PUBLIC_</code>을 붙이지 않습니다.</p></aside>
 <h2>마무리</h2>
 <ul>
 <li>제보 화면은 사용자가 보낸 정보를 확인하는 곳입니다.</li>
