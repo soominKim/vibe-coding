@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>런칭과 운영 체크리스트 · 실전편 · AIX102 X+AI 서비스 디자인</title>
+<meta name="description" content="첫 사용자 공개와 이후 운영을 위해 사용자·운영자·장애·보안·비용 관점으로 확인하는 런칭 체크리스트">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script defer src="../../assets/js/copy.js"></script>
+</head>
+<body>
+<header class="nav-bar">
+  <a class="nav-wordmark" href="../../index.html"><span class="dot"></span>AIX102 X+AI 서비스 디자인</a>
+  <nav class="nav-links">
+    <a href="../../index.html">전체 목차</a>
+    <a href="../../VibeCafe.zip" download>실습 파일 (.zip)</a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar">
+<p class="sidebar-eyebrow">Course</p>
+<a class="sidebar-title" href="../../index.html" style="text-decoration:none;display:block">AIX102 X+AI 서비스 디자인</a>
+<a class="sidebar-cta sidebar-cta--tight" href="../../VibeCafe.zip" download>실습 파일 다운로드 <span>⬇</span></a>
+<a class="sidebar-cta sidebar-cta--ghost" href="../../images.zip" download>이미지 파일 다운로드 <span>⬇</span></a>
+<p class="nav-section-label">실전편 커리큘럼</p>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">01</span><span class="nav-chapter-title">인트로</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-intro/practical-overview.html"><span class="num">1.1</span><span>실전편 개요</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">02</span><span class="nav-chapter-title">프로젝트 세팅하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/project-setup/kakao-sdk-issue.html"><span class="num">2.1</span><span>카카오맵 SDK 발급받기</span></a></li>
+<li><a href="../../lessons/project-setup/folder-setup.html"><span class="num">2.2</span><span>실습 폴더 세팅하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">03</span><span class="nav-chapter-title">프로젝트 시작하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-build/data-reading.html"><span class="num">3.1</span><span>데이터 읽기 (JSON)</span></a></li>
+<li><a href="../../lessons/practical-build/scaffold.html"><span class="num">3.2</span><span>Scaffolding: 프로젝트 구조 잡기</span></a></li>
+<li><a href="../../lessons/practical-build/map-explained.html"><span class="num">3.3</span><span>지도는 어떻게 그려질까 — 카카오맵 SDK 원리</span></a></li>
+<li><a href="../../lessons/practical-build/ai-api.html"><span class="num">3.4</span><span>AI API 연결하기 (OpenAI)</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">04</span><span class="nav-chapter-title">코드 버전 관리하기 (Git &amp; GitHub)</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-git/git-basics.html"><span class="num">4.1</span><span>Git 기본기 다지기</span></a></li>
+<li><a href="../../lessons/practical-git/github-basics.html"><span class="num">4.2</span><span>GitHub 사용법 익히기</span></a></li>
+<li><a href="../../lessons/practical-git/git-advanced.html"><span class="num">4.3</span><span>조금 더 공부하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">05</span><span class="nav-chapter-title">지도 데이터베이스 구축하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-database/database-intro.html"><span class="num">5.1</span><span>데이터베이스 스키마 설계하기</span></a></li>
+<li><a href="../../lessons/practical-database/supabase-intro.html"><span class="num">5.2</span><span>Supabase 활용하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-migration.html"><span class="num">5.3</span><span>places 테이블 마이그레이션하기</span></a></li>
+<li><a href="../../lessons/practical-database/database-quiz.html"><span class="num">5.4</span><span>데이터베이스 복습 퀴즈</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">06</span><span class="nav-chapter-title">느좋카페 가게 이미지 적용하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-image-storage/file-storage-intro.html"><span class="num">6.1</span><span>파일 스토리지 적용하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">07</span><span class="nav-chapter-title">AI 브라우저로 작업하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/ai-browser/aside-intro.html"><span class="num">7.1</span><span>Aside로 브라우저 작업 맡기기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">08</span><span class="nav-chapter-title">사용자 기능 개발하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-auth/auth-intro.html"><span class="num">8.1</span><span>인증과 인가 이해하기</span></a></li>
+<li><a href="../../lessons/practical-auth/kakao-login-supabase.html"><span class="num">8.2</span><span>카카오 로그인·Supabase 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/rls-supabase.html"><span class="num">8.3</span><span>Supabase RLS 설정</span></a></li>
+<li><a href="../../lessons/practical-auth/login-bookmark.html"><span class="num">8.4</span><span>카카오 로그인과 북마크 기능 붙이기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">09</span><span class="nav-chapter-title">배포하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-deploy/vercel-setup.html"><span class="num">9.1</span><span>Vercel로 느좋카페 배포하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/link-preview.html"><span class="num">9.2</span><span>링크 미리보기 설정하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/seo-geo-audit.html"><span class="num">9.3</span><span>SEO/GEO 점검하기</span></a></li>
+<li><a href="../../lessons/practical-deploy/custom-domain.html"><span class="num">9.4</span><span>나만의 도메인 설정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">10</span><span class="nav-chapter-title">관리자 화면 개발</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/launching-admin/admin-page.html"><span class="num">10.1</span><span>관리자 페이지 개발하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">11</span><span class="nav-chapter-title">장소 수집을 위한 크롤링</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/launching-crawling/what-is-crawling.html"><span class="num">11.1</span><span>크롤링 이해하기</span></a></li>
+<li><a href="../../lessons/launching-crawling/collect-place-candidates.html"><span class="num">11.2</span><span>브라우저 자동화로 장소 후보 수집</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">12</span><span class="nav-chapter-title">서비스 보안 점검하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/launching-security/security-checklist.html"><span class="num">12.1</span><span>보안과 권한 체크리스트</span></a></li>
+<li><a href="../../lessons/launching-security/security-practice.html"><span class="num">12.2</span><span>보안 점검 돌려보기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">13</span><span class="nav-chapter-title">사용자 행동 분석하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/launching-analytics/user-behavior.html"><span class="num">13.1</span><span>사용자 행동 분석하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">14</span><span class="nav-chapter-title">런칭/운영 체크리스트</span></div>
+<ul class="nav-lessons">
+<li><a class="active" href="../../lessons/launching-readiness/readiness-checklist.html"><span class="num">14.1</span><span>런칭과 운영 체크리스트</span></a></li>
+</ul></div>
+<details class="nav-appendix" open><summary>부록 <span>(선택)</span></summary><div class="nav-appendix-body">
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">A</span><span class="nav-chapter-title">디자인 개선하기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/practical-design/html-css-for-design.html"><span class="num">A.1</span><span>Claude Code에게 디자인 수정 요청하기</span></a></li>
+<li><a href="../../lessons/practical-design/vibe-design.html"><span class="num">A.2</span><span>바이브 디자인으로 방향 잡기</span></a></li>
+<li><a href="../../lessons/practical-design/design-md.html"><span class="num">A.3</span><span>DESIGN.md로 디자인 시스템 고정하기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">B</span><span class="nav-chapter-title">에이전틱 워크플로우</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/agentic-workflow/agentic-workflow-overview.html"><span class="num">B.1</span><span>에이전틱 워크플로우란</span></a></li>
+<li><a href="../../lessons/agentic-workflow/plan-implement.html"><span class="num">B.2</span><span>계획하고 구현하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/verify.html"><span class="num">B.3</span><span>검증 고도화하기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/refactor-before-task.html"><span class="num">B.4</span><span>작업 전에 검증 환경 만들기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/long-running-task.html"><span class="num">B.5</span><span>긴 작업 태워보기</span></a></li>
+<li><a href="../../lessons/agentic-workflow/compound-learnings.html"><span class="num">B.6</span><span>배운 걸 프로젝트에 남기기</span></a></li>
+</ul></div>
+<div class="nav-chapter">
+<div class="nav-chapter-head"><span class="nav-chapter-num">C</span><span class="nav-chapter-title">AI 티 덜기</span></div>
+<ul class="nav-lessons">
+<li><a href="../../lessons/ai-polish/stageshow.html"><span class="num">C.1</span><span>stageshow로 진짜 제품 같은 데모 UI 만들기</span></a></li>
+</ul></div>
+</div></details>
+</aside>
+<main class="main">
+<article class="reading">
+<div class="focus-row"><a class="focus-btn" href="../../index.html">← 전체 목차</a></div>
+<a class="lesson-back" href="../../index.html">← course overview</a>
+<div class="reading-meta"><span>chapter 14</span><span>lesson 14.1</span><span>private</span></div>
+<div class="reading-head">
+<p class="chapter-eyebrow">런칭/운영 체크리스트</p>
+<h1>런칭과 운영 체크리스트</h1>
+<p class="description">첫 사용자 공개와 이후 운영을 위해 확인할 항목을 정리합니다.</p>
+</div>
+<div class="lesson-body">
+<figure class="lesson-figure"><img src="../../assets/images/launching-readiness-checklist/figures/launch-readiness-overview.png" alt="느좋카페 런칭 전 운영 체크리스트를 사용자 경험, 요청 처리, 장애 대응, 보안, 비용 신호로 나누어 보여주는 작업 화면" loading="lazy" decoding="async"/><figcaption>느좋카페 런칭 전 운영 체크리스트를 사용자 경험, 요청 처리, 장애 대응, 보안, 비용 신호로 나누어 정리합니다.</figcaption></figure>
+<h2>얻어갈 것</h2>
+<p>런칭하기 전 확인할 것을 시작으로 사용자/운영자 관점, 장애 대응, 보안과 데이터 그리고 모니터링까지 질문을 확인합니다.</p>
+<h2>1. 런칭하기 전 꼭 알아두면 좋을 것</h2>
+<ul>
+<li>링크를 공유했을 때 미리보기가 잘 보이는지 확인합니다.</li>
+<li>검색 엔진에 잘 노출될 수 있도록 기본 SEO 설정을 했는지 확인합니다.</li>
+<li>개인정보처리방침과 이용약관이 필요한 위치에 연결되어 있는지 확인합니다.</li>
+<li>브라우저 탭에 서비스 이름과 favicon이 제대로 보이는지 확인합니다.</li>
+<li>사용자가 문의하거나 도움을 받을 수 있는 경로가 보이는지 확인합니다.</li>
+</ul>
+<aside class="callout note"><p>이어지는 챕터: 첫 사용자가 들어오는 순간, 서비스 보안 점검하기</p></aside>
+<h2>2. 사용자가 바로 사용할 수 있는 상태인가?</h2>
+<p>제작자의 의도에 맞게 서비스가 잘 만들어졌는지와 사용자가 실제로 사용하는 건 다른 문제입니다. 서비스를 처음 본 사람이 설명을 듣지 않아도 핵심 기능을 한 번 써볼 수 있어야 합니다.</p>
+<ul>
+<li>첫 화면에서 이 서비스가 무엇을 하는 곳인지 단 번에 알 수 있습니다.</li>
+<li>가장 중요한 사용 흐름을 한 번 끝까지 경험할 수 있습니다.</li>
+<li>데스크톱/모바일 모두 핵심 화면과 행동이 어색하지 않습니다.</li>
+<li>로딩 중이거나 데이터가 늦게 뜰 때도 서비스가 멈춘 것처럼 보이지 않습니다.</li>
+<li>서비스 안의 문구가 개발자용 표현이나 임시 문구처럼 보이지 않습니다.</li>
+</ul>
+<h2>3. 운영자가 요청과 서비스를 관리할 수 있는가?</h2>
+<p>운영자는 사용자의 제보나 수정 요청을 처리할 수 있어야 하고, 동시에 서비스가 지금 어떤 상태인지 확인할 수 있어야 합니다. 처음부터 큰 관리자 시스템이 필요한 것은 아니지만, 요청과 운영 상태를 한곳에서 보고 판단할 최소 환경은 있어야 합니다.</p>
+<ul>
+<li>사용자가 남긴 제보, 문의, 수정 요청이 어딘가에 남습니다.</li>
+<li>운영자가 서비스의 핵심 데이터와 상태를 확인할 수 있는 화면이나 도구가 있습니다.</li>
+<li>운영자가 새 요청, 처리 중인 요청, 끝난 요청을 구분할 수 있습니다.</li>
+<li>긴급하게 숨기거나 고쳐야 할 항목을 운영자가 직접 판단할 수 있습니다.</li>
+</ul>
+<aside class="callout note"><p>이어지는 챕터: 운영 화면과 탐색 개선</p></aside>
+<h2>4. 문제가 생겼을 때 원인을 찾고 대응할 수 있는가?</h2>
+<p>네 번째 질문은 버그와 장애 대응입니다. 사용자가 &quot;안 돼요&quot;라고 말했을 때 어디서 막혔는지 추적할 단서가 있어야 합니다.</p>
+<ul>
+<li>사용자가 문제를 알려줄 CS 대응 통로가 있습니다. (이메일, 챗봇 솔루션 등)</li>
+<li>사용자가 문제를 보낸 시간, 화면, 행동을 함께 남길 수 있습니다.</li>
+<li>에러가 발생했을 때 이를 확인할 로그와 메트릭이 남아 있습니다.</li>
+<li>같은 문제가 여러 사용자에게 반복되는지 확인할 수 있습니다.</li>
+<li>외부 서비스 장애인지 우리 서비스 문제인지 구분할 단서가 있습니다.</li>
+<li>사용자가 서비스에서 어떻게 행동하는지 데이터를 확인할 수 있습니다.</li>
+</ul>
+<aside class="callout note"><p>이어지는 챕터: 운영 신호와 로그 점검</p></aside>
+<h2>5. 공개하면 안 되는 것이 밖으로 나가지 않는가?</h2>
+<p>다섯 번째 질문은 보안과 공개 범위입니다. 보안은 어려운 해킹 기법부터 보는 것이 아니라, 공개 화면과 API 응답에 숨겨야 할 정보가 섞여 나가지 않는지 확인하는 데서 시작합니다.</p>
+<ul>
+<li>아직 보여주면 안 되는 화면이나 기능이 공개되어 있지 않습니다.</li>
+<li>내부 테스트용 문구, 더미 데이터, 임시 버튼이 남아 있지 않습니다.</li>
+<li>사용자 정보나 운영자용 정보가 다른 사용자에게 보이지 않습니다.</li>
+<li>API 응답에 다른 사용자의 데이터, 운영자용 데이터, 내부 상태값이 섞여 나오지 않습니다.</li>
+<li>API 키, 비밀 설정값, 내부 링크가 공개 화면이나 저장소에 드러나지 않습니다.</li>
+<li>오류 화면이 내부 정보까지 그대로 보여주지 않습니다.</li>
+</ul>
+<aside class="callout note"><p>이어지는 챕터: 서비스 보안 점검하기</p></aside>
+<h2>6. 계속 운영할 수 있는 비용과 의존성을 알고 있는가?</h2>
+<p>여섯 번째 질문은 지속 가능성입니다. 보통 하나의 서비스를 운영할 때 외부 서비스를 자연스럽게 사용하고, 필요에 따라 비용을 지불합니다.</p>
+<ul>
+<li>어떤 외부 서비스에 의존하는지 알고 있습니다.</li>
+<li>사용자가 늘어났을 때 비용이 생기는 지점을 알고 있습니다.</li>
+<li>외부 서비스가 멈추거나 제한에 걸리면 서비스가 어떤 영향을 받는지 알고 있습니다.</li>
+<li>테스트 데이터와 실제 운영 데이터를 구분할 수 있습니다.</li>
+</ul>
+<aside class="callout note"><p>더 알아보기: 사용자 행동, 환경 분리, 성능 신호</p></aside>
+</div>
+<nav class="lesson-nav">
+<a class="prev" href="../../lessons/launching-analytics/user-behavior.html"><span class="dir">← Prev</span><span class="lbl">사용자 행동 분석하기</span></a>
+<a class="next" href="../../lessons/practical-design/html-css-for-design.html"><span class="dir">Next →</span><span class="lbl">Claude Code에게 디자인 수정 요청하기 (부록 A)</span></a>
+</nav>
+</article>
+</main>
+</div>
+</body>
+</html>
